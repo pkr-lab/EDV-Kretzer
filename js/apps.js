@@ -1,5 +1,5 @@
 /* =========================================================
-   AlarmForge – App-Store: Laden, Filtern, Suchen, Rendern
+   EDV-Kretzer – App-Katalog: Laden, Filtern, Suchen, Rendern
    Nur auf anwendungen.html eingebunden.
    ========================================================= */
 
@@ -13,7 +13,7 @@
 
   if (!grid) return;
 
-  var CATEGORIES = ["Alle", "Feuerwehr", "DRK", "DLRG", "Malteser", "THW", "Allgemein"];
+  var CATEGORIES = ["Alle", "Infrastruktur", "Sicherheit & Identity", "Monitoring", "Automatisierung", "Medien & Storage", "Produktivität", "Kommunikation"];
   var activeCategory = "Alle";
   var apps = [];
 
@@ -64,13 +64,12 @@
         : filtered.length + " von " + apps.length + " Anwendungen";
 
     if (filtered.length === 0) {
-      grid.innerHTML = '<div class="empty-state">Keine Treffer. Passe Suche oder Filter an oder <a href="kontakt.html">frag uns direkt</a>.</div>';
+      grid.innerHTML = '<div class="empty-state">Keine Treffer. Passe Suche oder Filter an oder <a href="kontakt.html">schreib mir</a>, falls ein Dienst fehlt.</div>';
       return;
     }
 
     grid.innerHTML = filtered
       .map(function (app) {
-        var mailto = "kontakt.html?app=" + encodeURIComponent(app.name);
         return (
           '<article class="app-card glass-card reveal">' +
           '<div class="app-top">' +
@@ -85,7 +84,7 @@
           app.tags.map(function (t) { return '<span class="tag">' + t + "</span>"; }).join("") +
           "</div>" +
           '<div class="app-footer">' +
-          '<a class="btn btn-primary btn-sm" href="' + mailto + '">Jetzt hinzufügen</a>' +
+          '<a class="btn btn-primary btn-sm" href="' + app.url + '" target="_blank" rel="noopener">Projekt-Website</a>' +
           "</div>" +
           "</article>"
         );
@@ -104,7 +103,7 @@
     renderFilters();
     renderGrid();
 
-    // Kategorie via URL-Parameter vorauswählen, z. B. anwendungen.html?kategorie=THW
+    // Kategorie via URL-Parameter vorauswählen, z. B. anwendungen.html?kategorie=Monitoring
     var params = new URLSearchParams(location.search);
     var presetCat = params.get("kategorie");
     if (presetCat && CATEGORIES.indexOf(presetCat) !== -1) {

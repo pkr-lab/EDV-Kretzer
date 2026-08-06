@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anwendungen nach Wahl – App-Katalog für BOS-Organisationen | EDV-Kretzer</title>
-  <meta name="description" content="Wähle aus unserem Katalog an Anwendungen für Feuerwehr, DRK, DLRG, Malteser und THW: Einsatzplanung, Lagerverwaltung, Funk-Integration und mehr.">
+  <title>Anwendungen – Self-Hosted Services im capulus-core Cluster | EDV-Kretzer</title>
+  <meta name="description" content="Ein Auszug der 30+ vorkonfigurierten Anwendungen in capulus-core: Nextcloud, Immich, Vaultwarden, Grafana, ArgoCD und mehr – durchsuchbar nach Kategorie.">
   <meta name="theme-color" content="#0a0e27">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <meta name="robots" content="index, follow">
@@ -12,8 +12,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EDV-Kretzer">
-  <meta property="og:title" content="Anwendungen nach Wahl | EDV-Kretzer">
-  <meta property="og:description" content="Der modulare App-Katalog für BOS-Organisationen – wähle nur, was ihr wirklich braucht.">
+  <meta property="og:title" content="Anwendungen im capulus-core Cluster | EDV-Kretzer">
+  <meta property="og:description" content="Self-hosted Services von Nextcloud bis Vaultwarden – vorkonfiguriert, per GitOps deployed.">
   <meta property="og:url" content="https://www.edv-kretzer.de/anwendungen.html">
   <meta property="og:locale" content="de_DE">
 
@@ -31,12 +31,12 @@
       </a>
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
-        <a href="loesungen.html">Lösungen</a>
+        <a href="projekt.html">Projekt</a>
         <a href="anwendungen.html" aria-current="page">Anwendungen</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
-      <a href="kontakt.html" class="btn btn-primary btn-sm nav-cta">Demo anfragen</a>
+      <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta"><svg width="15" height="15"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub</a>
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
@@ -45,19 +45,19 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="loesungen.html">Lösungen</a>
+    <a href="projekt.html">Projekt</a>
     <a href="anwendungen.html" aria-current="page">Anwendungen</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
-    <a href="kontakt.html" class="btn btn-primary mt-4">Demo anfragen</a>
+    <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary mt-4"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub ansehen</a>
   </div>
 
   <main id="main">
     <section class="page-hero container">
       <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>Anwendungen</span></div>
       <p class="eyebrow text-center">App-Katalog</p>
-      <h1>Anwendungen nach Wahl</h1>
-      <p>Stellt euch euer eigenes Werkzeug-Set zusammen: von Einsatzplanung über Lagerverwaltung bis zur Funk-Integration. Filtert nach eurem Bereich oder sucht direkt nach Stichwort.</p>
+      <h1>Was im Cluster läuft</h1>
+      <p>Ein Auszug der 30+ vorkonfigurierten Dienste, die capulus-core per ArgoCD deployen kann – von Dateisync über Monitoring bis zum Passwortmanager. Filtere nach Kategorie oder suche direkt nach Stichwort.</p>
     </section>
 
     <section class="container">
@@ -65,7 +65,7 @@
         <div class="search-row">
           <svg width="18" height="18" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-search"></use></svg>
           <label class="visually-hidden" for="app-search">Anwendungen durchsuchen</label>
-          <input type="search" id="app-search" placeholder="Anwendung suchen, z. B. „Dienstplan“…" autocomplete="off">
+          <input type=”search” id=”app-search” placeholder=”Anwendung suchen, z. B. „Nextcloud”…” autocomplete=”off”>
         </div>
         <div class="filter-row" id="filter-row" role="group" aria-label="Nach Bereich filtern"></div>
       </div>
@@ -78,10 +78,11 @@
     <section class="section">
       <div class="container">
         <div class="cta-section glass reveal">
-          <h2>Deine Anwendung ist nicht dabei?</h2>
-          <p>Wir entwickeln auch individuelle Anwendungen für eure Organisation – sprich uns einfach an.</p>
+          <h2>Ein Dienst fehlt dir?</h2>
+          <p>Das Cluster wächst laufend weiter. Sag mir, welche App dir fehlt, oder schau direkt im <code>argocd/apps/</code>-Verzeichnis auf GitHub vorbei, ob sie sich einfach ergänzen lässt.</p>
           <div class="cta-actions">
-            <a href="kontakt.html?interesse=Individuelle%20Anwendung" class="btn btn-primary">Wunsch mitteilen</a>
+            <a href="kontakt.html?interesse=Neuer%20Dienst" class="btn btn-primary">Vorschlag schicken</a>
+            <a href="https://github.com/pkr-lab/capulus-core/tree/main/argocd/apps" target="_blank" rel="noopener" class="btn btn-outline">argocd/apps ansehen</a>
           </div>
         </div>
       </div>
@@ -96,18 +97,19 @@
             <span class="brand-mark"><svg width="20" height="20"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></span>
             <span>EDV-<em>Kretzer</em></span>
           </a>
-          <p>Digitale Lösungen für Behörden und Organisationen mit Sicherheitsaufgaben – entwickelt von jemandem, der den Einsatzalltag kennt.</p>
+          <p>Ich baue capulus-core – ein offenes GitOps-Homelab auf k3s, ArgoCD und Tailscale. Diese Seite dokumentiert den Weg dahin.</p>
           <div class="social-row mt-2">
+            <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg></a>
             <a href="#" aria-label="LinkedIn"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-linkedin"></use></svg></a>
             <a href="#" aria-label="Mastodon"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-mastodon"></use></svg></a>
           </div>
         </div>
         <div class="footer-col">
-          <h4>Produkt</h4>
+          <h4>Projekt</h4>
           <ul>
-            <li><a href="loesungen.html#drohne">Drohnenlösung</a></li>
-            <li><a href="loesungen.html#monitor">Monitor-Werbung</a></li>
-            <li><a href="loesungen.html#alarmmonitor">Alarmmonitor</a></li>
+            <li><a href="projekt.html#infrastruktur">Infrastruktur</a></li>
+            <li><a href="projekt.html#gitops">GitOps-Workflow</a></li>
+            <li><a href="projekt.html#hardware">Hardware</a></li>
             <li><a href="anwendungen.html">Anwendungen</a></li>
           </ul>
         </div>
@@ -141,7 +143,27 @@
     </div>
   </div>
 
+  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
+    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
+  </button>
+
   <script src="js/main.js"></script>
   <script src="js/apps.js"></script>
+
+  <!-- Zammad Live-Chat -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://support.pke-lab.de/assets/chat/chat.min.js"></script>
+  <script>
+    $(function () {
+      new ZammadChat({
+        chatId: 1,
+        show: false,
+        flat: true,
+        background: '#0d1230',
+        fontSize: '13px',
+        title: '<strong>Chat</strong> mit mir'
+      });
+    });
+  </script>
 </body>
 </html>

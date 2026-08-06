@@ -31,46 +31,45 @@
   animation: fade-in-up 0.8s var(--ease) both;
 }
 
-/* Drohnen-Illustration (Lösungen-Seite) */
-@keyframes spin-fast {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Lastverteilung-Diagramm (Projekt-Seite) */
+@keyframes loadflow-travel {
+  0%   { transform: translate(-50%, 0); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translate(-50%, 28px); opacity: 0; }
 }
 
-@keyframes signal-wave {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.9; }
+@keyframes loadflow-branch-dot {
+  0%, 15%   { opacity: 0; transform: translate(-50%, 0); }
+  30%       { opacity: 1; }
+  55%       { opacity: 1; transform: translate(-50%, 28px); }
+  65%, 100% { opacity: 0; transform: translate(-50%, 28px); }
 }
 
-@keyframes blink-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.25; }
+@keyframes loadflow-meter {
+  0%, 12%   { width: 14%; }
+  45%, 65%  { width: 88%; }
+  95%, 100% { width: 14%; }
 }
 
-.propeller-spin {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: spin-fast 0.5s linear infinite;
-}
-
-.signal-waves .wave {
-  animation: signal-wave 2.4s ease-in-out infinite;
-}
-.signal-waves .wave-2 { animation-delay: 0.3s; }
-.signal-waves .wave-3 { animation-delay: 0.6s; }
-
-.rec-dot {
-  animation: blink-dot 1.4s ease-in-out infinite;
+@keyframes loadflow-worker-state {
+  0%, 12%   { opacity: 0.4; box-shadow: none; border-color: var(--glass-border); }
+  45%, 65%  { opacity: 1; box-shadow: 0 0 22px rgba(211, 47, 47, 0.4); border-color: rgba(255, 95, 82, 0.5); }
+  95%, 100% { opacity: 0.4; box-shadow: none; border-color: var(--glass-border); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-glow,
-  .hero-visual .device,
+  .device,
   .badge-float,
   .alarm-row.active,
-  .propeller-spin,
-  .signal-waves .wave,
-  .rec-dot {
+  .loadflow-home,
+  .loadflow-dot,
+  .loadflow-meter-fill,
+  .loadflow-worker {
     animation: none !important;
   }
+  .loadflow-meter-fill { width: 45% !important; }
+  .loadflow-worker { opacity: 0.75 !important; }
+  .loadflow-dot { display: none !important; }
 }

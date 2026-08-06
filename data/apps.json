@@ -1,114 +1,218 @@
 [
   {
-    "id": "einsatzplanung",
-    "name": "Einsatzplanung Pro",
-    "icon": "🗂️",
-    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW"],
-    "description": "Digitale Einsatz- und Ressourcenplanung mit Live-Kräfteübersicht, Kartenintegration und automatischer Alarmierungshistorie.",
-    "tags": ["Planung", "Karten", "Kräfteübersicht"]
+    "id": "traefik",
+    "name": "Traefik",
+    "icon": "🌐",
+    "categories": ["Infrastruktur"],
+    "description": "Ingress-Controller für HTTP/HTTPS-Routing, bringt k3s direkt mit – jede App bekommt automatisch ihre eigene Route.",
+    "tags": ["Ingress", "Routing", "k3s"],
+    "url": "https://traefik.io/traefik/"
   },
   {
-    "id": "lagerverwaltung",
-    "name": "Lager & Material",
-    "icon": "📦",
-    "categories": ["Feuerwehr", "DRK", "THW", "Allgemein"],
-    "description": "Bestandsführung für Gerätehäuser: Prüffristen, Mindestbestände und Barcode-Scan für Material und Ausrüstung.",
-    "tags": ["Inventar", "Prüffristen", "Barcode"]
+    "id": "pihole",
+    "name": "Pi-hole",
+    "icon": "🛡️",
+    "categories": ["Infrastruktur"],
+    "description": "Netzwerkweite Werbeblockierung, kombiniert mit dnsmasq für Split-DNS auf *.homeserver.",
+    "tags": ["DNS", "Adblock", "dnsmasq"],
+    "url": "https://pi-hole.net/"
   },
   {
-    "id": "funk-integration",
-    "name": "Funk-Bridge",
-    "icon": "📡",
-    "categories": ["Feuerwehr", "THW", "Allgemein"],
-    "description": "Verbindet Digitalfunk (BOS/TETRA) mit eurer Leitstellen-Software – Status, Sprechgruppen und Protokollierung in Echtzeit.",
-    "tags": ["BOS-Funk", "Integration", "Protokoll"]
+    "id": "authentik",
+    "name": "Authentik",
+    "icon": "🔐",
+    "categories": ["Sicherheit & Identity"],
+    "description": "Zentraler OIDC-Provider für alle Dienste – ein Login für den kompletten Cluster statt 20 verschiedener Passwörter.",
+    "tags": ["SSO", "OIDC", "Identity"],
+    "url": "https://goauthentik.io/"
   },
   {
-    "id": "fahrzeugverwaltung",
-    "name": "Fuhrpark Manager",
-    "icon": "🚒",
-    "categories": ["Feuerwehr", "DRK", "Malteser", "THW"],
-    "description": "Fahrzeugakten, UVV-Prüfungen, Wartungsintervalle und Verfügbarkeitsstatus jederzeit im Blick – auch mobil.",
-    "tags": ["Fahrzeuge", "UVV", "Wartung"]
+    "id": "sealed-secrets",
+    "name": "Sealed Secrets",
+    "icon": "🔏",
+    "categories": ["Sicherheit & Identity", "Infrastruktur"],
+    "description": "Secrets landen verschlüsselt in Git und lassen sich nur im eigenen Cluster entschlüsseln – inklusive Web-UI über kubeseal-webgui.",
+    "tags": ["Secrets", "GitOps", "Verschlüsselung"],
+    "url": "https://github.com/bitnami-labs/sealed-secrets"
   },
   {
-    "id": "dienstplan",
-    "name": "Dienstplan Digital",
-    "icon": "🗓️",
-    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW", "Allgemein"],
-    "description": "Schicht- und Bereitschaftsplanung mit Selbsteintrag, Erinnerungen per Push und automatischer Mindestbesetzungsprüfung.",
-    "tags": ["Schichten", "Bereitschaft", "Push"]
+    "id": "tailscale",
+    "name": "Tailscale",
+    "icon": "🕸️",
+    "categories": ["Sicherheit & Identity", "Infrastruktur"],
+    "description": "WireGuard-basiertes VPN-Mesh – der komplette Zugriff auf das Homelab läuft darüber, ganz ohne offene Ports.",
+    "tags": ["VPN", "WireGuard", "Zero Trust"],
+    "url": "https://tailscale.com/"
   },
   {
-    "id": "atemschutz",
-    "name": "Atemschutzüberwachung",
-    "icon": "🫁",
-    "categories": ["Feuerwehr"],
-    "description": "Digitale Atemschutzüberwachungstafel mit Zeit-, Druck- und Trupp-Tracking – synchronisiert mit dem Alarmmonitor.",
-    "tags": ["Atemschutz", "Sicherheit", "Tracking"]
+    "id": "cloudflare-tunnel",
+    "name": "Cloudflare Tunnel",
+    "icon": "☁️",
+    "categories": ["Sicherheit & Identity", "Infrastruktur"],
+    "description": "Gezielter, sicherer Zugriff auf einzelne Dienste von außen – ohne Port-Forwarding am Router.",
+    "tags": ["Tunnel", "Externer Zugriff"],
+    "url": "https://www.cloudflare.com/products/tunnel/"
   },
   {
-    "id": "uebungsverwaltung",
-    "name": "Übungs- & Ausbildung",
-    "icon": "🎓",
-    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW"],
-    "description": "Plant Übungsdienste, erfasst Teilnahmen und verwaltet Lehrgangsnachweise inklusive Erinnerungsfunktion.",
-    "tags": ["Ausbildung", "Nachweise", "Teilnahme"]
+    "id": "grafana",
+    "name": "Grafana",
+    "icon": "📈",
+    "categories": ["Monitoring"],
+    "description": "Dashboards für Node- und Cluster-Metriken – ein Blick genügt, um zu sehen, ob alles läuft.",
+    "tags": ["Dashboards", "Visualisierung"],
+    "url": "https://grafana.com/"
   },
   {
-    "id": "mitgliederverwaltung",
-    "name": "Mitglieder & Ehrenamt",
-    "icon": "👥",
-    "categories": ["DRK", "DLRG", "Malteser", "Allgemein"],
-    "description": "Mitgliederdatenbank mit Funktionen, Qualifikationen, Beitragsverwaltung und DSGVO-konformer Datenhaltung.",
-    "tags": ["Mitglieder", "Qualifikationen", "DSGVO"]
-  },
-  {
-    "id": "app-alarmierung",
-    "name": "Alarmierung per App",
-    "icon": "🔔",
-    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW"],
-    "description": "Stille Alarmierung aufs Smartphone mit Rückmeldefunktion, Anfahrtszeit-Schätzung und Status je Einsatzkraft.",
-    "tags": ["Alarmierung", "Rückmeldung", "Mobil"]
-  },
-  {
-    "id": "gis-karten",
-    "name": "GIS & Lagekarte",
-    "icon": "🗺️",
-    "categories": ["Feuerwehr", "THW", "DLRG", "Allgemein"],
-    "description": "Interaktive Lagedarstellung mit Hydranten, Gefahrenpunkten, Objektplänen und Live-Positionen der Einsatzkräfte.",
-    "tags": ["Karten", "Hydranten", "Lage"]
-  },
-  {
-    "id": "checklisten",
-    "name": "Checklisten Digital",
-    "icon": "✅",
-    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW", "Allgemein"],
-    "description": "Digitale Prüf- und Einsatznachbereitungs-Checklisten mit Foto-Upload und automatischer Ablage.",
-    "tags": ["Checklisten", "Doku", "Foto"]
-  },
-  {
-    "id": "wasserrettung",
-    "name": "Wasserrettung Log",
-    "icon": "🛟",
-    "categories": ["DLRG"],
-    "description": "Wachbuch- und Rettungseinsatz-Dokumentation für Wasserrettungsdienste inklusive Wetter- und Pegeldaten.",
-    "tags": ["Wachbuch", "Pegel", "Doku"]
-  },
-  {
-    "id": "sanitaetsdienst",
-    "name": "Sanitätsdienst Planer",
-    "icon": "🚑",
-    "categories": ["DRK", "Malteser"],
-    "description": "Planung von Sanitätswachdiensten bei Veranstaltungen inklusive Materiallisten und Personaleinsatz.",
-    "tags": ["Sanitätswache", "Events", "Personal"]
-  },
-  {
-    "id": "statistik-reporting",
-    "name": "Statistik & Reporting",
+    "id": "victoriametrics",
+    "name": "VictoriaMetrics",
     "icon": "📊",
-    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW", "Allgemein"],
-    "description": "Automatisierte Jahresberichte, Einsatzstatistiken und Kennzahlen-Dashboards für Vorstand und Verwaltung.",
-    "tags": ["Statistik", "Reports", "Dashboard"]
+    "categories": ["Monitoring", "Infrastruktur"],
+    "description": "Metriken-Datenbank mit 15 Tage Retention – leichtgewichtiger Prometheus-Ersatz für den Single-Node-Betrieb.",
+    "tags": ["Metriken", "Zeitreihen"],
+    "url": "https://victoriametrics.com/"
+  },
+  {
+    "id": "uptime-kuma",
+    "name": "Uptime Kuma",
+    "icon": "🩺",
+    "categories": ["Monitoring"],
+    "description": "Statusseite und Alarmierung, sobald einer der selbstgehosteten Dienste nicht mehr erreichbar ist.",
+    "tags": ["Statusseite", "Alerting"],
+    "url": "https://github.com/louislam/uptime-kuma"
+  },
+  {
+    "id": "gotify",
+    "name": "Gotify",
+    "icon": "🔔",
+    "categories": ["Monitoring", "Kommunikation"],
+    "description": "Selbstgehostete Push-Benachrichtigungen fürs Handy – für Alerts aus dem eigenen Cluster statt aus der Cloud.",
+    "tags": ["Push", "Benachrichtigungen"],
+    "url": "https://gotify.net/"
+  },
+  {
+    "id": "ntfy",
+    "name": "ntfy",
+    "icon": "📣",
+    "categories": ["Monitoring", "Kommunikation"],
+    "description": "Pub/Sub-Benachrichtigungsdienst, den auch andere Skripte und Automatisierungen einfach per HTTP ansprechen können.",
+    "tags": ["Push", "Pub/Sub"],
+    "url": "https://ntfy.sh/"
+  },
+  {
+    "id": "argo-workflows",
+    "name": "Argo Workflows",
+    "icon": "⚙️",
+    "categories": ["Automatisierung", "Infrastruktur"],
+    "description": "Private CI/CD-Pipelines innerhalb des Clusters, mit MinIO als S3-kompatiblem Artefakt-Speicher.",
+    "tags": ["CI/CD", "Pipelines"],
+    "url": "https://argoproj.github.io/workflows/"
+  },
+  {
+    "id": "minio",
+    "name": "MinIO",
+    "icon": "🗃️",
+    "categories": ["Infrastruktur", "Medien & Storage"],
+    "description": "S3-kompatibler Objektspeicher – Artefakt-Store für Argo Workflows und Backend für weitere Dienste.",
+    "tags": ["S3", "Objektspeicher"],
+    "url": "https://min.io/"
+  },
+  {
+    "id": "n8n",
+    "name": "n8n",
+    "icon": "🔗",
+    "categories": ["Automatisierung"],
+    "description": "Low-Code-Automatisierung zwischen Diensten – von Webhook-Handling bis zur Verknüpfung mehrerer Apps im Cluster.",
+    "tags": ["Automatisierung", "Low-Code", "Workflows"],
+    "url": "https://n8n.io/"
+  },
+  {
+    "id": "argocd",
+    "name": "ArgoCD",
+    "icon": "🔄",
+    "categories": ["Infrastruktur", "Automatisierung"],
+    "description": "GitOps Continuous Delivery: Der Cluster-Zustand folgt automatisch dem, was im Repository steht.",
+    "tags": ["GitOps", "Continuous Delivery"],
+    "url": "https://argo-cd.readthedocs.io/"
+  },
+  {
+    "id": "nextcloud",
+    "name": "Nextcloud",
+    "icon": "📁",
+    "categories": ["Medien & Storage", "Produktivität"],
+    "description": "Dateisync und -freigabe wie aus der Cloud bekannt – nur läuft die Cloud im eigenen Netzwerk.",
+    "tags": ["Dateisync", "Cloud"],
+    "url": "https://nextcloud.com/"
+  },
+  {
+    "id": "immich",
+    "name": "Immich",
+    "icon": "🖼️",
+    "categories": ["Medien & Storage"],
+    "description": "Foto- und Video-Backup mit Gesichtserkennung – der selbstgehostete Ersatz fürs Handy-Cloud-Backup.",
+    "tags": ["Fotos", "Backup", "KI-Suche"],
+    "url": "https://immich.app/"
+  },
+  {
+    "id": "vaultwarden",
+    "name": "Vaultwarden",
+    "icon": "🔑",
+    "categories": ["Sicherheit & Identity"],
+    "description": "Bitwarden-kompatibler Passwortmanager – Zugangsdaten bleiben im eigenen Cluster statt bei einem Drittanbieter.",
+    "tags": ["Passwörter", "Bitwarden-kompatibel"],
+    "url": "https://github.com/dani-garcia/vaultwarden"
+  },
+  {
+    "id": "paperless-ngx",
+    "name": "Paperless-ngx",
+    "icon": "🗄️",
+    "categories": ["Produktivität"],
+    "description": "Digitale Dokumentenverwaltung mit Volltextsuche – Papierkram einscannen und nie wieder suchen müssen.",
+    "tags": ["Dokumente", "OCR", "Volltextsuche"],
+    "url": "https://docs.paperless-ngx.com/"
+  },
+  {
+    "id": "mealie",
+    "name": "Mealie",
+    "icon": "🍲",
+    "categories": ["Produktivität"],
+    "description": "Rezeptverwaltung und Essensplanung – Rezepte per Link importieren statt Zettel zu sammeln.",
+    "tags": ["Rezepte", "Essensplanung"],
+    "url": "https://mealie.io/"
+  },
+  {
+    "id": "wikijs",
+    "name": "Wiki.js",
+    "icon": "📖",
+    "categories": ["Produktivität", "Kommunikation"],
+    "description": "Team-Wiki mit Auto-Sync aus Git – Dokumentation, die versioniert ist wie der restliche Code.",
+    "tags": ["Wiki", "Dokumentation"],
+    "url": "https://js.wiki/"
+  },
+  {
+    "id": "zammad",
+    "name": "Zammad",
+    "icon": "🎫",
+    "categories": ["Kommunikation"],
+    "description": "Helpdesk- und Ticketsystem – unter anderem die Basis für das Kontaktformular dieser Website.",
+    "tags": ["Helpdesk", "Ticketsystem"],
+    "url": "https://zammad.org/"
+  },
+  {
+    "id": "mediamtx",
+    "name": "MediaMTX",
+    "icon": "🎥",
+    "categories": ["Medien & Storage"],
+    "description": "Nimmt RTMP/RTSP-Streams entgegen und stellt sie als HLS bereit – z. B. für eigene Kameras.",
+    "tags": ["Streaming", "RTSP", "HLS"],
+    "url": "https://github.com/bluenviron/mediamtx"
+  },
+  {
+    "id": "headlamp",
+    "name": "Headlamp",
+    "icon": "🧭",
+    "categories": ["Infrastruktur", "Monitoring"],
+    "description": "Grafisches Kubernetes-Dashboard fürs Cluster – wenn kubectl mal zu langsam ist.",
+    "tags": ["Kubernetes-UI", "Dashboard"],
+    "url": "https://headlamp.dev/"
   }
 ]

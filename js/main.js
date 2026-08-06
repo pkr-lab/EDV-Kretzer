@@ -1,5 +1,5 @@
 /* =========================================================
-   AlarmForge – Haupt-JavaScript (Vanilla JS, keine Abhängigkeiten)
+   EDV-Kretzer – Haupt-JavaScript (Vanilla JS, keine Abhängigkeiten)
    Navigation, Scroll-Reveal, 3D-Tilt, Info-Banner
    ========================================================= */
 
@@ -78,7 +78,7 @@
     revealEls.forEach(function (el) { el.classList.add("visible"); });
   }
 
-  /* ---------- 3D Tilt: Alarmmonitor (Scroll + Maus) ---------- */
+  /* ---------- 3D Tilt: Monitor-Vorschau (Scroll + Maus) ---------- */
   var monitor = document.querySelector(".monitor-frame");
   if (monitor) {
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -124,7 +124,7 @@
   /* ---------- Info-/Datenschutz-Banner ---------- */
   var banner = document.querySelector(".info-banner");
   if (banner) {
-    var STORAGE_KEY = "alarmforge_info_banner_dismissed";
+    var STORAGE_KEY = "edvkretzer_info_banner_dismissed";
     var accept = document.querySelector("[data-banner-accept]");
     try {
       if (!localStorage.getItem(STORAGE_KEY)) {
