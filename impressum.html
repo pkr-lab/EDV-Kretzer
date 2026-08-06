@@ -24,12 +24,12 @@
       </a>
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
-        <a href="loesungen.html">Lösungen</a>
+        <a href="projekt.html">Projekt</a>
         <a href="anwendungen.html">Anwendungen</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
-      <a href="kontakt.html" class="btn btn-primary btn-sm nav-cta">Demo anfragen</a>
+      <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta"><svg width="15" height="15"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub</a>
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
@@ -38,11 +38,11 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="loesungen.html">Lösungen</a>
+    <a href="projekt.html">Projekt</a>
     <a href="anwendungen.html">Anwendungen</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
-    <a href="kontakt.html" class="btn btn-primary mt-4">Demo anfragen</a>
+    <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary mt-4"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub ansehen</a>
   </div>
 
   <main id="main">
@@ -112,14 +112,14 @@
             <span class="brand-mark"><svg width="20" height="20"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></span>
             <span>EDV-<em>Kretzer</em></span>
           </a>
-          <p>Digitale Lösungen für Behörden und Organisationen mit Sicherheitsaufgaben – entwickelt von jemandem, der den Einsatzalltag kennt.</p>
+          <p>Ich baue capulus-core – ein offenes GitOps-Homelab auf k3s, ArgoCD und Tailscale. Diese Seite dokumentiert den Weg dahin.</p>
         </div>
         <div class="footer-col">
-          <h4>Produkt</h4>
+          <h4>Projekt</h4>
           <ul>
-            <li><a href="loesungen.html#drohne">Drohnenlösung</a></li>
-            <li><a href="loesungen.html#monitor">Monitor-Werbung</a></li>
-            <li><a href="loesungen.html#alarmmonitor">Alarmmonitor</a></li>
+            <li><a href="projekt.html#infrastruktur">Infrastruktur</a></li>
+            <li><a href="projekt.html#gitops">GitOps-Workflow</a></li>
+            <li><a href="projekt.html#hardware">Hardware</a></li>
             <li><a href="anwendungen.html">Anwendungen</a></li>
           </ul>
         </div>
@@ -146,6 +146,26 @@
     </div>
   </footer>
 
+  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
+    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
+  </button>
+
   <script src="js/main.js"></script>
+
+  <!-- Zammad Live-Chat -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://support.pke-lab.de/assets/chat/chat.min.js"></script>
+  <script>
+    $(function () {
+      new ZammadChat({
+        chatId: 1,
+        show: false,
+        flat: true,
+        background: '#0d1230',
+        fontSize: '13px',
+        title: '<strong>Chat</strong> mit mir'
+      });
+    });
+  </script>
 </body>
 </html>

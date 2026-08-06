@@ -1,6 +1,6 @@
 /* =========================================================
-   AlarmForge – Haupt-Stylesheet
-   Mobile-First, Glassmorphism, BOS-Zielgruppe
+   EDV-Kretzer – Haupt-Stylesheet
+   Mobile-First, Glassmorphism
    ========================================================= */
 
 /* ---------- Design Tokens ---------- */
@@ -516,7 +516,7 @@ p { color: var(--color-text-muted); }
   perspective: 1200px;
 }
 
-.hero-visual .device {
+.device {
   width: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -526,7 +526,7 @@ p { color: var(--color-text-muted); }
   animation: float-y 6s ease-in-out infinite;
 }
 
-.hero-visual .device svg { width: 100%; height: auto; display: block; }
+.device svg { width: 100%; height: auto; display: block; }
 
 .badge-float {
   position: absolute;
@@ -844,114 +844,172 @@ p { color: var(--color-text-muted); }
   overflow: hidden;
 }
 
-/* ---------- Beispiel-Werbebildschirme (Monitor-Werbelösung) ---------- */
-.example-grid {
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: 1fr;
-  margin-top: var(--space-4);
-}
-@media (min-width: 768px) {
-  .example-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-.mini-monitor {
-  border-radius: var(--radius-md);
-  border: 1px solid var(--glass-border);
-  background: linear-gradient(160deg, rgba(15, 58, 93, 0.55), rgba(10, 14, 39, 0.95));
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  transition: transform var(--transition-med), box-shadow var(--transition-med);
-}
-.mini-monitor:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 26px 55px rgba(0, 0, 0, 0.5);
-}
-
-.mini-monitor .screen-bar { padding: 10px 14px; }
-
-.mini-screen {
-  padding: var(--space-2);
-  aspect-ratio: 16 / 11;
+/* ---------- Architektur-Stack-Diagramm (Projekt-Seite) ---------- */
+.stack-diagram {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
 }
 
-.mini-screen .org-row {
+.stack-layer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-text-muted);
-}
-.mini-screen .org-row .org-id { display: flex; align-items: center; gap: 0.4em; text-transform: uppercase; }
-.mini-screen .org-row .org-dot { width: 8px; height: 8px; border-radius: 50%; }
-.mini-screen .org-row .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf50; box-shadow: 0 0 8px #4caf50; display: inline-block; margin-right: 0.4em; }
-
-.mini-screen .info-line {
-  height: 8px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.14);
-}
-.mini-screen .info-line.short { width: 55%; }
-
-.mini-screen .ad-banner {
-  flex: 1;
+  gap: var(--space-2);
+  padding: 0.85em 1.1em;
   border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+}
+.stack-layer.highlight {
+  background: linear-gradient(135deg, rgba(211, 47, 47, 0.25), rgba(15, 58, 93, 0.35));
+  border-color: rgba(255, 95, 82, 0.4);
+}
+
+.stack-layer strong { display: block; font-size: 0.92rem; color: #fff; }
+.stack-layer span { font-size: 0.76rem; color: var(--color-text-muted); }
+
+.stack-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  flex-shrink: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  gap: 0.25em;
-  padding: 0.8em;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
 }
-.mini-screen .ad-banner .ad-eyebrow {
-  font-size: 0.62rem;
+.stack-icon svg { width: 18px; height: 18px; }
+
+.stack-connector {
+  width: 1px;
+  height: 14px;
+  background: var(--glass-border);
+  margin-inline: 1.7em;
+}
+
+/* ---------- Lastverteilung-Diagramm (Projekt-Seite) ---------- */
+.loadflow {
+  max-width: 560px;
+  margin-inline: auto;
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-lg);
+}
+.loadflow-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.loadflow-external {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+.loadflow-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+.loadflow-icon svg { width: 18px; height: 18px; }
+
+.loadflow-conn {
+  position: relative;
+  width: 2px;
+  height: 32px;
+  background: var(--glass-border);
+  margin-block: 0.5em;
+}
+.loadflow-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  box-shadow: 0 0 8px var(--color-accent-light);
+  transform: translate(-50%, 0);
+}
+.loadflow-conn .loadflow-dot { animation: loadflow-travel 1.8s linear infinite; }
+
+.loadflow-node {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.8em 1.2em;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  text-align: left;
+}
+.loadflow-node strong { display: block; font-size: 0.9rem; color: #fff; }
+.loadflow-node span { font-size: 0.72rem; color: var(--color-text-muted); }
+.loadflow-node svg { flex-shrink: 0; color: var(--color-accent-light); }
+
+.loadflow-home {
+  border-color: rgba(255, 95, 82, 0.35);
+  animation: alarm-pulse 3s ease-in-out infinite;
+}
+
+.loadflow-meter {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.8;
-}
-.mini-screen .ad-banner strong {
-  font-size: 1.05rem;
-  line-height: 1.2;
-  color: #fff;
-}
-.mini-screen .ad-banner span.sponsor {
-  font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.mini-screen .ticker {
-  font-size: 0.68rem;
+  letter-spacing: 0.06em;
   color: var(--color-text-muted);
-  white-space: nowrap;
+  margin-block: 0.7em;
+}
+.loadflow-meter-track {
+  width: 130px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+.loadflow-meter-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-accent));
+  animation: loadflow-meter 10s ease-in-out infinite;
 }
 
-.example-caption {
-  text-align: center;
-  padding: 0.9em 0.6em;
-  font-size: 0.82rem;
-  color: var(--color-text-muted);
-  border-top: 1px solid var(--glass-border);
+.loadflow-split {
+  display: flex;
+  gap: 130px;
+  height: 32px;
+  margin-block: 0.5em;
 }
-.example-caption strong { color: var(--color-text); }
+.loadflow-branch {
+  position: relative;
+  width: 2px;
+  height: 100%;
+  background: var(--glass-border);
+}
+.loadflow-branch .loadflow-dot { animation: loadflow-branch-dot 10s ease-in-out infinite; }
+.loadflow-branch.b1 .loadflow-dot { animation-delay: 0.15s; }
 
-.org-feuerwehr .org-dot { background: #ff5f52; box-shadow: 0 0 8px #ff5f52; }
-.org-feuerwehr .ad-banner { background: linear-gradient(150deg, rgba(211, 47, 47, 0.35), rgba(15, 58, 93, 0.5)); }
-
-.org-drk .org-dot { background: #e2231a; box-shadow: 0 0 8px #e2231a; }
-.org-drk .ad-banner { background: linear-gradient(150deg, rgba(226, 35, 26, 0.35), rgba(10, 14, 39, 0.6)); }
-
-.org-dlrg .org-dot { background: #ffc107; box-shadow: 0 0 8px #ffc107; }
-.org-dlrg .ad-banner { background: linear-gradient(150deg, rgba(255, 193, 7, 0.28), rgba(15, 58, 93, 0.6)); }
+.loadflow-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  width: 100%;
+}
+.loadflow-worker { animation: loadflow-worker-state 10s ease-in-out infinite; }
+.loadflow-worker.w1 { animation-delay: 0.15s; }
 
 /* ---------- App Store Page ---------- */
 .toolbar {
@@ -1085,6 +1143,12 @@ p { color: var(--color-text-muted); }
   font-size: 4.5rem;
   font-weight: 800;
   color: #fff;
+}
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .portrait-note {
   position: absolute;
@@ -1380,6 +1444,34 @@ p { color: var(--color-text-muted); }
 .legal-toc ol { padding-left: 1.2em; }
 .legal-toc a { font-size: 0.92rem; }
 
+/* ---------- Zammad Live-Chat Button ---------- */
+.chat-fab {
+  position: fixed;
+  right: var(--space-3);
+  bottom: 104px;
+  z-index: 240;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(211, 47, 47, 0.45);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.chat-fab:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(211, 47, 47, 0.55);
+}
+.chat-fab svg { width: 24px; height: 24px; }
+.chat-fab.is-inactive { display: none; }
+
+@media (max-width: 639px) {
+  .chat-fab { right: var(--space-2); width: 50px; height: 50px; }
+}
+
 /* ---------- Cookie / Info Banner ---------- */
 .info-banner {
   position: fixed;
@@ -1419,6 +1511,7 @@ p { color: var(--color-text-muted); }
 .text-center { text-align: center; }
 .mt-2 { margin-top: var(--space-2); }
 .mt-4 { margin-top: var(--space-4); }
+.mb-2 { margin-bottom: var(--space-2); }
 .visually-hidden {
   position: absolute;
   width: 1px; height: 1px;

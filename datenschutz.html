@@ -24,12 +24,12 @@
       </a>
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
-        <a href="loesungen.html">Lösungen</a>
+        <a href="projekt.html">Projekt</a>
         <a href="anwendungen.html">Anwendungen</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
-      <a href="kontakt.html" class="btn btn-primary btn-sm nav-cta">Demo anfragen</a>
+      <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta"><svg width="15" height="15"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub</a>
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
@@ -38,11 +38,11 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="loesungen.html">Lösungen</a>
+    <a href="projekt.html">Projekt</a>
     <a href="anwendungen.html">Anwendungen</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
-    <a href="kontakt.html" class="btn btn-primary mt-4">Demo anfragen</a>
+    <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary mt-4"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub ansehen</a>
   </div>
 
   <main id="main">
@@ -61,6 +61,7 @@
           <li><a href="#hosting">Hosting &amp; Server-Logfiles</a></li>
           <li><a href="#cookies">Cookies &amp; lokaler Speicher</a></li>
           <li><a href="#kontakt">Kontaktaufnahme &amp; Zammad-Formular</a></li>
+          <li><a href="#chat">Live-Chat (Zammad)</a></li>
           <li><a href="#jquery">jQuery (externe Ressource)</a></li>
           <li><a href="#ssl">SSL/TLS-Verschlüsselung</a></li>
           <li><a href="#rechte">Rechte der betroffenen Personen</a></li>
@@ -104,14 +105,19 @@
         <p>Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung einer Anfrage zur Anbahnung eines Vertragsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Bearbeitung von Anfragen). Die Daten werden gelöscht, sobald sie für die Zweckerreichung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
         <p>Sofern das Ticketsystem nicht ausschließlich auf eigener Infrastruktur des Verantwortlichen betrieben wird, besteht mit dem Hosting-Anbieter des Zammad-Systems ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO. <span class="placeholder-flag">Bitte prüfen &amp; ergänzen, falls Zammad nicht selbst gehostet wird</span></p>
 
-        <h2 id="jquery">6. jQuery (externe Ressource)</h2>
-        <p>Zur technischen Umsetzung des Kontaktformulars laden wir die JavaScript-Bibliothek jQuery von einem externen Server (<code>code.jquery.com</code>, bereitgestellt über ein Content Delivery Network). Dabei wird deine IP-Adresse an den Betreiber dieses CDN übermittelt, da ohne diese Übermittlung keine Auslieferung der Datei an deinen Browser möglich ist.</p>
-        <p>Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an technisch stabiler und performanter Bereitstellung des Kontaktformulars). Es kann nicht ausgeschlossen werden, dass dabei Daten in Länder außerhalb der EU/des EWR (z. B. USA) übertragen werden. Wer dies vermeiden möchte, kann uns direkt per E-Mail oder Telefon kontaktieren (siehe <a href="kontakt.html">Kontakt</a>).</p>
+        <h2 id="chat">6. Live-Chat (Zammad)</h2>
+        <p>Auf jeder Seite dieser Website biete ich über den Chat-Button unten rechts einen Live-Chat an, technisch bereitgestellt durch Zammad unter <code>support.pke-lab.de</code>. Das dafür nötige Skript (<code>chat.min.js</code>) sowie eine Verbindung zum Chat-Server werden bereits beim Laden der Seite eingerichtet, damit der Button den Verfügbarkeitsstatus anzeigen kann – dabei wird deine IP-Adresse an den Chat-Server übermittelt.</p>
+        <p>Inhaltliche Daten (z. B. dein Name und der Chatverlauf) werden nur übertragen und gespeichert, wenn du den Chat aktiv startest und eine Nachricht schreibst. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an schneller, direkter Erreichbarkeit) bzw. Art. 6 Abs. 1 lit. b DSGVO, sofern der Chat der Anbahnung eines Vertragsverhältnisses dient. Möchtest du das vermeiden, nutze stattdessen das <a href="kontakt.html">Kontaktformular</a> oder schreib mir per E-Mail.</p>
+        <p>Sofern das Chat-System nicht ausschließlich auf eigener Infrastruktur des Verantwortlichen betrieben wird, besteht mit dem Hosting-Anbieter ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO. <span class="placeholder-flag">Bitte prüfen &amp; ergänzen, falls Zammad nicht selbst gehostet wird</span></p>
 
-        <h2 id="ssl">7. SSL/TLS-Verschlüsselung</h2>
+        <h2 id="jquery">7. jQuery (externe Ressource)</h2>
+        <p>Zur technischen Umsetzung des Kontaktformulars und des Live-Chats laden wir die JavaScript-Bibliothek jQuery auf jeder Seite von einem externen Server (<code>code.jquery.com</code>, bereitgestellt über ein Content Delivery Network). Dabei wird deine IP-Adresse an den Betreiber dieses CDN übermittelt, da ohne diese Übermittlung keine Auslieferung der Datei an deinen Browser möglich ist.</p>
+        <p>Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an technisch stabiler und performanter Bereitstellung von Kontaktformular und Chat). Es kann nicht ausgeschlossen werden, dass dabei Daten in Länder außerhalb der EU/des EWR (z. B. USA) übertragen werden. Wer dies vermeiden möchte, kann uns direkt per E-Mail oder Telefon kontaktieren (siehe <a href="kontakt.html">Kontakt</a>).</p>
+
+        <h2 id="ssl">8. SSL/TLS-Verschlüsselung</h2>
         <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in deiner Browserzeile.</p>
 
-        <h2 id="rechte">8. Rechte der betroffenen Personen</h2>
+        <h2 id="rechte">9. Rechte der betroffenen Personen</h2>
         <p>Du hast im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:</p>
         <ul>
           <li>Auskunft über deine gespeicherten personenbezogenen Daten (Art. 15 DSGVO)</li>
@@ -123,7 +129,7 @@
         </ul>
         <p>Solltest du eine erteilte Einwilligung widerrufen wollen, genügt eine formlose E-Mail an <a href="mailto:info@edv-kretzer.de">info@edv-kretzer.de</a>. Zudem steht dir ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
 
-        <h2 id="aenderung">9. Aktualität &amp; Änderung dieser Datenschutzerklärung</h2>
+        <h2 id="aenderung">10. Aktualität &amp; Änderung dieser Datenschutzerklärung</h2>
         <p>Diese Datenschutzerklärung ist aktuell gültig (Stand: <span data-year></span>). Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Erklärung zu ändern.</p>
       </div>
     </section>
@@ -137,14 +143,14 @@
             <span class="brand-mark"><svg width="20" height="20"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></span>
             <span>EDV-<em>Kretzer</em></span>
           </a>
-          <p>Digitale Lösungen für Behörden und Organisationen mit Sicherheitsaufgaben – entwickelt von jemandem, der den Einsatzalltag kennt.</p>
+          <p>Ich baue capulus-core – ein offenes GitOps-Homelab auf k3s, ArgoCD und Tailscale. Diese Seite dokumentiert den Weg dahin.</p>
         </div>
         <div class="footer-col">
-          <h4>Produkt</h4>
+          <h4>Projekt</h4>
           <ul>
-            <li><a href="loesungen.html#drohne">Drohnenlösung</a></li>
-            <li><a href="loesungen.html#monitor">Monitor-Werbung</a></li>
-            <li><a href="loesungen.html#alarmmonitor">Alarmmonitor</a></li>
+            <li><a href="projekt.html#infrastruktur">Infrastruktur</a></li>
+            <li><a href="projekt.html#gitops">GitOps-Workflow</a></li>
+            <li><a href="projekt.html#hardware">Hardware</a></li>
             <li><a href="anwendungen.html">Anwendungen</a></li>
           </ul>
         </div>
@@ -171,6 +177,26 @@
     </div>
   </footer>
 
+  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
+    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
+  </button>
+
   <script src="js/main.js"></script>
+
+  <!-- Zammad Live-Chat -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://support.pke-lab.de/assets/chat/chat.min.js"></script>
+  <script>
+    $(function () {
+      new ZammadChat({
+        chatId: 1,
+        show: false,
+        flat: true,
+        background: '#0d1230',
+        fontSize: '13px',
+        title: '<strong>Chat</strong> mit mir'
+      });
+    });
+  </script>
 </body>
 </html>
