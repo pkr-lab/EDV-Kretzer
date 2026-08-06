@@ -1,0 +1,114 @@
+[
+  {
+    "id": "einsatzplanung",
+    "name": "Einsatzplanung Pro",
+    "icon": "🗂️",
+    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW"],
+    "description": "Digitale Einsatz- und Ressourcenplanung mit Live-Kräfteübersicht, Kartenintegration und automatischer Alarmierungshistorie.",
+    "tags": ["Planung", "Karten", "Kräfteübersicht"]
+  },
+  {
+    "id": "lagerverwaltung",
+    "name": "Lager & Material",
+    "icon": "📦",
+    "categories": ["Feuerwehr", "DRK", "THW", "Allgemein"],
+    "description": "Bestandsführung für Gerätehäuser: Prüffristen, Mindestbestände und Barcode-Scan für Material und Ausrüstung.",
+    "tags": ["Inventar", "Prüffristen", "Barcode"]
+  },
+  {
+    "id": "funk-integration",
+    "name": "Funk-Bridge",
+    "icon": "📡",
+    "categories": ["Feuerwehr", "THW", "Allgemein"],
+    "description": "Verbindet Digitalfunk (BOS/TETRA) mit eurer Leitstellen-Software – Status, Sprechgruppen und Protokollierung in Echtzeit.",
+    "tags": ["BOS-Funk", "Integration", "Protokoll"]
+  },
+  {
+    "id": "fahrzeugverwaltung",
+    "name": "Fuhrpark Manager",
+    "icon": "🚒",
+    "categories": ["Feuerwehr", "DRK", "Malteser", "THW"],
+    "description": "Fahrzeugakten, UVV-Prüfungen, Wartungsintervalle und Verfügbarkeitsstatus jederzeit im Blick – auch mobil.",
+    "tags": ["Fahrzeuge", "UVV", "Wartung"]
+  },
+  {
+    "id": "dienstplan",
+    "name": "Dienstplan Digital",
+    "icon": "🗓️",
+    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW", "Allgemein"],
+    "description": "Schicht- und Bereitschaftsplanung mit Selbsteintrag, Erinnerungen per Push und automatischer Mindestbesetzungsprüfung.",
+    "tags": ["Schichten", "Bereitschaft", "Push"]
+  },
+  {
+    "id": "atemschutz",
+    "name": "Atemschutzüberwachung",
+    "icon": "🫁",
+    "categories": ["Feuerwehr"],
+    "description": "Digitale Atemschutzüberwachungstafel mit Zeit-, Druck- und Trupp-Tracking – synchronisiert mit dem Alarmmonitor.",
+    "tags": ["Atemschutz", "Sicherheit", "Tracking"]
+  },
+  {
+    "id": "uebungsverwaltung",
+    "name": "Übungs- & Ausbildung",
+    "icon": "🎓",
+    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW"],
+    "description": "Plant Übungsdienste, erfasst Teilnahmen und verwaltet Lehrgangsnachweise inklusive Erinnerungsfunktion.",
+    "tags": ["Ausbildung", "Nachweise", "Teilnahme"]
+  },
+  {
+    "id": "mitgliederverwaltung",
+    "name": "Mitglieder & Ehrenamt",
+    "icon": "👥",
+    "categories": ["DRK", "DLRG", "Malteser", "Allgemein"],
+    "description": "Mitgliederdatenbank mit Funktionen, Qualifikationen, Beitragsverwaltung und DSGVO-konformer Datenhaltung.",
+    "tags": ["Mitglieder", "Qualifikationen", "DSGVO"]
+  },
+  {
+    "id": "app-alarmierung",
+    "name": "Alarmierung per App",
+    "icon": "🔔",
+    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW"],
+    "description": "Stille Alarmierung aufs Smartphone mit Rückmeldefunktion, Anfahrtszeit-Schätzung und Status je Einsatzkraft.",
+    "tags": ["Alarmierung", "Rückmeldung", "Mobil"]
+  },
+  {
+    "id": "gis-karten",
+    "name": "GIS & Lagekarte",
+    "icon": "🗺️",
+    "categories": ["Feuerwehr", "THW", "DLRG", "Allgemein"],
+    "description": "Interaktive Lagedarstellung mit Hydranten, Gefahrenpunkten, Objektplänen und Live-Positionen der Einsatzkräfte.",
+    "tags": ["Karten", "Hydranten", "Lage"]
+  },
+  {
+    "id": "checklisten",
+    "name": "Checklisten Digital",
+    "icon": "✅",
+    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW", "Allgemein"],
+    "description": "Digitale Prüf- und Einsatznachbereitungs-Checklisten mit Foto-Upload und automatischer Ablage.",
+    "tags": ["Checklisten", "Doku", "Foto"]
+  },
+  {
+    "id": "wasserrettung",
+    "name": "Wasserrettung Log",
+    "icon": "🛟",
+    "categories": ["DLRG"],
+    "description": "Wachbuch- und Rettungseinsatz-Dokumentation für Wasserrettungsdienste inklusive Wetter- und Pegeldaten.",
+    "tags": ["Wachbuch", "Pegel", "Doku"]
+  },
+  {
+    "id": "sanitaetsdienst",
+    "name": "Sanitätsdienst Planer",
+    "icon": "🚑",
+    "categories": ["DRK", "Malteser"],
+    "description": "Planung von Sanitätswachdiensten bei Veranstaltungen inklusive Materiallisten und Personaleinsatz.",
+    "tags": ["Sanitätswache", "Events", "Personal"]
+  },
+  {
+    "id": "statistik-reporting",
+    "name": "Statistik & Reporting",
+    "icon": "📊",
+    "categories": ["Feuerwehr", "DRK", "DLRG", "Malteser", "THW", "Allgemein"],
+    "description": "Automatisierte Jahresberichte, Einsatzstatistiken und Kennzahlen-Dashboards für Vorstand und Verwaltung.",
+    "tags": ["Statistik", "Reports", "Dashboard"]
+  }
+]
