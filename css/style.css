@@ -1150,25 +1150,6 @@ p { color: var(--color-text-muted); }
   padding: var(--space-4);
   border-radius: var(--radius-lg);
 }
-#zammad-form-target { min-height: 400px; }
-.form-fallback {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-.form-fallback label { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3em; display: block; }
-.form-fallback input, .form-fallback select, .form-fallback textarea {
-  width: 100%;
-  padding: 0.8em 1em;
-  border-radius: var(--radius-sm);
-  background: rgba(0,0,0,0.25);
-  border: 1px solid var(--glass-border);
-}
-.form-fallback textarea { min-height: 140px; resize: vertical; }
-.form-row-2 { display: grid; gap: var(--space-2); grid-template-columns: 1fr; }
-@media (min-width: 600px) { .form-row-2 { grid-template-columns: 1fr 1fr; } }
-.consent-row { display: flex; gap: 0.6em; align-items: flex-start; font-size: 0.85rem; color: var(--color-text-muted); }
-.consent-row input { margin-top: 0.3em; }
 .form-note {
   font-size: 0.82rem;
   color: var(--color-text-muted);

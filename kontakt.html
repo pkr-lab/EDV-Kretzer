@@ -97,10 +97,11 @@
 
         <div class="contact-form-card glass-card reveal">
           <h3 class="mt-2" id="form-heading">Kontaktformular</h3>
+          <p>Öffne unser Kontaktformular in einem Fenster und schick uns dein Anliegen direkt zu.</p>
           <p id="interest-note" style="display:none; margin-bottom: var(--space-2);"></p>
-          <div id="feedback-form"></div>
+          <button id="zammad-feedback-form" class="btn btn-primary btn-block mt-2">Kontaktformular öffnen</button>
           <noscript>
-            <p>Bitte aktiviere JavaScript, um das Kontaktformular zu nutzen, oder schreibe uns direkt an <a href="mailto:info@edv-kretzer.de">info@edv-kretzer.de</a>.</p>
+            <p class="mt-2">Bitte aktiviere JavaScript, um das Kontaktformular zu nutzen, oder schreibe uns direkt an <a href="mailto:info@edv-kretzer.de">info@edv-kretzer.de</a>.</p>
           </noscript>
           <p class="form-note mt-4">Das Formular wird über unser Zammad-Ticketsystem (support.pke-lab.de) bereitgestellt. Details zur Datenverarbeitung findest du in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
         </div>
@@ -179,15 +180,15 @@
 
   <!-- Zammad Kontaktformular -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://support.pke-lab.de/assets/form/form.js"></script>
+  <script id="zammad_form_script" src="https://support.pke-lab.de/assets/form/form.js"></script>
   <script>
     $(function () {
       var interest = window.__contactInterest;
-      $('#feedback-form').ZammadForm({
-        messageTitle: interest ? 'Anfrage: ' + interest : 'Schreib uns eine Nachricht',
-        messageSubmit: 'Absenden',
-        messageThankYou: 'Danke für deine Anfrage (#%s)! Wir melden uns so schnell wie möglich zurück.',
-        showTitle: true
+      $('#zammad-feedback-form').ZammadForm({
+        messageTitle: interest ? 'Anfrage: ' + interest : 'Anfrage',
+        messageSubmit: 'Übermitteln',
+        messageThankYou: 'Vielen Dank für Ihre Anfrage (#%s). Wir melden uns umgehend.',
+        modal: true
       });
     });
   </script>
