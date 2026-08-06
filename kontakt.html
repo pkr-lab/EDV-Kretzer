@@ -185,10 +185,44 @@
     $(function () {
       var interest = window.__contactInterest;
       $('#zammad-feedback-form').ZammadForm({
+        agreementMessage: 'Ich stimme der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zu.',
         messageTitle: interest ? 'Anfrage: ' + interest : 'Anfrage',
         messageSubmit: 'Übermitteln',
         messageThankYou: 'Vielen Dank für Ihre Anfrage (#%s). Wir melden uns umgehend.',
-        modal: true
+        showTitle: true,
+        modal: true,
+        noCSS: true,
+        attachmentSupport: true
+      });
+
+      // Eigenes Styling statt Zammad-CSS: Schließen-Button ergänzen,
+      // Scrollen der Seite sperren, solange das Modal offen ist.
+      var closeModal = function () {
+        var backdrop = document.querySelector('.js-zammad-form-modal-backdrop');
+        if (backdrop) backdrop.click();
+      };
+
+      var observer = new MutationObserver(function () {
+        var modal = document.querySelector('.zammad-form-modal');
+        if (modal && !modal.dataset.enhanced) {
+          modal.dataset.enhanced = 'true';
+          document.body.style.overflow = 'hidden';
+          var closeBtn = document.createElement('button');
+          closeBtn.type = 'button';
+          closeBtn.className = 'zammad-form-close';
+          closeBtn.setAttribute('aria-label', 'Formular schließen');
+          closeBtn.innerHTML = '&times;';
+          closeBtn.addEventListener('click', closeModal);
+          var body = modal.querySelector('.js-zammad-form-modal-body');
+          if (body) body.prepend(closeBtn);
+        } else if (!modal) {
+          document.body.style.overflow = '';
+        }
+      });
+      observer.observe(document.body, { childList: true });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
       });
     });
   </script>
