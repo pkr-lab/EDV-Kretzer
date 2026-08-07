@@ -398,6 +398,8 @@ p { color: var(--color-text-muted); }
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
+  padding-block: var(--space-5);
+  overflow-y: auto;
   transform: translateY(-100%);
   opacity: 0;
   transition: transform var(--transition-med), opacity var(--transition-med);
@@ -542,6 +544,12 @@ p { color: var(--color-text-muted); }
 
 .badge-float.b1 { top: 6%; left: -4%; animation-delay: 0.5s; }
 .badge-float.b2 { bottom: 8%; right: -6%; animation-delay: 1.2s; }
+
+@media (max-width: 959px) {
+  .badge-float { padding: 0.5em 0.85em; font-size: 0.72rem; max-width: calc(50% - 0.5em); }
+  .badge-float.b1 { left: 2%; }
+  .badge-float.b2 { right: 2%; }
+}
 
 .badge-float .dot {
   width: 8px; height: 8px; border-radius: 50%;
@@ -1013,7 +1021,7 @@ p { color: var(--color-text-muted); }
 
 .loadflow-split {
   display: flex;
-  gap: 130px;
+  gap: clamp(40px, 20vw, 130px);
   height: 32px;
   margin-block: 0.5em;
 }
