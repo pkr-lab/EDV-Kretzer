@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediaMTX-Anleitung – Drohnen-Livestream zum ELW | EDV-Kretzer</title>
+  <meta name="description" content="Schritt-für-Schritt-Anleitung: Live-Video von der Drohne per MediaMTX in den Einsatzleitwagen (ELW) übertragen – für DRK-Einsätze und vergleichbare Szenarien.">
+  <meta name="theme-color" content="#0a0e27">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.edv-kretzer.de/mediamtx-drohnenstream.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="EDV-Kretzer">
+  <meta property="og:title" content="MediaMTX-Anleitung – Drohnen-Livestream zum ELW">
+  <meta property="og:description" content="Live-Video von der Drohne per MediaMTX in den Einsatzleitwagen (ELW) übertragen – Anleitung für DRK-Einsätze.">
+  <meta property="og:url" content="https://www.edv-kretzer.de/mediamtx-drohnenstream.html">
+  <meta property="og:locale" content="de_DE">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container nav-inner glass">
+      <a href="index.html" class="brand" aria-label="EDV-Kretzer Startseite">
+        <span class="brand-mark"><svg width="20" height="20"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></span>
+        <span>EDV-<em>Kretzer</em></span>
+      </a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="index.html">Home</a>
+        <a href="projekt.html">Projekt</a>
+        <a href="anwendungen.html">Anwendungen</a>
+        <a href="app.html">App</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+      <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta"><svg width="15" height="15"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub</a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="projekt.html">Projekt</a>
+    <a href="anwendungen.html">Anwendungen</a>
+    <a href="app.html">App</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary mt-4"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub ansehen</a>
+  </div>
+
+  <main id="main">
+    <section class="page-hero container">
+      <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><a href="anwendungen.html">Anwendungen</a><span>/</span><span>MediaMTX Drohnenstream</span></div>
+      <p class="eyebrow text-center">Anleitung · DRK-Einsatz</p>
+      <h1>Drohnen-Livestream mit MediaMTX zum ELW</h1>
+      <p>Bei Sucheinsätzen, Hochwasser- oder Großschadenslagen liefert eine Aufklärungsdrohne wertvolle Luftbilder – aber nur, wenn die Einsatzleitung im Einsatzleitwagen (ELW) sie auch in Echtzeit sieht. Diese Anleitung zeigt, wie <a href="anwendungen.html?kategorie=Medien%20%26%20Storage">MediaMTX</a>, ein schlanker Self-Hosted-Streaming-Server, den Videofeed der Bodenstation entgegennimmt und live in den ELW überträgt.</p>
+    </section>
+
+    <!-- Einsatzzweck / Pipeline -->
+    <section class="container">
+      <div class="solution-block">
+        <div class="solution-text reveal">
+          <p class="eyebrow">Einsatzzweck</p>
+          <h2>Vom Drohnenbild zur Lagekarte im ELW</h2>
+          <p>Die Bodenstation der Drohne nimmt das Videosignal entgegen und schickt es per RTMP oder RTSP an einen MediaMTX-Server. Der wiederum stellt den Stream als HLS (für Browser) oder WebRTC (für minimale Latenz) bereit – abrufbar auf jedem Laptop oder Tablet im ELW, ganz ohne proprietäre Software oder Cloud-Anbindung.</p>
+          <ul>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Läuft komplett im eigenen Netz – kein Datenabfluss an Dritte</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Empfang per Browser (HLS) oder VLC (RTSP) – keine Zusatz-App nötig</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Über Tailscale erreichbar, ganz ohne offene Ports am Einsatzort</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Mehrere Empfänger gleichzeitig möglich – z. B. ELW und Führungsstab</li>
+          </ul>
+        </div>
+        <div class="solution-visual glass reveal">
+          <div class="stack-diagram">
+            <div class="stack-layer">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-drone"></use></svg></span>
+              <div><strong>Drohne</strong><span>Video-Downlink zur Bodenstation</span></div>
+            </div>
+            <div class="stack-connector"></div>
+            <div class="stack-layer">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-camera"></use></svg></span>
+              <div><strong>Bodenstation / Encoder</strong><span>RTMP/RTSP-Push zum Server</span></div>
+            </div>
+            <div class="stack-connector"></div>
+            <div class="stack-layer highlight">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-server"></use></svg></span>
+              <div><strong>MediaMTX-Server</strong><span>Nimmt an, wandelt in HLS/WebRTC um</span></div>
+            </div>
+            <div class="stack-connector"></div>
+            <div class="stack-layer">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-monitor"></use></svg></span>
+              <div><strong>ELW-Anzeige</strong><span>Browser oder VLC, live im Einsatz</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Voraussetzungen -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Voraussetzungen</p>
+          <h2>Was vor dem Einsatz bereitstehen sollte</h2>
+        </div>
+        <div class="grid grid-4">
+          <div class="feature-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-drone"></use></svg></div>
+            <h3>Drohne mit Videoausgang</h3>
+            <p>Bodenstation mit RTMP/RTSP-fähigem Ausgang, z. B. per HDMI-Encoder oder direkter App-Anbindung.</p>
+          </div>
+          <div class="feature-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-signal"></use></svg></div>
+            <h3>Netzwerk zum ELW</h3>
+            <p>LTE-Router am Einsatzort und Tailscale-Tailnet (oder gleiches Netz), damit Bodenstation und ELW den Server erreichen.</p>
+          </div>
+          <div class="feature-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-server"></use></svg></div>
+            <h3>MediaMTX-Server</h3>
+            <p>Per Docker in Minuten aufgesetzt – auf einem Mini-PC vor Ort oder zentral erreichbar, z. B. im Homelab-Cluster.</p>
+          </div>
+          <div class="feature-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-monitor"></use></svg></div>
+            <h3>Empfangsgerät im ELW</h3>
+            <p>Laptop oder Tablet mit aktuellem Browser (HLS) oder VLC (RTSP) für die verzögerungsarme Variante.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schritt-für-Schritt -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Schritt für Schritt</p>
+          <h2>So kommt das Drohnenbild in den ELW</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item glass-card reveal">
+            <span class="year">1</span>
+            <div>
+              <h3>MediaMTX-Server bereitstellen</h3>
+              <p>Per Docker starten und die relevanten Ports freigeben: 1935 (RTMP-Eingang von der Bodenstation), 8554 (RTSP), 8888 (HLS-Ausgabe für Browser) und 8889 (WebRTC für minimale Latenz).</p>
+            </div>
+          </div>
+          <div class="timeline-item glass-card reveal">
+            <span class="year">2</span>
+            <div>
+              <h3>Stream-Pfad &amp; Zugangsdaten festlegen</h3>
+              <p>In der <code>mediamtx.yml</code> einen eigenen Pfad für den Einsatz anlegen, z. B. <code>drohne-elw</code>, und mit Benutzername/Passwort fürs Senden und Empfangen absichern (siehe Beispiel unten).</p>
+            </div>
+          </div>
+          <div class="timeline-item glass-card reveal">
+            <span class="year">3</span>
+            <div>
+              <h3>Bodenstation mit dem Server verbinden</h3>
+              <p>Videoquelle der Bodenstation per RTMP zum Server pushen – entweder direkt aus der Drohnen-App/dem Encoder oder testweise per <code>ffmpeg</code> von einem angeschlossenen Rechner aus.</p>
+            </div>
+          </div>
+          <div class="timeline-item glass-card reveal">
+            <span class="year">4</span>
+            <div>
+              <h3>Verbindung zum ELW absichern</h3>
+              <p>Server über das Tailscale-Tailnet erreichbar machen – Bodenstation und ELW brauchen dann nur eine LTE- oder WLAN-Verbindung, ganz ohne offenen Port nach außen.</p>
+            </div>
+          </div>
+          <div class="timeline-item glass-card reveal">
+            <span class="year">5</span>
+            <div>
+              <h3>Stream im ELW empfangen</h3>
+              <p>Im Browser die HLS-Adresse öffnen oder in VLC per „Netzwerkstream öffnen“ die RTSP-Adresse eintragen – je nachdem, ob Kompatibilität oder minimale Verzögerung wichtiger ist.</p>
+            </div>
+          </div>
+          <div class="timeline-item glass-card reveal">
+            <span class="year">6</span>
+            <div>
+              <h3>Vor dem Einsatz testen</h3>
+              <p>Einen Testlauf mit realer Distanz zwischen Bodenstation und ELW fahren, Latenz prüfen und einen Fallback (lokale Aufzeichnung an der Bodenstation) für den Fall eines Netzausfalls einplanen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Konfigurationsbeispiele -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Beispiel-Konfiguration</p>
+          <h2>Konkrete Befehle zum Nachbauen</h2>
+          <p>Server-IP, Pfadnamen und Zugangsdaten bitte durch die eigenen Werte ersetzen.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="device reveal" style="max-width:100%;">
+            <div class="screen-bar"><span></span><span></span><span></span></div>
+            <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.8rem; line-height:1.8; color: var(--color-text);">
+              <div style="color: var(--color-text-muted);"># mediamtx.yml</div>
+              <div>paths:</div>
+              <div>&nbsp;&nbsp;drohne-elw:</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;publishUser: drk</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;publishPass: &lt;sicheres-passwort&gt;</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;readUser: elw</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;readPass: &lt;weiteres-passwort&gt;</div>
+            </div>
+          </div>
+          <div class="device reveal" style="max-width:100%;">
+            <div class="screen-bar"><span></span><span></span><span></span></div>
+            <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.8rem; line-height:1.8; color: var(--color-text);">
+              <div style="color: var(--color-text-muted);"># Stream von der Bodenstation senden</div>
+              <div>$ ffmpeg -i &lt;videoquelle&gt; \</div>
+              <div>&nbsp;&nbsp;-c:v libx264 -preset veryfast -tune zerolatency \</div>
+              <div>&nbsp;&nbsp;-f flv rtmp://drk:&lt;passwort&gt;@&lt;server&gt;/drohne-elw</div>
+              <div>&nbsp;</div>
+              <div style="color: var(--color-text-muted);"># Empfang im ELW (VLC, minimale Latenz)</div>
+              <div>rtsp://elw:&lt;passwort&gt;@&lt;server&gt;:8554/drohne-elw</div>
+              <div style="color: var(--color-accent-light); font-weight:600;">✓ Browser: https://&lt;server&gt;:8888/drohne-elw/index.m3u8</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hinweise -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Wichtig</p>
+          <h2>Sicherheit &amp; Datenschutz beim Luftbild-Einsatz</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="feature-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-lock"></use></svg></div>
+            <h3>Nur im internen Netz</h3>
+            <p>Den Stream ausschließlich über Tailscale oder ein anderes VPN freigeben – nie mit offenem Port direkt ins Internet stellen.</p>
+          </div>
+          <div class="feature-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></div>
+            <h3>Zugangsdaten schützen</h3>
+            <p>Eigene, starke Publish-/Read-Passwörter je Einsatz vergeben und nach dem Einsatz ändern statt wiederzuverwenden.</p>
+          </div>
+          <div class="feature-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-users"></use></svg></div>
+            <h3>Persönlichkeitsrechte beachten</h3>
+            <p>Luftbilder können Personen zeigen. Aufzeichnungen nach dem Einsatz löschen, sofern nicht dienstlich benötigt, und geltendes Datenschutzrecht sowie interne Einsatzrichtlinien einhalten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-section glass reveal">
+          <h2>Fragen zur Einrichtung?</h2>
+          <p>Ob Einsatzabschnitt-spezifische Anpassung, Hardware-Empfehlung oder Hilfe beim ersten Testlauf – meld dich gern.</p>
+          <div class="cta-actions">
+            <a href="kontakt.html?interesse=MediaMTX%20Drohnenstream" class="btn btn-primary">Frage stellen</a>
+            <a href="https://github.com/bluenviron/mediamtx" target="_blank" rel="noopener" class="btn btn-outline">MediaMTX auf GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <span class="brand-mark"><svg width="20" height="20"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></span>
+            <span>EDV-<em>Kretzer</em></span>
+          </a>
+          <p>Ich baue capulus-core – ein offenes GitOps-Homelab auf k3s, ArgoCD und Tailscale. Diese Seite dokumentiert den Weg dahin.</p>
+          <div class="social-row mt-2">
+            <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-linkedin"></use></svg></a>
+            <a href="#" aria-label="Mastodon"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-mastodon"></use></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Projekt</h4>
+          <ul>
+            <li><a href="projekt.html#infrastruktur">Infrastruktur</a></li>
+            <li><a href="projekt.html#gitops">GitOps-Workflow</a></li>
+            <li><a href="projekt.html#hardware">Hardware</a></li>
+            <li><a href="anwendungen.html">Anwendungen</a></li>
+            <li><a href="app.html">PKR-Lab App</a></li>
+            <li><a href="mediamtx-drohnenstream.html" aria-current="page">Drohnenstream-Anleitung</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Unternehmen</h4>
+          <ul>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> EDV-Kretzer. Alle Rechte vorbehalten.</span>
+        <span>Konzept, Design &amp; Entwicklung in Eigenregie.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="info-banner glass" role="status">
+    <p>Diese Website verwendet nur technisch notwendige Funktionen. Details in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    <div class="info-banner-actions">
+      <button class="btn btn-primary btn-sm" data-banner-accept>Verstanden</button>
+    </div>
+  </div>
+
+  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
+    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+
+  <!-- Zammad Live-Chat -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://support.pke-lab.de/assets/chat/chat.min.js"></script>
+  <script>
+    $(function () {
+      new ZammadChat({
+        chatId: 1,
+        show: false,
+        flat: true,
+        background: '#0d1230',
+        fontSize: '13px',
+        title: '<strong>Chat</strong> mit mir'
+      });
+    });
+  </script>
+</body>
+</html>
