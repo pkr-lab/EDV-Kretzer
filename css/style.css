@@ -806,6 +806,24 @@ p { color: var(--color-text-muted); }
 .monitor-frame .screen-bar span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.25); }
 .monitor-frame .screen { padding: var(--space-3); }
 
+.monitor-frame .screen.screen--image {
+  padding: 0;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+.screen--image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateZ(26px) scale(1.02);
+  transition: transform var(--transition-med), filter var(--transition-med);
+  filter: brightness(0.96);
+}
+.alarm-monitor-3d:hover .screen--image img {
+  transform: translateZ(40px) scale(1.05);
+  filter: brightness(1.04);
+}
+
 .alarm-row {
   display: flex;
   align-items: center;
@@ -842,6 +860,13 @@ p { color: var(--color-text-muted); }
   aspect-ratio: 16/10;
   border-radius: var(--radius-sm);
   overflow: hidden;
+}
+.gallery-strip .shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
 }
 
 /* ---------- Architektur-Stack-Diagramm (Projekt-Seite) ---------- */
@@ -1412,6 +1437,86 @@ p { color: var(--color-text-muted); }
 .sitemap-col a:hover { color: var(--color-accent-light); }
 
 /* ---------- Legal Pages ---------- */
+/* ---------- App-Seite: iPhone-Mockup ---------- */
+.phone-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+@media (min-width: 720px) {
+  .phone-showcase { grid-template-columns: repeat(4, 1fr); }
+}
+.phone-showcase figure { margin: 0; text-align: center; }
+.phone-showcase figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.phone-frame {
+  position: relative;
+  width: 100%;
+  max-width: 230px;
+  aspect-ratio: 1206 / 2622;
+  margin-inline: auto;
+  padding: 10px;
+  border-radius: 50px;
+  background: linear-gradient(160deg, #3a3f4d, #101319 55%, #3a3f4d);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-med), box-shadow var(--transition-med);
+}
+.phone-frame:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+.phone-frame::before {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 22%;
+  width: 3px;
+  height: 54px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.phone-frame::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 15%;
+  width: 3px;
+  height: 34px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 46px 0 rgba(255, 255, 255, 0.14);
+}
+.phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  background: linear-gradient(165deg, rgba(15, 58, 93, 0.55), rgba(10, 14, 39, 0.95));
+}
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.phone-screen .dynamic-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32%;
+  aspect-ratio: 3.6 / 1;
+  background: #000;
+  border-radius: 999px;
+  z-index: 2;
+}
 .legal-content {
   max-width: 780px;
   margin-inline: auto;

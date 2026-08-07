@@ -33,6 +33,7 @@
         <a href="index.html">Home</a>
         <a href="projekt.html" aria-current="page">Projekt</a>
         <a href="anwendungen.html">Anwendungen</a>
+        <a href="app.html">App</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
@@ -47,6 +48,7 @@
     <a href="index.html">Home</a>
     <a href="projekt.html" aria-current="page">Projekt</a>
     <a href="anwendungen.html">Anwendungen</a>
+    <a href="app.html">App</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
     <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary mt-4"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub ansehen</a>
@@ -146,45 +148,30 @@
         <div class="section-head reveal">
           <p class="eyebrow">Live-Prinzip</p>
           <h2>So sieht Continuous Deployment aus</h2>
-          <p>Bewege dich mit der Maus über die Vorschau oder scrolle die Seite, um den 3D-Effekt zu erleben – eine vereinfachte Darstellung dessen, was ArgoCD nach jedem Push automatisch für mich erledigt.</p>
+          <p>Bewege dich mit der Maus über die Vorschau oder scrolle die Seite, um den 3D-Effekt zu erleben – ein echter Blick ins ArgoCD-Dashboard, das nach jedem Push automatisch synchronisiert.</p>
         </div>
 
         <div class="alarm-monitor-3d reveal">
           <div class="monitor-frame">
             <div class="screen-bar"><span></span><span></span><span></span></div>
-            <div class="screen">
-              <div class="alarm-row active">
-                <span class="code">OK</span>
-                <div class="meta"><strong>nextcloud</strong><span>Synced · Healthy · Auto-Sync aktiv</span></div>
-              </div>
-              <div class="alarm-row">
-                <span class="code">OK</span>
-                <div class="meta"><strong>immich</strong><span>Synced · Healthy</span></div>
-              </div>
-              <div class="alarm-row">
-                <span class="code">↻</span>
-                <div class="meta"><strong>grafana</strong><span>Progressing · Rollout läuft</span></div>
-              </div>
-              <div class="alarm-row">
-                <span class="code">OK</span>
-                <div class="meta"><strong>vaultwarden</strong><span>Synced · Healthy</span></div>
-              </div>
+            <div class="screen screen--image">
+              <img src="assets/images/screenshot-argocd.png" alt="ArgoCD-Dashboard mit allen synchronisierten Anwendungen im capulus-core Cluster" width="1280" height="857" loading="lazy">
             </div>
           </div>
         </div>
 
         <div class="gallery-strip reveal">
-          <div class="shot glass-card" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(15,58,93,0.5), rgba(10,14,39,0.9));">
-            <svg width="34" height="34" style="opacity:.6"><use href="assets/icons/sprite.svg#icon-monitor"></use></svg>
+          <div class="shot glass-card">
+            <img src="assets/images/screenshot-uptime-kuma.png" alt="Uptime Kuma Dashboard mit Monitoring aller Dienste im capulus-core Cluster" width="1000" height="669" loading="lazy">
           </div>
-          <div class="shot glass-card" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(211,47,47,0.35), rgba(10,14,39,0.9));">
-            <svg width="34" height="34" style="opacity:.6"><use href="assets/icons/sprite.svg#icon-database"></use></svg>
+          <div class="shot glass-card">
+            <img src="assets/images/screenshot-pihole.png" alt="Pi-hole Login-Seite für den DNS-Werbeblocker im Cluster" width="1000" height="669" loading="lazy">
           </div>
-          <div class="shot glass-card" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(15,58,93,0.5), rgba(211,47,47,0.25));">
-            <svg width="34" height="34" style="opacity:.6"><use href="assets/icons/sprite.svg#icon-cloud"></use></svg>
+          <div class="shot glass-card">
+            <img src="assets/images/screenshot-nextcloud.png" alt="Nextcloud Dashboard, selbst gehostet im capulus-core Cluster" width="1000" height="669" loading="lazy">
           </div>
         </div>
-        <p class="text-center mt-2" style="font-size:0.85rem; color: var(--color-text-muted);">Platzhalter-Darstellung – echte Screenshots aus dem laufenden Cluster (Grafana, Immich, Tailscale-Netz) folgen.</p>
+        <p class="text-center mt-2" style="font-size:0.85rem; color: var(--color-text-muted);">Echte Screenshots aus dem laufenden Cluster: Uptime Kuma, Pi-hole und Nextcloud.</p>
       </div>
     </section>
 
@@ -370,6 +357,8 @@
             <li><a href="projekt.html#gitops">GitOps-Workflow</a></li>
             <li><a href="projekt.html#hardware">Hardware</a></li>
             <li><a href="anwendungen.html">Anwendungen</a></li>
+            <li><a href="app.html">PKR-Lab App</a></li>
+            <li><a href="mediamtx-drohnenstream.html">Drohnenstream-Anleitung</a></li>
           </ul>
         </div>
         <div class="footer-col">
