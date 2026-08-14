@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Updates – Status &amp; Neuigkeiten aus dem Cluster | EDV-Kretzer</title>
-  <meta name="description" content="Live-Status aller öffentlichen Dienste im capulus-core Cluster plus Neuigkeiten rund um Website und Homelab – automatisch aus Uptime Kuma und dem Cluster gespeist.">
+  <meta name="description" content="Live-Status aller öffentlichen Dienste im capulus-core Cluster plus Neuigkeiten rund um Website und Homelab – automatisch aus dem Cluster-Monitoring gespeist.">
   <meta name="theme-color" content="#0a0e27">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
@@ -71,7 +71,7 @@
       <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>Updates</span></div>
       <p class="eyebrow text-center">Updates</p>
       <h1>Status &amp; Neuigkeiten</h1>
-      <p>Live-Status aller öffentlich erreichbaren Dienste im capulus-core Cluster – automatisch aus Uptime Kuma, ohne dass ich dafür etwas manuell pflegen muss. Darunter Neuigkeiten rund um Website und Homelab, teils direkt aus dem Cluster veröffentlicht.</p>
+      <p>Live-Status aller öffentlich erreichbaren Dienste im capulus-core Cluster – automatisch aus dem Cluster-Monitoring, ohne dass ich dafür etwas manuell pflegen muss. Darunter Neuigkeiten rund um Website und Homelab, teils direkt aus dem Cluster veröffentlicht.</p>
     </section>
 
     <!-- Live-Status -->
@@ -82,14 +82,10 @@
             <p class="eyebrow" style="margin-bottom:0.2em;">Live-Status</p>
             <h2 style="margin-bottom:0;">Sind alle Dienste erreichbar?</h2>
           </div>
-          <a id="status-page-link" href="https://uptime-kuma-prod.pke-lab.de/status/homelab" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Direkt öffnen</a>
         </div>
-        <p class="status-card-note">Gespeist direkt aus <a href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener">Uptime Kuma</a>, das im Cluster jeden Dienst regelmäßig selbst prüft. Fällt etwas aus, erscheint es hier automatisch – ganz ohne dass ich es von Hand einträge.</p>
-        <div class="status-embed">
-          <iframe id="status-iframe" src="https://uptime-kuma-prod.pke-lab.de/status/homelab" title="Live-Status der öffentlichen capulus-core-Dienste" loading="lazy" referrerpolicy="no-referrer"></iframe>
-          <div class="status-embed-fallback" id="status-fallback">
-            <p>Falls die Live-Ansicht nicht lädt: <a href="https://uptime-kuma-prod.pke-lab.de/status/homelab" target="_blank" rel="noopener">Status-Seite direkt öffnen</a>.</p>
-          </div>
+        <p class="status-card-note">Automatisch geprüftes Monitoring aus dem Cluster – es werden nur die Ergebnisse angezeigt, kein Zugriff auf das Monitoring-System selbst.</p>
+        <div class="status-widget" id="status-widget" aria-live="polite">
+          <p class="status-loading">Status wird geladen …</p>
         </div>
       </div>
     </section>
