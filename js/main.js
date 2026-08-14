@@ -50,6 +50,47 @@
     }
   });
 
+  /* ---------- Dropdown-Navigation ("Projekt") ---------- */
+  document.querySelectorAll(".nav-dropdown").forEach(function (dropdown) {
+    var trigger = dropdown.querySelector(".nav-dropdown-trigger");
+    var menu = dropdown.querySelector(".nav-dropdown-menu");
+    if (!trigger || !menu) return;
+
+    if (menu.querySelector('a[aria-current="page"]')) {
+      trigger.classList.add("active");
+    }
+
+    trigger.addEventListener("click", function () {
+      var isOpen = dropdown.classList.contains("open");
+      document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
+        d.classList.remove("open");
+        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        dropdown.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
+      if (!d.contains(e.target)) {
+        d.classList.remove("open");
+        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
+        d.classList.remove("open");
+        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+      });
+    }
+  });
+
   /* ---------- Scroll Reveal (IntersectionObserver) ---------- */
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {

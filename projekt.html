@@ -31,9 +31,19 @@
       </a>
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
-        <a href="projekt.html" aria-current="page">Projekt</a>
-        <a href="anwendungen.html">Anwendungen</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="projekt-menu">
+            Projekt
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" id="projekt-menu">
+            <a href="projekt.html" aria-current="page">Projekt-Übersicht</a>
+            <a href="anwendungen.html">Anwendungen</a>
+            <a href="mediamtx-drohnenstream.html">Drohnenstream-Anleitung</a>
+          </div>
+        </div>
         <a href="app.html">App</a>
+        <a href="updates.html">Updates</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
@@ -47,8 +57,10 @@
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
     <a href="projekt.html" aria-current="page">Projekt</a>
-    <a href="anwendungen.html">Anwendungen</a>
+    <a href="anwendungen.html" class="sub">Anwendungen</a>
+    <a href="mediamtx-drohnenstream.html" class="sub">Drohnenstream-Anleitung</a>
     <a href="app.html">App</a>
+    <a href="updates.html">Updates</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
     <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary mt-4"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub ansehen</a>
@@ -134,6 +146,42 @@
               <div>$ git commit -m "add mein-service"</div>
               <div>$ git push</div>
               <div style="color: var(--color-accent-light); font-weight:600;">✓ ArgoCD sync in ~3 Min</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Tier-System -->
+    <section class="container" id="tier-system">
+      <div class="solution-block">
+        <div class="solution-text reveal">
+          <p class="eyebrow">Tier-System</p>
+          <h2>Zwei Schichten, sauber getrennt</h2>
+          <p>Jede App liegt entweder unter <code>argocd/apps/platform/</code> (Identity, Secrets, Netzwerk, Monitoring – Infrastruktur, auf der alles andere aufbaut) oder <code>argocd/apps/workloads/</code> (Apps mit echtem Nutzerkreis: Familie, Vereinsmitglieder). Diese Trennung zieht sich konsequent bis in ArgoCD und die URL selbst durch: zwei eigene AppProjects, die jeweils nur in ihre eigenen Namespaces deployen dürfen, und ein Tier-Label in jedem Hostnamen.</p>
+          <ul>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Zwei ArgoCD-AppProjects mit strikt getrennten <code>destinations</code></li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Jeder Hostname trägt dasselbe Tier-Label wie sein AppProject</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Intern per Punkt, extern per Bindestrich – nie zu verwechseln</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Freischalten = ein <code>host</code>-Eintrag mehr, kein Extra-DNS-Schritt</li>
+          </ul>
+          <div class="tag-row mb-2">
+            <span class="tag">platform → tech</span>
+            <span class="tag">workloads → prod</span>
+            <span class="tag">reserviert → dev</span>
+          </div>
+          <a href="https://github.com/pkr-lab/capulus-core/blob/main/docs/56-domain-tiers.md" target="_blank" rel="noopener" class="btn btn-primary">Tier-Konvention in der Doku</a>
+        </div>
+        <div class="solution-visual glass reveal">
+          <div class="device">
+            <div class="screen-bar"><span></span><span></span><span></span></div>
+            <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.82rem; line-height:2; color: var(--color-text);">
+              <div style="color: var(--color-text-muted);"># intern · LAN &amp; Tailnet</div>
+              <div>nextcloud<span style="color: var(--color-accent-light); font-weight:600;">.prod</span>.homeserver</div>
+              <div style="margin-top:0.9em; color: var(--color-text-muted);"># extern · Cloudflare Tunnel</div>
+              <div>nextcloud<span style="color: var(--color-accent-light); font-weight:600;">-prod</span>.pke-lab.de</div>
             </div>
           </div>
         </div>

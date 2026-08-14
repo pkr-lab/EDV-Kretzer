@@ -31,9 +31,19 @@
       </a>
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
-        <a href="projekt.html">Projekt</a>
-        <a href="anwendungen.html">Anwendungen</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="projekt-menu">
+            Projekt
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" id="projekt-menu">
+            <a href="projekt.html">Projekt-Übersicht</a>
+            <a href="anwendungen.html">Anwendungen</a>
+            <a href="mediamtx-drohnenstream.html">Drohnenstream-Anleitung</a>
+          </div>
+        </div>
         <a href="app.html" aria-current="page">App</a>
+        <a href="updates.html">Updates</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
@@ -47,8 +57,10 @@
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
     <a href="projekt.html">Projekt</a>
-    <a href="anwendungen.html">Anwendungen</a>
+    <a href="anwendungen.html" class="sub">Anwendungen</a>
+    <a href="mediamtx-drohnenstream.html" class="sub">Drohnenstream-Anleitung</a>
     <a href="app.html" aria-current="page">App</a>
+    <a href="updates.html">Updates</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
     <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary mt-4"><svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub ansehen</a>
