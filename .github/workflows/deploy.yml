@@ -1,0 +1,29 @@
+name: Deploy to netcup
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-netcup
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Automatisiert exakt den bisherigen manuellen Ablauf: per SSH auf den
+      # netcup-Server, dort im Docroot "git pull". Kein FTP, kein separates
+      # Checkout hier im Runner nötig - der Server zieht sich main selbst.
+      - name: git pull auf netcup per SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.NETCUP_HOST }}
+          username: ${{ secrets.NETCUP_USER }}
+          key: ${{ secrets.NETCUP_SSH_KEY }}
+          port: ${{ secrets.NETCUP_PORT || '22' }}
+          script: |
+            set -e
+            cd "${{ secrets.NETCUP_PATH }}"
+            git pull --ff-only

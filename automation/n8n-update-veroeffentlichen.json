@@ -1,0 +1,159 @@
+{
+  "name": "EDV-Kretzer – Update veröffentlichen",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "publish-update",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b1f2a1a0-0001-4a00-8000-000000000001",
+      "name": "Webhook (manuell)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-440, -80],
+      "webhookId": "publish-update",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "Updates Webhook Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "owner": { "__rl": true, "mode": "list", "value": "pkr-lab" },
+        "repository": { "__rl": true, "mode": "list", "value": "capulus-core" },
+        "events": ["release"]
+      },
+      "id": "b1f2a1a0-0001-4a00-8000-000000000006",
+      "name": "GitHub Trigger (Release)",
+      "type": "n8n-nodes-base.githubTrigger",
+      "typeVersion": 1,
+      "position": [-440, 120],
+      "credentials": {
+        "githubApi": {
+          "id": "",
+          "name": "GitHub PAT (EDV-Kretzer)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Vereinheitlicht beide Trigger-Quellen auf { title, tag, body }.\nconst item = $input.first().json;\n\n// Fall A: manueller Webhook-Aufruf, z. B. aus dem Cluster per curl\n// Body: { \"title\": \"...\", \"tag\": \"Feature\", \"body\": \"...\" }\nif (item.body && typeof item.body === 'object') {\n  return [{\n    json: {\n      title: item.body.title || 'Update',\n      tag: item.body.tag || 'Info',\n      body: item.body.body || '',\n    },\n  }];\n}\n\n// Fall B: GitHub-Release-Trigger (Event \"release\", Action \"published\")\nif (item.release) {\n  const rel = item.release;\n  const firstLine = (rel.body || '').split('\\n').map(l => l.trim()).find(Boolean);\n  return [{\n    json: {\n      title: `capulus-core ${rel.tag_name} veröffentlicht`,\n      tag: 'Release',\n      body: firstLine || rel.name || 'Neue Version von capulus-core ist auf GitHub veröffentlicht.',\n    },\n  }];\n}\n\nreturn [{ json: { title: 'Update', tag: 'Info', body: '' } }];"
+      },
+      "id": "b1f2a1a0-0001-4a00-8000-000000000007",
+      "name": "Normalize Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-200, 0]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/pkr-lab/EDV-Kretzer/contents/data/updates.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Accept", "value": "application/vnd.github+json" },
+            { "name": "X-GitHub-Api-Version", "value": "2022-11-28" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b1f2a1a0-0001-4a00-8000-000000000002",
+      "name": "GitHub: Get updates.json",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [20, 0],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "GitHub PAT (EDV-Kretzer)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const prev = $input.first().json;\nconst decoded = Buffer.from(prev.content, 'base64').toString('utf-8');\nconst updates = JSON.parse(decoded);\n\nconst { title, tag, body: text } = $('Normalize Input').first().json;\nconst date = new Date().toISOString().slice(0, 10);\nconst slug = title\n  .toLowerCase()\n  .replace(/[^a-z0-9]+/g, '-')\n  .replace(/(^-|-$)/g, '')\n  .slice(0, 60) || 'update';\nconst id = date + '-' + slug;\n\nupdates.unshift({ id, date, tag, title, body: text });\n\nconst newJson = JSON.stringify(updates, null, 2) + '\\n';\nconst contentB64 = Buffer.from(newJson, 'utf-8').toString('base64');\n\nreturn [{\n  json: {\n    content_b64: contentB64,\n    sha: prev.sha,\n    title,\n  },\n}];"
+      },
+      "id": "b1f2a1a0-0001-4a00-8000-000000000003",
+      "name": "Build new updates.json",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "https://api.github.com/repos/pkr-lab/EDV-Kretzer/contents/data/updates.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Accept", "value": "application/vnd.github+json" },
+            { "name": "X-GitHub-Api-Version", "value": "2022-11-28" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: \"chore(updates): \" + $json.title, content: $json.content_b64, sha: $json.sha, branch: \"main\" }) }}",
+        "options": {}
+      },
+      "id": "b1f2a1a0-0001-4a00-8000-000000000004",
+      "name": "GitHub: Commit updates.json",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 0],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "GitHub PAT (EDV-Kretzer)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: true, title: $json.title }) }}",
+        "options": {}
+      },
+      "id": "b1f2a1a0-0001-4a00-8000-000000000005",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [680, -80],
+      "notesInFlow": true,
+      "notes": "Läuft nur bei webhook-getriggerten Ausführungen sinnvoll ins Leere – bei Release-Trigger-Läufen ohne Effekt, kann ignoriert werden."
+    }
+  ],
+  "connections": {
+    "Webhook (manuell)": {
+      "main": [[{ "node": "Normalize Input", "type": "main", "index": 0 }]]
+    },
+    "GitHub Trigger (Release)": {
+      "main": [[{ "node": "Normalize Input", "type": "main", "index": 0 }]]
+    },
+    "Normalize Input": {
+      "main": [[{ "node": "GitHub: Get updates.json", "type": "main", "index": 0 }]]
+    },
+    "GitHub: Get updates.json": {
+      "main": [[{ "node": "Build new updates.json", "type": "main", "index": 0 }]]
+    },
+    "Build new updates.json": {
+      "main": [[{ "node": "GitHub: Commit updates.json", "type": "main", "index": 0 }]]
+    },
+    "GitHub: Commit updates.json": {
+      "main": [[{ "node": "Respond to Webhook", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
