@@ -12,6 +12,153 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+  <meta property="og:type" content="website" data-seo>
+  <meta property="og:site_name" content="EDV-Kretzer" data-seo>
+  <meta property="og:title" content="capulus im Überblick: Architektur und Projekte" data-seo>
+  <meta property="og:description" content="Wie capulus-core, capulus-ansible, capulus-ios und capulus-wiki-sync zusammenspielen: Architekturdiagramm, Werkzeuge und aktuelle Versionen aller Projekte." data-seo>
+  <meta property="og:url" content="https://www.edv-kretzer.de/capulus.html" data-seo>
+  <meta property="og:locale" content="de_DE" data-seo>
+  <meta property="og:image" content="https://www.edv-kretzer.de/assets/images/screenshot-argocd.png" data-seo>
+  <meta name="twitter:card" content="summary_large_image" data-seo>
+  <meta name="twitter:title" content="capulus im Überblick: Architektur und Projekte" data-seo>
+  <meta name="twitter:description" content="Wie capulus-core, capulus-ansible, capulus-ios und capulus-wiki-sync zusammenspielen: Architekturdiagramm, Werkzeuge und aktuelle Versionen aller Projekte." data-seo>
+  <script type="application/ld+json" data-seo>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.edv-kretzer.de/capulus.html#webpage",
+      "url": "https://www.edv-kretzer.de/capulus.html",
+      "name": "capulus im Überblick: Architektur und Projekte",
+      "description": "Wie capulus-core, capulus-ansible, capulus-ios und capulus-wiki-sync zusammenspielen: Architekturdiagramm, Werkzeuge und aktuelle Versionen aller Projekte.",
+      "inLanguage": "de-DE",
+      "isPartOf": {
+        "@id": "https://www.edv-kretzer.de/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.edv-kretzer.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projekt",
+          "item": "https://www.edv-kretzer.de/projekt.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "capulus im Überblick",
+          "item": "https://www.edv-kretzer.de/capulus.html"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Projekte",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "capulus-core",
+            "description": "GitOps-Repository des Homelabs: ArgoCD-Applications für die drei k3s-Cluster TECH, PROD und ENTW, Promotion-Kette und Token-Register.",
+            "codeRepository": "https://github.com/pkr-lab/capulus-core",
+            "programmingLanguage": "Helm",
+            "version": "v3.54.0",
+            "author": {
+              "@id": "https://www.edv-kretzer.de/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "capulus-ansible",
+            "description": "Ansible-Playbooks und Rollen: provisionieren die Ubuntu-Hosts, die k3s-Cluster, Kiosk-Raspberry-Pis und die Host-Dienste.",
+            "codeRepository": "https://github.com/pkr-lab/capulus-ansible",
+            "programmingLanguage": "Ansible",
+            "version": "v1.0.1",
+            "author": {
+              "@id": "https://www.edv-kretzer.de/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "capulus-ios",
+            "description": "SwiftUI-App „Homeserver Dashboard“ für iPhone und iPad: Alarme, Host-Metriken und Dienststatus des Homelabs.",
+            "codeRepository": "https://github.com/pkr-lab/capulus-ios",
+            "programmingLanguage": "Swift",
+            "version": "v1.0.1",
+            "author": {
+              "@id": "https://www.edv-kretzer.de/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "capulus-wiki-sync",
+            "description": "Spiegelt das Docs-Repo als Seitenbaum nach Wiki.js, mit umgeschriebenen Links und Bildern.",
+            "codeRepository": "https://github.com/pkr-lab/capulus-wiki-sync",
+            "programmingLanguage": "Python",
+            "version": "v1.1.1",
+            "author": {
+              "@id": "https://www.edv-kretzer.de/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "cubi",
+            "description": "Interaktives Terminal-Werkzeug für den Kubernetes-Alltag: ArgoCD, Kubernetes, Helm, Tailscale, GitHub und SSH in einem Menü.",
+            "codeRepository": "https://github.com/pkr-lab/cubi",
+            "programmingLanguage": "Python",
+            "version": "v1.0.0",
+            "author": {
+              "@id": "https://www.edv-kretzer.de/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "ui-terminal-config",
+            "description": "Skript für Ubuntu Desktop: Starship-Prompt mit Konfiguration, Nerd Font und optional KI-Kommandozeilenwerkzeuge.",
+            "codeRepository": "https://github.com/pkr-lab/ui-terminal-config",
+            "programmingLanguage": "Shell",
+            "version": "v1.0.0",
+            "author": {
+              "@id": "https://www.edv-kretzer.de/#person"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
