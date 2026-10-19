@@ -13,10 +13,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # Automatisiert exakt den bisherigen manuellen Ablauf: per SSH auf den
-      # netcup-Server, dort im Docroot "git pull". Kein FTP, kein separates
-      # Checkout hier im Runner nötig - der Server zieht sich main selbst.
-      - name: git pull auf netcup per SSH
+      - name: Spiegel aktualisieren und nach httpdocs auschecken
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.NETCUP_HOST }}
@@ -25,5 +22,5 @@ jobs:
           port: ${{ secrets.NETCUP_PORT || '22' }}
           script: |
             set -e
-            cd "${{ secrets.NETCUP_PATH }}"
-            git pull --ff-only
+            git -C "$HOME/git/EDV-Kretzer" fetch --prune origin
+            git --git-dir="$HOME/git/EDV-Kretzer" --work-tree="${{ secrets.NETCUP_PATH }}" checkout -f main
