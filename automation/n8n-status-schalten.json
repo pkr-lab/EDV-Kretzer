@@ -1,0 +1,217 @@
+{
+  "name": "EDV-Kretzer – Status-Hinweis schalten",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Status-Hinweis auf edv-kretzer.de",
+        "formDescription": "Schaltet den Banner auf der Website ein oder aus. Sichtbar nach ca. einer Minute.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Aktion",
+              "fieldType": "dropdown",
+              "requiredField": true,
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Wartung einschalten"
+                  },
+                  {
+                    "option": "Störung einschalten"
+                  },
+                  {
+                    "option": "Hinweis einschalten"
+                  },
+                  {
+                    "option": "Ausschalten"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Bereiche",
+              "fieldType": "dropdown",
+              "multiselect": true,
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Gesamter Cluster"
+                  },
+                  {
+                    "option": "Website"
+                  },
+                  {
+                    "option": "Nextcloud"
+                  },
+                  {
+                    "option": "Immich"
+                  },
+                  {
+                    "option": "Paperless-ngx"
+                  },
+                  {
+                    "option": "Wiki.js"
+                  },
+                  {
+                    "option": "Infotafel (Xibo)"
+                  },
+                  {
+                    "option": "Alarmmonitor"
+                  },
+                  {
+                    "option": "Telefon-Alarm"
+                  },
+                  {
+                    "option": "Vaultwarden"
+                  },
+                  {
+                    "option": "Zammad (Tickets)"
+                  },
+                  {
+                    "option": "n8n (Automatisierungen)"
+                  },
+                  {
+                    "option": "Monitoring"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Text",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Dauer",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Offen"
+                  },
+                  {
+                    "option": "1 Stunde"
+                  },
+                  {
+                    "option": "4 Stunden"
+                  },
+                  {
+                    "option": "1 Tag"
+                  },
+                  {
+                    "option": "3 Tage"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c1b0a1d2-5e1f-4a57-9c10-0d6f2a7e5b01",
+      "name": "Formular",
+      "webhookId": "6f0d2c34-3b8a-4c8e-9b1f-7a5d9e2c4b10"
+    },
+    {
+      "parameters": {
+        "jsCode": "const f = $input.first().json;\nconst arten = { \"Wartung einschalten\": \"maintenance\", \"Störung einschalten\": \"incident\", \"Hinweis einschalten\": \"info\" };\nconst dauern = { \"1 Stunde\": 1, \"4 Stunden\": 4, \"1 Tag\": 24, \"3 Tage\": 72 };\nconst aktiv = f[\"Aktion\"] in arten;\nconst roh = f[\"Bereiche\"];\nconst bereiche = Array.isArray(roh) ? roh.join(\", \") : (roh || \"\");\nconst stunden = dauern[f[\"Dauer\"]];\nconst bis = aktiv && stunden ? new Date(Date.now() + stunden * 3600000).toISOString() : \"\";\nconst text = (f[\"Text\"] || \"\").trim() || \"Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.\";\nreturn [{ json: { ref: \"main\", inputs: { aktiv: String(aktiv), art: arten[f[\"Aktion\"]] || \"maintenance\", titel: \"\", text, bis, bereiche } } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        0
+      ],
+      "id": "c1b0a1d2-5e1f-4a57-9c10-0d6f2a7e5b02",
+      "name": "Eingaben aufbereiten"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/pkr-lab/EDV-Kretzer/actions/workflows/status.yml/dispatches",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        0
+      ],
+      "id": "c1b0a1d2-5e1f-4a57-9c10-0d6f2a7e5b03",
+      "name": "GitHub: Workflow starten",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "GitHub PAT (EDV-Kretzer)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Status-Hinweis schalten\nStartet den GitHub-Workflow Status-Hinweis im Repo EDV-Kretzer. Der Workflow schreibt data/status.json und deployt.\n\nBenötigt die Zugangsdaten GitHub PAT (EDV-Kretzer) mit der Berechtigung Actions: Read and write für das Repo pkr-lab/EDV-Kretzer.\n\nDie Bereiche stehen im Formular-Knoten und lassen sich dort ändern.",
+        "height": 220,
+        "width": 380
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -280
+      ],
+      "id": "c1b0a1d2-5e1f-4a57-9c10-0d6f2a7e5b04",
+      "name": "Hinweise"
+    }
+  ],
+  "connections": {
+    "Formular": {
+      "main": [
+        [
+          {
+            "node": "Eingaben aufbereiten",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Eingaben aufbereiten": {
+      "main": [
+        [
+          {
+            "node": "GitHub: Workflow starten",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Berlin"
+  }
+}

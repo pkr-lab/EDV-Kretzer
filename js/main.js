@@ -205,6 +205,11 @@
       text.textContent = status.message || "";
       box.appendChild(title);
       box.appendChild(text);
+      if (Array.isArray(status.areas) && status.areas.length) {
+        var areas = document.createElement("span");
+        areas.textContent = "Betroffen: " + status.areas.join(", ");
+        box.appendChild(areas);
+      }
       var since = formatStatusDate(status.since);
       var end = until ? formatStatusDate(status.until) : "";
       if (since || end) {
