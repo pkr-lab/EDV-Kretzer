@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.1.0...v1.2.0) (2026-10-19)
+
+### Features
+
+* **status:** Bereiche im Banner und n8n-Formular als Schalter ([9ff1915](https://github.com/pkr-lab/EDV-Kretzer/commit/9ff1915e7b10aacf0a2c83d12f3ffd926f8056e3))
+
 ## [1.1.0](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.0.2...v1.1.0) (2026-10-19)
 
 ### Features
