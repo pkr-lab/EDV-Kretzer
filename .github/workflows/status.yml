@@ -1,0 +1,73 @@
+name: Status-Hinweis
+
+on:
+  workflow_dispatch:
+    inputs:
+      aktiv:
+        description: "Hinweis anzeigen"
+        type: boolean
+        default: true
+      art:
+        description: "Art des Hinweises"
+        type: choice
+        options: [maintenance, incident, info]
+        default: maintenance
+      titel:
+        description: "Titel, leer = Standardtitel der Art"
+        type: string
+        default: ""
+      text:
+        description: "Text"
+        type: string
+        default: "Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen."
+      bis:
+        description: "Voraussichtlich bis (z. B. 2026-10-21T18:00:00+02:00), leer = offen"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: status
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: status.json schreiben
+        env:
+          AKTIV: ${{ inputs.aktiv }}
+          ART: ${{ inputs.art }}
+          TITEL: ${{ inputs.titel }}
+          TEXT: ${{ inputs.text }}
+          BIS: ${{ inputs.bis }}
+        run: |
+          jq -n \
+            --argjson active "$AKTIV" \
+            --arg level "$ART" \
+            --arg title "$TITEL" \
+            --arg message "$TEXT" \
+            --arg since "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg until "$BIS" \
+            '{active: $active, level: $level, title: $title, message: $message, since: (if $active then $since else "" end), until: (if $active then $until else "" end)}' \
+            > data/status.json
+          cat data/status.json
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/status.json
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(status): Status-Hinweis aktualisiert [skip ci]"
+          git push
+
+  deploy:
+    needs: update
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

@@ -182,6 +182,40 @@
     }
   }
 
+  /* ---------- Status-Hinweis (data/status.json) ---------- */
+  var statusLevels = { maintenance: "Wartung", incident: "Störung", info: "Hinweis" };
+  var formatStatusDate = function (value) {
+    var date = new Date(value);
+    if (isNaN(date.getTime())) return "";
+    return date.toLocaleString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  };
+  fetch("data/status.json", { cache: "no-store" })
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .then(function (status) {
+      if (!status || status.active !== true) return;
+      var until = status.until ? new Date(status.until) : null;
+      if (until && !isNaN(until.getTime()) && until.getTime() < Date.now()) return;
+      var level = statusLevels[status.level] ? status.level : "info";
+      var box = document.createElement("div");
+      box.className = "status-banner status-" + level;
+      box.setAttribute("role", "status");
+      var title = document.createElement("strong");
+      title.textContent = status.title || statusLevels[level];
+      var text = document.createElement("span");
+      text.textContent = status.message || "";
+      box.appendChild(title);
+      box.appendChild(text);
+      var since = formatStatusDate(status.since);
+      var end = until ? formatStatusDate(status.until) : "";
+      if (since || end) {
+        var meta = document.createElement("small");
+        meta.textContent = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+        box.appendChild(meta);
+      }
+      document.body.insertBefore(box, document.body.firstChild);
+    })
+    .catch(function () {});
+
   /* ---------- Aktuelles Jahr im Footer ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
