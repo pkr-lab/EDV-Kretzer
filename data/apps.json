@@ -13,18 +13,18 @@
     "name": "Pi-hole",
     "icon": "🛡️",
     "categories": ["Infrastruktur"],
-    "description": "Netzwerkweite Werbeblockierung, kombiniert mit dnsmasq für Split-DNS auf *.homeserver.",
+    "description": "Netzwerkweite Werbeblockierung, kombiniert mit dnsmasq für Split-DNS für interne Dienste.",
     "tags": ["DNS", "Adblock", "dnsmasq"],
     "url": "https://pi-hole.net/"
   },
   {
-    "id": "authentik",
-    "name": "Authentik",
+    "id": "lldap",
+    "name": "lldap",
     "icon": "🔐",
     "categories": ["Sicherheit & Identity"],
-    "description": "Zentraler OIDC-Provider für alle Dienste – ein Login für den kompletten Cluster statt 20 verschiedener Passwörter.",
-    "tags": ["SSO", "OIDC", "Identity"],
-    "url": "https://goauthentik.io/"
+    "description": "Schlankes LDAP-Verzeichnis für Nutzer und Gruppen – ein zentraler Ort, an dem Konten der Dienste verwaltet werden.",
+    "tags": ["LDAP", "Identity", "Nutzerverwaltung"],
+    "url": "https://github.com/lldap/lldap"
   },
   {
     "id": "sealed-secrets",
@@ -79,15 +79,6 @@
     "description": "Statusseite und Alarmierung, sobald einer der selbstgehosteten Dienste nicht mehr erreichbar ist.",
     "tags": ["Statusseite", "Alerting"],
     "url": "https://github.com/louislam/uptime-kuma"
-  },
-  {
-    "id": "gotify",
-    "name": "Gotify",
-    "icon": "🔔",
-    "categories": ["Monitoring", "Kommunikation"],
-    "description": "Selbstgehostete Push-Benachrichtigungen fürs Handy – für Alerts aus dem eigenen Cluster statt aus der Cloud.",
-    "tags": ["Push", "Benachrichtigungen"],
-    "url": "https://gotify.net/"
   },
   {
     "id": "ntfy",
@@ -169,15 +160,6 @@
     "description": "Digitale Dokumentenverwaltung mit Volltextsuche – Papierkram einscannen und nie wieder suchen müssen.",
     "tags": ["Dokumente", "OCR", "Volltextsuche"],
     "url": "https://docs.paperless-ngx.com/"
-  },
-  {
-    "id": "mealie",
-    "name": "Mealie",
-    "icon": "🍲",
-    "categories": ["Produktivität"],
-    "description": "Rezeptverwaltung und Essensplanung – Rezepte per Link importieren statt Zettel zu sammeln.",
-    "tags": ["Rezepte", "Essensplanung"],
-    "url": "https://mealie.io/"
   },
   {
     "id": "wikijs",

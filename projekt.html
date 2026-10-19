@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projekt – capulus-core: GitOps-Homelab auf k3s &amp; ArgoCD | EDV-Kretzer</title>
-  <meta name="description" content="Wie capulus-core einen einzelnen Server per Ansible in ein produktionsreifes GitOps-Homelab auf k3s, ArgoCD und Tailscale verwandelt – Architektur, Workflow und Hardware.">
+  <meta name="description" content="Wie capulus-core mit Ansible, drei k3s-Clustern, ArgoCD und Tailscale ein produktionsreifes GitOps-Homelab bildet – Architektur, Repositories, Workflow und Hardware.">
   <meta name="theme-color" content="#0a0e27">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
@@ -71,7 +71,7 @@
       <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>Projekt</span></div>
       <p class="eyebrow text-center">Projekt</p>
       <h1>Wie capulus-core aufgebaut ist</h1>
-      <p>Ein Ansible-Lauf verwandelt einen einzelnen Server in ein produktionsreifes GitOps-Homelab: gehärtetes Ubuntu, k3s, ArgoCD und Tailscale arbeiten zusammen – reproduzierbar, dokumentiert und mit null offenen Ports nach außen.</p>
+      <p>Ansible, drei k3s-Cluster, ArgoCD und Tailscale bilden zusammen ein produktionsreifes GitOps-Homelab – verteilt auf mehrere Repositories, reproduzierbar, dokumentiert und mit null offenen Ports nach außen.</p>
     </section>
 
     <!-- Infrastruktur -->
@@ -79,15 +79,15 @@
       <div class="solution-block">
         <div class="solution-text reveal">
           <p class="eyebrow">Infrastruktur</p>
-          <h2>Ein gehärteter Server, komplett per Ansible</h2>
-          <p>Den Anfang macht ein einzelnes Ansible-Playbook: Es installiert ein gehärtetes Ubuntu Server 26.04 LTS mit UFW-Firewall, richtet k3s als schlankes Kubernetes ein – inklusive Traefik als Ingress und CoreDNS – und legt damit das Fundament für alles Weitere. Kein manuelles Geklicke, keine Doku, die nach zwei Monaten nicht mehr stimmt: Jeder Schritt steht im Playbook.</p>
+          <h2>Gehärtete Hosts und Cluster, komplett per Ansible</h2>
+          <p>Den Anfang macht das Repository <a href="https://github.com/pkr-lab/capulus-ansible" target="_blank" rel="noopener">capulus-ansible</a>: Seine Playbooks installieren ein gehärtetes Ubuntu Server 26.04 LTS mit UFW-Firewall und CrowdSec, richten die drei k3s-Cluster TECH, PROD und ENTW ein – inklusive Traefik als Ingress und CoreDNS – und legen damit das Fundament für alles Weitere. Kein manuelles Geklicke, keine Doku, die nach zwei Monaten nicht mehr stimmt: Jeder Schritt steht im Playbook.</p>
           <ul>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Ubuntu Server 26.04 LTS, gehärtet, UFW-Firewall</li>
-            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> k3s inkl. Traefik v2 &amp; CoreDNS</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Drei k3s-Cluster (TECH, PROD, ENTW) inkl. Traefik &amp; CoreDNS</li>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Ansible ≥2.14, idempotent, Secrets per Vault verschlüsselt</li>
-            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Split-DNS via dnsmasq + Pi-hole für <code>*.homeserver</code></li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Split-DNS via dnsmasq + Pi-hole für interne Dienste</li>
           </ul>
-          <a href="https://github.com/pkr-lab/capulus-core#quick-start" target="_blank" rel="noopener" class="btn btn-primary">Quickstart auf GitHub</a>
+          <a href="https://github.com/pkr-lab/capulus-ansible#quickstart" target="_blank" rel="noopener" class="btn btn-primary">Quickstart auf GitHub</a>
         </div>
         <div class="solution-visual glass reveal">
           <div class="stack-diagram">
@@ -113,7 +113,7 @@
             <div class="stack-connector"></div>
             <div class="stack-layer">
               <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-server"></use></svg></span>
-              <div><strong>Hardware</strong><span>Ein Server reicht</span></div>
+              <div><strong>Hardware</strong><span>Eine kleine Box genügt für TECH</span></div>
             </div>
           </div>
         </div>
@@ -128,12 +128,13 @@
         <div class="solution-text reveal">
           <p class="eyebrow">GitOps-Workflow</p>
           <h2>Neue Anwendung? Einfach nach Git pushen.</h2>
-          <p>ArgoCD überwacht das <code>argocd/apps/</code>-Verzeichnis dieses Repos und synchronisiert jede Änderung automatisch in den Cluster – ganz ohne <code>kubectl apply</code> von Hand. Eine neue App hinzuzufügen heißt: Ordner anlegen, Kubernetes-YAML oder Helm-Chart hineinlegen, committen, pushen. Nach spätestens drei Minuten läuft sie in ihrem eigenen Namespace.</p>
+          <p>ArgoCD überwacht das Verzeichnis <code>argocd/apps/</code> in capulus-core und synchronisiert jede Änderung automatisch in den passenden Cluster – ganz ohne <code>kubectl apply</code> von Hand. Eine neue App hinzuzufügen heißt: Ordner unter <code>argocd/apps/&lt;cluster&gt;/</code> anlegen, Kubernetes-YAML oder Helm-Chart hineinlegen, per Pull Request nach <code>main</code> bringen. Nach dem Merge läuft sie in ihrem eigenen Namespace.</p>
           <ul>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Deklarativ: Cluster-Zustand = Zustand des Git-Repos</li>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> ArgoCD ApplicationSets erkennen neue Ordner automatisch</li>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Nur lesender Zugriff: ArgoCD kann das Repo nicht verändern</li>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Jede App bekommt ihren eigenen Namespace</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Promotion ENTW → TECH → PROD mit Gesundheits-Gate: erst testen, dann ausrollen</li>
           </ul>
           <a href="https://github.com/pkr-lab/pkr-lab-docs/blob/main/capulus-core/b-kubernetes-gitops/b0010-argocd.md" target="_blank" rel="noopener" class="btn btn-primary">Workflow in der Doku</a>
         </div>
@@ -141,11 +142,11 @@
           <div class="device" style="max-width:420px;">
             <div class="screen-bar"><span></span><span></span><span></span></div>
             <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.82rem; line-height:1.9; color: var(--color-text);">
-              <div>$ mkdir -p argocd/apps/mein-service</div>
-              <div>$ git add argocd/apps/mein-service</div>
+              <div>$ mkdir -p argocd/apps/tech/mein-service</div>
+              <div>$ git add argocd/apps/tech/mein-service</div>
               <div>$ git commit -m "add mein-service"</div>
               <div>$ git push</div>
-              <div style="color: var(--color-accent-light); font-weight:600;">✓ ArgoCD sync in ~3 Min</div>
+              <div style="color: var(--color-accent-light); font-weight:600;">✓ Merge → ArgoCD synct</div>
             </div>
           </div>
         </div>
@@ -158,19 +159,19 @@
     <section class="container" id="tier-system">
       <div class="solution-block">
         <div class="solution-text reveal">
-          <p class="eyebrow">Tier-System</p>
-          <h2>Zwei Schichten, sauber getrennt</h2>
-          <p>Jede App liegt entweder unter <code>argocd/apps/platform/</code> (Identity, Secrets, Netzwerk, Monitoring – Infrastruktur, auf der alles andere aufbaut) oder <code>argocd/apps/workloads/</code> (Apps mit echtem Nutzerkreis: Familie, Vereinsmitglieder). Diese Trennung zieht sich konsequent bis in ArgoCD und die URL selbst durch: zwei eigene AppProjects, die jeweils nur in ihre eigenen Namespaces deployen dürfen, und ein Tier-Label in jedem Hostnamen.</p>
+          <p class="eyebrow">Drei Cluster</p>
+          <h2>Drei Cluster, sauber getrennt</h2>
+          <p>Jede App liegt unter <code>argocd/apps/tech/</code> (Infrastruktur und Betriebsdienste: Secrets, Netzwerk, Monitoring, CI/CD), <code>argocd/apps/prod/</code> (Apps mit echtem Nutzerkreis: Familie, Vereinsmitglieder) oder <code>argocd/apps/entw/</code> (Entwicklung und Tests). Die Trennung zieht sich bis in ArgoCD und die URL selbst durch: je Cluster ein eigenes AppProject, das nur in seine eigenen Namespaces deployen darf, und ein Tier-Label in jedem Hostnamen. Neue Versionen laufen erst auf ENTW und wandern nach bestandenem Gesundheits-Gate per Pull Request nach TECH und PROD.</p>
           <ul>
-            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Zwei ArgoCD-AppProjects mit strikt getrennten <code>destinations</code></li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Je Cluster ein ArgoCD-AppProject mit strikt getrennten <code>destinations</code></li>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Jeder Hostname trägt dasselbe Tier-Label wie sein AppProject</li>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Intern per Punkt, extern per Bindestrich – nie zu verwechseln</li>
-            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Freischalten = ein <code>host</code>-Eintrag mehr, kein Extra-DNS-Schritt</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> ENTW ist eine eigene, isolierte ArgoCD-Instanz – Experimente bleiben dort</li>
           </ul>
           <div class="tag-row mb-2">
-            <span class="tag">platform → tech</span>
-            <span class="tag">workloads → prod</span>
-            <span class="tag">reserviert → dev</span>
+            <span class="tag">tech → TECH-Cluster</span>
+            <span class="tag">prod → PROD-Cluster</span>
+            <span class="tag">dev → ENTW-Cluster</span>
           </div>
           <a href="https://github.com/pkr-lab/pkr-lab-docs/blob/main/capulus-core/c-netzwerk-dns/c0040-domain-tiers.md" target="_blank" rel="noopener" class="btn btn-primary">Tier-Konvention in der Doku</a>
         </div>
@@ -178,9 +179,7 @@
           <div class="device">
             <div class="screen-bar"><span></span><span></span><span></span></div>
             <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.82rem; line-height:2; color: var(--color-text);">
-              <div style="color: var(--color-text-muted);"># intern · LAN &amp; Tailnet</div>
-              <div>nextcloud<span style="color: var(--color-accent-light); font-weight:600;">.prod</span>.homeserver</div>
-              <div style="margin-top:0.9em; color: var(--color-text-muted);"># extern · Cloudflare Tunnel</div>
+              <div style="color: var(--color-text-muted);"># extern · Cloudflare Tunnel</div>
               <div>nextcloud<span style="color: var(--color-accent-light); font-weight:600;">-prod</span>.pke-lab.de</div>
             </div>
           </div>
@@ -223,6 +222,54 @@
       </div>
     </section>
 
+    <!-- Repositories -->
+    <section class="section" id="repositories">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Repositories</p>
+          <h2>Ein Projekt, fünf Repositories</h2>
+          <p>capulus-core ist der Kern, aber nicht mehr alles in einem Repo: Hosts, App, Doku und Wiki-Sync leben in eigenen Repositories mit eigenen Releases.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-git-branch"></use></svg></div>
+            <h3>capulus-core</h3>
+            <p>GitOps-Repository: ArgoCD-Apps für TECH, PROD und ENTW, Promotion-Kette, Token-Register und Hilfsskripte.</p>
+            <div class="tag-row"><span class="tag">ArgoCD</span><span class="tag">Helm</span></div>
+            <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="card-link">Auf GitHub <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-server"></use></svg></div>
+            <h3>capulus-ansible</h3>
+            <p>Playbooks und Rollen für Ubuntu-Hosts, die drei k3s-Cluster, Kiosk-Raspberry-Pis und Host-Dienste.</p>
+            <div class="tag-row"><span class="tag">Ansible</span><span class="tag">k3s</span></div>
+            <a href="https://github.com/pkr-lab/capulus-ansible" target="_blank" rel="noopener" class="card-link">Auf GitHub <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-bell"></use></svg></div>
+            <h3>capulus-ios</h3>
+            <p>SwiftUI-App „Homeserver Dashboard“ für iPhone und iPad: Alarme, Host-Metriken und Dienststatus.</p>
+            <div class="tag-row"><span class="tag">Swift</span><span class="tag">SwiftUI</span></div>
+            <a href="app.html" class="card-link">Zur App <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-database"></use></svg></div>
+            <h3>pkr-lab-docs</h3>
+            <p>Die gesamte Dokumentation: Installation, Betrieb, Hintergründe und Incident-Berichte.</p>
+            <div class="tag-row"><span class="tag">Markdown</span><span class="tag">150+ Seiten</span></div>
+            <a href="https://github.com/pkr-lab/pkr-lab-docs" target="_blank" rel="noopener" class="card-link">Auf GitHub <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-cog"></use></svg></div>
+            <h3>capulus-wiki-sync</h3>
+            <p>Spiegelt die Doku automatisch als Seitenbaum nach Wiki.js und hält sie aktuell.</p>
+            <div class="tag-row"><span class="tag">Python</span><span class="tag">Wiki.js</span></div>
+            <a href="https://github.com/pkr-lab/capulus-wiki-sync" target="_blank" rel="noopener" class="card-link">Auf GitHub <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Security -->
     <section class="section" id="security">
       <div class="container">
@@ -246,7 +293,7 @@
           <div class="feature-card glass-card reveal">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-cog"></use></svg></div>
             <h3>Automatische Updates</h3>
-            <p>APT-Security-Patches, k3s, Helm-Charts und alle Apps aktualisieren sich selbstständig – inklusive Reboot bei Bedarf.</p>
+            <p>APT-Security-Patches und k3s aktualisieren sich selbstständig – inklusive Reboot bei Bedarf. Chart- und Image-Updates kommen per Renovate und laufen erst durch ENTW und TECH, bevor sie PROD erreichen.</p>
           </div>
         </div>
       </div>
@@ -258,7 +305,7 @@
         <div class="section-head reveal">
           <p class="eyebrow">Hardware</p>
           <h2>Worauf das Ganze läuft</h2>
-          <p>capulus-core selbst ist für einen einzelnen Node ausgelegt – bei mir ist mit der Zeit ein kleiner Drei-Node-Cluster daraus geworden. Offizielle Mindestanforderung laut Projekt: 4 GB RAM, 20 GB Speicher.</p>
+          <p>Der TECH-Cluster läuft auf dem Homeserver, PROD und ENTW laufen als KVM-VMs darauf und auf <code>worker-1</code>. Für einen Nachbau von TECH reicht laut Projekt eine kleine Box mit 4 GB RAM und 20 GB Speicher.</p>
         </div>
 
         <h3 class="text-center mb-2">Cluster-Nodes</h3>
@@ -266,7 +313,7 @@
           <article class="product-card glass-card reveal">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-server"></use></svg></div>
             <h3>HP ProBook 450 G9</h3>
-            <p>k3s Server-Node (Control Plane) – läuft dauerhaft als Homeserver.</p>
+            <p>k3s Server-Node (Control Plane) des TECH-Clusters – läuft dauerhaft als Homeserver und hostet die PROD-VM.</p>
             <div class="tag-row">
               <span class="tag">Intel Core i5 · 12. Gen</span>
               <span class="tag">64 GB RAM</span>
@@ -286,7 +333,7 @@
           <article class="product-card glass-card reveal">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-server"></use></svg></div>
             <h3>MSI Tower PC (Eigenbau)</h3>
-            <p>k3s Worker-Node <code>worker-1</code> – Standby, fährt bei steigender Last automatisch hoch.</p>
+            <p>k3s Worker-Node <code>worker-1</code> – Standby, fährt bei steigender Last automatisch hoch. Hostet die ENTW-VM.</p>
             <div class="tag-row">
               <span class="tag">Intel Core i7</span>
               <span class="tag">16 GB RAM</span>
@@ -309,7 +356,7 @@
           <article class="product-card glass-card reveal">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-database"></use></svg></div>
             <h3>UGREEN NASync DXP4800 Plus</h3>
-            <p>4-Bay-NAS für Backups und kalte Daten, getrennt vom Cluster.</p>
+            <p>4-Bay-NAS: NFS-Speicher für alle Cluster (RAID1), Backups und kalte Daten, getrennt vom Cluster.</p>
             <div class="tag-row">
               <span class="tag">2× Seagate IronWolf ST4000VN006</span>
               <span class="tag">8 TB gesamt</span>
@@ -373,7 +420,7 @@
       <div class="container">
         <div class="cta-section glass reveal">
           <h2>Lust, dein eigenes Homelab zu bauen?</h2>
-          <p>Der komplette Code, alle Ansible-Rollen und 40+ Doku-Guides liegen offen auf GitHub – MIT-lizenziert, forkbar, ohne Anmeldung.</p>
+          <p>Der komplette Code, alle Ansible-Rollen und über 150 Doku-Seiten liegen offen auf GitHub – MIT-lizenziert, forkbar, ohne Anmeldung.</p>
           <div class="cta-actions">
             <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener" class="btn btn-primary">Auf GitHub ansehen</a>
             <a href="anwendungen.html" class="btn btn-outline">Anwendungen durchstöbern</a>
