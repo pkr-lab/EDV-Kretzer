@@ -1,0 +1,82 @@
+[
+  {
+    "id": "v3.52.1",
+    "date": "2026-10-19",
+    "tag": "Fix",
+    "title": "capulus-core v3.52.1",
+    "body": "Behoben: renovate: wiki-sync-Image ohne Wartezeit und Wochenfenster aktualisieren; renovate: Wochenfenster auf ganzen Montag erweitern und nur capulus-Repos bearbeiten",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.1"
+  },
+  {
+    "id": "v3.52.0",
+    "date": "2026-10-18",
+    "tag": "Feature",
+    "title": "capulus-core v3.52.0",
+    "body": "Neu: ci: Release und Commitlint über die zentralen Workflows",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.0"
+  },
+  {
+    "id": "v3.51.0",
+    "date": "2026-10-18",
+    "tag": "Feature",
+    "title": "capulus-core v3.51.0",
+    "body": "Neu: wiki-docs-sync: dryRun aus, Sync schreibt nach Wiki.js",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.51.0"
+  },
+  {
+    "id": "v3.50.0",
+    "date": "2026-10-18",
+    "tag": "Feature",
+    "title": "capulus-core v3.50.0",
+    "body": "Neu: wiki-docs-sync: Sync als eigenes Image, Quelle ist pkr-lab-docs",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.50.0"
+  },
+  {
+    "id": "v3.49.0",
+    "date": "2026-10-18",
+    "tag": "Feature",
+    "title": "capulus-core v3.49.0",
+    "body": "Neu: security: enhance firewall rules and remove deprecated kaniko workflow",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.49.0"
+  },
+  {
+    "id": "v3.48.0",
+    "date": "2026-10-18",
+    "tag": "Feature",
+    "title": "capulus-core v3.48.0",
+    "body": "Neu: security: add vault credentials for VM write and logs access",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.48.0"
+  },
+  {
+    "id": "v3.47.14",
+    "date": "2026-10-18",
+    "tag": "Fix",
+    "title": "capulus-core v3.47.14",
+    "body": "Behoben: ios,banana-pi: HTTPS statt Klartext-HTTP zu carplay-api und WoL-Agent, ATS-Ausnahme entfernt (Incident 018)",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.14"
+  },
+  {
+    "id": "v3.47.13",
+    "date": "2026-10-18",
+    "tag": "Fix",
+    "title": "capulus-core v3.47.13",
+    "body": "Behoben: docs: update transport protocols to HTTPS for security improvements",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.13"
+  },
+  {
+    "id": "v3.47.12",
+    "date": "2026-10-18",
+    "tag": "Fix",
+    "title": "capulus-core v3.47.12",
+    "body": "Behoben: ansible: enable check mode for various tasks in CrowdSec, k3s, k3s_agent, and Tailscale roles; ansible: ensure check mode compatibility for CrowdSec, Tailscale, and k3s tasks; ansible: Installer und Archive mit Prüfsumme bzw. Fingerprint, k3s-Installer gepinnt, Helm per Tarball, CrowdSec ohne Skript (Incident…",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.12"
+  },
+  {
+    "id": "v3.47.11",
+    "date": "2026-10-17",
+    "tag": "Fix",
+    "title": "capulus-core v3.47.11",
+    "body": "Behoben: dependencies: update Go version and indirect dependencies for security patches",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.11"
+  }
+]

@@ -13,7 +13,7 @@
   var meta = document.getElementById("updates-meta");
 
   if (list) {
-    fetch("data/updates.json")
+    fetch("data/releases.json")
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
@@ -33,12 +33,12 @@
     });
 
     if (sorted.length === 0) {
-      meta.textContent = "Noch keine Einträge.";
-      list.innerHTML = '<div class="empty-state">Hier steht bald das Erste – schau später nochmal vorbei.</div>';
+      meta.textContent = "Noch keine Releases.";
+      list.innerHTML = '<div class="empty-state">Noch keine Releases vorhanden – schau später nochmal vorbei.</div>';
       return;
     }
 
-    meta.textContent = sorted.length + (sorted.length === 1 ? " Update" : " Updates");
+    meta.textContent = "Die letzten " + sorted.length + (sorted.length === 1 ? " Release" : " Releases") + " von capulus-core";
 
     list.innerHTML = sorted
       .map(function (u, i) {
@@ -51,6 +51,9 @@
           "</div>" +
           "<h3>" + u.title + "</h3>" +
           "<p>" + u.body + "</p>" +
+          (u.url && u.url.indexOf("https://github.com/pkr-lab/capulus-core/releases/") === 0
+            ? '<p><a href="' + u.url + '" target="_blank" rel="noopener">Release auf GitHub</a></p>'
+            : "") +
           "</article>"
         );
       })
