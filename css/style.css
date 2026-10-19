@@ -1815,6 +1815,23 @@ p { color: var(--color-text-muted); }
 .info-banner p { font-size: 0.85rem; flex: 1; min-width: 220px; }
 .info-banner-actions { display: flex; gap: 0.6em; }
 
+/* ---------- Status-Hinweis ---------- */
+.status-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 0.9em;
+  align-items: baseline;
+  justify-content: center;
+  padding: 0.7em var(--space-3);
+  font-size: 0.9rem;
+  text-align: center;
+  color: #1a1400;
+  background: #ffc542;
+}
+.status-banner.status-incident { color: #fff; background: var(--color-accent); }
+.status-banner.status-info { color: var(--color-text); background: #24407a; }
+.status-banner small { opacity: 0.8; }
+
 /* ---------- Scroll Reveal ---------- */
 .reveal {
   opacity: 0;
