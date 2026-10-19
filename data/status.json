@@ -1,9 +1,9 @@
 {
-  "active": false,
+  "active": true,
   "level": "maintenance",
   "title": "",
-  "message": "",
-  "since": "",
-  "until": "",
-  "areas": []
+  "message": "Ich arbeite am Server, kurze Ausfälle möglich.",
+  "areas": [],
+  "since": "2026-10-19T17:36:03Z",
+  "until": "2026-10-21T18:00:00+02:00"
 }
