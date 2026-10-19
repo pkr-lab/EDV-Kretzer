@@ -20,6 +20,10 @@ on:
         description: "Text"
         type: string
         default: "Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen."
+      bereiche:
+        description: "Betroffene Bereiche, durch Komma getrennt, leer = keine Angabe"
+        type: string
+        default: ""
       bis:
         description: "Voraussichtlich bis (z. B. 2026-10-21T18:00:00+02:00), leer = offen"
         type: string
@@ -46,6 +50,7 @@ jobs:
           TITEL: ${{ inputs.titel }}
           TEXT: ${{ inputs.text }}
           BIS: ${{ inputs.bis }}
+          BEREICHE: ${{ inputs.bereiche }}
         run: |
           jq -n \
             --argjson active "$AKTIV" \
@@ -54,7 +59,8 @@ jobs:
             --arg message "$TEXT" \
             --arg since "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --arg until "$BIS" \
-            '{active: $active, level: $level, title: $title, message: $message, since: (if $active then $since else "" end), until: (if $active then $until else "" end)}' \
+            --arg areas "$BEREICHE" \
+            '{active: $active, level: $level, title: $title, message: $message, areas: (if $active then ($areas | split(",") | map(gsub("^\\s+|\\s+$"; "")) | map(select(length > 0))) else [] end), since: (if $active then $since else "" end), until: (if $active then $until else "" end)}' \
             > data/status.json
           cat data/status.json
 
