@@ -1,3 +1,14 @@
+## [1.3.0](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.2.0...v1.3.0) (2026-10-19)
+
+### Features
+
+* **status:** Freitextfeld für weitere Bereiche im Formular ([9964ba7](https://github.com/pkr-lab/EDV-Kretzer/commit/9964ba756cf7c022e9d52165847513e2657b5a8a))
+* **updates:** Verlauf zeigt die letzten zehn Releases von capulus-core ([f6410a0](https://github.com/pkr-lab/EDV-Kretzer/commit/f6410a0a076cc955c2cbcefcfd223353ddcd4761))
+
+### Bug Fixes
+
+* **status:** eigener Token-Eintrag für das n8n-Formular ([7b6f04c](https://github.com/pkr-lab/EDV-Kretzer/commit/7b6f04c8f86282d17a890c8c758e0401613e9e16))
+
 ## [1.2.0](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.1.0...v1.2.0) (2026-10-19)
 
 ### Features
