@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.0.2...v1.1.0) (2026-10-19)
+
+### Features
+
+* **status:** Statusbanner für Wartung und Störung mit Workflow zum Umschalten ([e6c7242](https://github.com/pkr-lab/EDV-Kretzer/commit/e6c7242260f01056a5752aa75c6d5befbec6087f))
+
 ## [1.0.2](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.0.1...v1.0.2) (2026-10-19)
 
 ### Bug Fixes
