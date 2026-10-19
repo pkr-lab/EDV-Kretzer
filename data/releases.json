@@ -1,5 +1,29 @@
 [
   {
+    "id": "v3.54.0",
+    "date": "2026-10-19",
+    "tag": "Feature",
+    "title": "capulus-core v3.54.0",
+    "body": "Neu: uptime-kuma: CORS-Header für die öffentliche Status-Page der Website",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.54.0"
+  },
+  {
+    "id": "v3.53.0",
+    "date": "2026-10-19",
+    "tag": "Feature",
+    "title": "capulus-core v3.53.0",
+    "body": "Neu: n8n: verschlüsseltes restic-Backup hinter Schalter (Incident 037)",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.53.0"
+  },
+  {
+    "id": "v3.52.2",
+    "date": "2026-10-19",
+    "tag": "Fix",
+    "title": "capulus-core v3.52.2",
+    "body": "Behoben: n8n: update storageClassName to local-path and add nodeSelector",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.2"
+  },
+  {
     "id": "v3.52.1",
     "date": "2026-10-19",
     "tag": "Fix",
@@ -54,29 +78,5 @@
     "title": "capulus-core v3.47.14",
     "body": "Behoben: ios,banana-pi: HTTPS statt Klartext-HTTP zu carplay-api und WoL-Agent, ATS-Ausnahme entfernt (Incident 018)",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.14"
-  },
-  {
-    "id": "v3.47.13",
-    "date": "2026-10-18",
-    "tag": "Fix",
-    "title": "capulus-core v3.47.13",
-    "body": "Behoben: docs: update transport protocols to HTTPS for security improvements",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.13"
-  },
-  {
-    "id": "v3.47.12",
-    "date": "2026-10-18",
-    "tag": "Fix",
-    "title": "capulus-core v3.47.12",
-    "body": "Behoben: ansible: enable check mode for various tasks in CrowdSec, k3s, k3s_agent, and Tailscale roles; ansible: ensure check mode compatibility for CrowdSec, Tailscale, and k3s tasks; ansible: Installer und Archive mit Prüfsumme bzw. Fingerprint, k3s-Installer gepinnt, Helm per Tarball, CrowdSec ohne Skript (Incident…",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.12"
-  },
-  {
-    "id": "v3.47.11",
-    "date": "2026-10-17",
-    "tag": "Fix",
-    "title": "capulus-core v3.47.11",
-    "body": "Behoben: dependencies: update Go version and indirect dependencies for security patches",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.11"
   }
 ]
