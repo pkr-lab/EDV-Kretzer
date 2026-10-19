@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.3.0...v1.3.1) (2026-10-19)
+
+### Bug Fixes
+
+* **links:** Zammad-Host, Wiki-Adresse und GitHub-Profil korrigieren ([68d4ccc](https://github.com/pkr-lab/EDV-Kretzer/commit/68d4ccc3ae2abca9d85631e9229f0e94f9e9e660))
+
 ## [1.3.0](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.2.0...v1.3.0) (2026-10-19)
 
 ### Features
