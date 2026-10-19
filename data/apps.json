@@ -249,7 +249,7 @@
     "categories": ["Automatisierung"],
     "description": "Selbstgebauter CronJob: prüft laufend neue Releases der eingesetzten Apps und meldet Updates automatisch.",
     "tags": ["Eigenbau", "Update-Tracking"],
-    "url": "https://github.com/pkr-lab/capulus-core/tree/main/argocd/apps/workloads/github-release-watcher"
+    "url": "https://github.com/pkr-lab/capulus-core/tree/main/argocd/apps/tech/github-release-watcher"
   },
   {
     "id": "xibosignage",
@@ -267,6 +267,6 @@
     "categories": ["Kommunikation", "Automatisierung"],
     "description": "Zentral verwaltete Raspberry-Pi-Alarmmonitor-Kioske für die DLRG-Ortsgruppe Andernach – Standorte und Ausfälle zentral im Blick.",
     "tags": ["Kiosk", "DLRG", "Eigenbau"],
-    "url": "https://github.com/pkr-lab/capulus-core/tree/main/argocd/apps/workloads/alamos-apager"
+    "url": "https://github.com/pkr-lab/capulus-core/tree/main/argocd/apps/tech/alamos-apager"
   }
 ]
