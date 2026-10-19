@@ -77,6 +77,11 @@
               }
             },
             {
+              "fieldLabel": "Weitere Bereiche",
+              "fieldType": "text",
+              "placeholder": "z. B. Pi-hole, Grafana (mehrere mit Komma trennen)"
+            },
+            {
               "fieldLabel": "Text",
               "fieldType": "textarea"
             },
@@ -119,7 +124,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const f = $input.first().json;\nconst arten = { \"Wartung einschalten\": \"maintenance\", \"Störung einschalten\": \"incident\", \"Hinweis einschalten\": \"info\" };\nconst dauern = { \"1 Stunde\": 1, \"4 Stunden\": 4, \"1 Tag\": 24, \"3 Tage\": 72 };\nconst aktiv = f[\"Aktion\"] in arten;\nconst roh = f[\"Bereiche\"];\nconst bereiche = Array.isArray(roh) ? roh.join(\", \") : (roh || \"\");\nconst stunden = dauern[f[\"Dauer\"]];\nconst bis = aktiv && stunden ? new Date(Date.now() + stunden * 3600000).toISOString() : \"\";\nconst text = (f[\"Text\"] || \"\").trim() || \"Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.\";\nreturn [{ json: { ref: \"main\", inputs: { aktiv: String(aktiv), art: arten[f[\"Aktion\"]] || \"maintenance\", titel: \"\", text, bis, bereiche } } }];"
+        "jsCode": "const f = $input.first().json;\nconst arten = { \"Wartung einschalten\": \"maintenance\", \"Störung einschalten\": \"incident\", \"Hinweis einschalten\": \"info\" };\nconst dauern = { \"1 Stunde\": 1, \"4 Stunden\": 4, \"1 Tag\": 24, \"3 Tage\": 72 };\nconst aktiv = f[\"Aktion\"] in arten;\nconst roh = f[\"Bereiche\"];\nconst gewaehlt = Array.isArray(roh) ? roh : String(roh || \"\").split(\",\");\nconst frei = String(f[\"Weitere Bereiche\"] || \"\").split(/[,;\\n]/);\nconst bereiche = [...new Set([...gewaehlt, ...frei].map((s) => s.trim().slice(0, 40)).filter(Boolean))].slice(0, 12).join(\", \");\nconst stunden = dauern[f[\"Dauer\"]];\nconst bis = aktiv && stunden ? new Date(Date.now() + stunden * 3600000).toISOString() : \"\";\nconst text = (f[\"Text\"] || \"\").trim() || \"Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.\";\nreturn [{ json: { ref: \"main\", inputs: { aktiv: String(aktiv), art: arten[f[\"Aktion\"]] || \"maintenance\", titel: \"\", text, bis, bereiche } } }];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -165,13 +170,13 @@
       "credentials": {
         "httpHeaderAuth": {
           "id": "",
-          "name": "GitHub PAT (EDV-Kretzer)"
+          "name": "GitHub PAT (Status-Schalter)"
         }
       }
     },
     {
       "parameters": {
-        "content": "## Status-Hinweis schalten\nStartet den GitHub-Workflow Status-Hinweis im Repo EDV-Kretzer. Der Workflow schreibt data/status.json und deployt.\n\nBenötigt die Zugangsdaten GitHub PAT (EDV-Kretzer) mit der Berechtigung Actions: Read and write für das Repo pkr-lab/EDV-Kretzer.\n\nDie Bereiche stehen im Formular-Knoten und lassen sich dort ändern.",
+        "content": "## Status-Hinweis schalten\nStartet den GitHub-Workflow Status-Hinweis im Repo EDV-Kretzer. Der Workflow schreibt data/status.json und deployt.\n\nBenötigt die Zugangsdaten GitHub PAT (Status-Schalter) mit der Berechtigung Actions: Read and write für das Repo pkr-lab/EDV-Kretzer.\n\nDie Bereiche stehen im Formular-Knoten und lassen sich dort ändern.",
         "height": 220,
         "width": 380
       },
