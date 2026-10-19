@@ -1,0 +1,33 @@
+name: Seiten-Prüfung
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pruefen:
+    name: SEO und Daten prüfen
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: JSON-Dateien prüfen
+        run: |
+          for file in data/*.json automation/*.json; do
+            jq empty "$file"
+          done
+
+      - name: Skripte prüfen
+        run: |
+          for file in scripts/*.mjs js/*.js; do
+            node --check "$file"
+          done
+
+      - name: SEO prüfen
+        run: node scripts/build-seo.mjs --check
