@@ -165,13 +165,13 @@
       "credentials": {
         "httpHeaderAuth": {
           "id": "",
-          "name": "GitHub PAT (EDV-Kretzer)"
+          "name": "GitHub PAT (Status-Schalter)"
         }
       }
     },
     {
       "parameters": {
-        "content": "## Status-Hinweis schalten\nStartet den GitHub-Workflow Status-Hinweis im Repo EDV-Kretzer. Der Workflow schreibt data/status.json und deployt.\n\nBenötigt die Zugangsdaten GitHub PAT (EDV-Kretzer) mit der Berechtigung Actions: Read and write für das Repo pkr-lab/EDV-Kretzer.\n\nDie Bereiche stehen im Formular-Knoten und lassen sich dort ändern.",
+        "content": "## Status-Hinweis schalten\nStartet den GitHub-Workflow Status-Hinweis im Repo EDV-Kretzer. Der Workflow schreibt data/status.json und deployt.\n\nBenötigt die Zugangsdaten GitHub PAT (Status-Schalter) mit der Berechtigung Actions: Read and write für das Repo pkr-lab/EDV-Kretzer.\n\nDie Bereiche stehen im Formular-Knoten und lassen sich dort ändern.",
         "height": 220,
         "width": 380
       },
