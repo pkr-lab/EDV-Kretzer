@@ -1,5 +1,13 @@
 [
   {
+    "id": "v3.55.0",
+    "date": "2026-10-19",
+    "tag": "Feature",
+    "title": "capulus-core v3.55.0",
+    "body": "Neu: n8n: enable restic backup and add encrypted password",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.55.0"
+  },
+  {
     "id": "v3.54.0",
     "date": "2026-10-19",
     "tag": "Feature",
@@ -70,13 +78,5 @@
     "title": "capulus-core v3.48.0",
     "body": "Neu: security: add vault credentials for VM write and logs access",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.48.0"
-  },
-  {
-    "id": "v3.47.14",
-    "date": "2026-10-18",
-    "tag": "Fix",
-    "title": "capulus-core v3.47.14",
-    "body": "Behoben: ios,banana-pi: HTTPS statt Klartext-HTTP zu carplay-api und WoL-Agent, ATS-Ausnahme entfernt (Incident 018)",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.47.14"
   }
 ]
