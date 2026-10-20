@@ -1,0 +1,44 @@
+[
+  {
+    "repo": "capulus-core",
+    "name": "capulus-core",
+    "summary": "GitOps-Repository des Homelabs: ArgoCD-Applications für die drei k3s-Cluster TECH, PROD und ENTW, Promotion-Kette und Token-Register.",
+    "stack": ["Helm", "ArgoCD", "Go", "TypeScript"],
+    "docs": "https://github.com/pkr-lab/pkr-lab-docs/tree/main/capulus-core"
+  },
+  {
+    "repo": "capulus-ansible",
+    "name": "capulus-ansible",
+    "summary": "Ansible-Playbooks und Rollen: provisionieren die Ubuntu-Hosts, die k3s-Cluster, Kiosk-Raspberry-Pis und die Host-Dienste.",
+    "stack": ["Ansible", "k3s", "Semaphore"],
+    "docs": "https://github.com/pkr-lab/pkr-lab-docs/tree/main/capulus-ansible"
+  },
+  {
+    "repo": "capulus-ios",
+    "name": "capulus-ios",
+    "summary": "SwiftUI-App „Homeserver Dashboard“ für iPhone und iPad: Alarme, Host-Metriken und Dienststatus des Homelabs.",
+    "stack": ["Swift", "SwiftUI"],
+    "docs": "https://github.com/pkr-lab/pkr-lab-docs/tree/main/capulus-ios"
+  },
+  {
+    "repo": "capulus-wiki-sync",
+    "name": "capulus-wiki-sync",
+    "summary": "Spiegelt das Docs-Repo als Seitenbaum nach Wiki.js, mit umgeschriebenen Links und Bildern.",
+    "stack": ["Python", "Docker", "Wiki.js"],
+    "docs": "https://github.com/pkr-lab/pkr-lab-docs/blob/main/capulus-core/wiki-sync.md"
+  },
+  {
+    "repo": "cubi",
+    "name": "cubi",
+    "summary": "Interaktives Terminal-Werkzeug für den Kubernetes-Alltag: ArgoCD, Kubernetes, Helm, Tailscale, GitHub und SSH in einem Menü.",
+    "stack": ["Python", "Terminal"],
+    "docs": "https://github.com/pkr-lab/pkr-lab-docs/tree/main/cubi"
+  },
+  {
+    "repo": "ui-terminal-config",
+    "name": "ui-terminal-config",
+    "summary": "Skript für Ubuntu Desktop: Starship-Prompt mit Konfiguration, Nerd Font und optional KI-Kommandozeilenwerkzeuge.",
+    "stack": ["Shell", "Starship"],
+    "docs": "https://github.com/pkr-lab/pkr-lab-docs/tree/main/ui-terminal-config"
+  }
+]

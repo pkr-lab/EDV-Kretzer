@@ -20,22 +20,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
 
-      - name: releases.json erzeugen
+      - name: releases.json und versions.json erzeugen
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/build-releases.mjs
 
+      - name: SEO-Dateien nachziehen
+        run: |
+          if ! git diff --quiet -- data/releases.json data/versions.json; then
+            node scripts/build-seo.mjs
+          fi
+
       - name: Commit
         id: commit
         run: |
-          if git diff --quiet -- data/releases.json; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/releases.json
+          git add -A
           git commit -m "chore(releases): Release-Verlauf aktualisiert [skip ci]"
           git pull --rebase
           git push
