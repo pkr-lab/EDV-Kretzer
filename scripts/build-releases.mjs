@@ -1,4 +1,4 @@
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 
 const REPO = "pkr-lab/capulus-core";
 const COUNT = 10;
@@ -66,3 +66,14 @@ const releases = (await response.json())
 
 writeFileSync("data/releases.json", `${JSON.stringify(releases, null, 2)}\n`);
 console.log(`${releases.length} Releases geschrieben`);
+
+const projects = JSON.parse(readFileSync("data/projects.json", "utf8"));
+const versions = {};
+for (const project of projects) {
+  const latest = await fetch(`https://api.github.com/repos/pkr-lab/${project.repo}/releases/latest`, { headers });
+  if (!latest.ok) continue;
+  const release = await latest.json();
+  versions[project.repo] = { tag: release.tag_name, date: release.published_at.slice(0, 10), url: release.html_url };
+}
+writeFileSync("data/versions.json", `${JSON.stringify(versions, null, 2)}\n`);
+console.log(`${Object.keys(versions).length} Versionen geschrieben`);

@@ -10,27 +10,60 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.edv-kretzer.de/">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="EDV-Kretzer">
-  <meta property="og:title" content="capulus-core – GitOps-Homelab auf k3s, ArgoCD &amp; Tailscale">
-  <meta property="og:description" content="Drei Cluster, geprüfte Updates, null offene Ports: das offene Homelab-Projekt capulus-core.">
-  <meta property="og:url" content="https://www.edv-kretzer.de/">
-  <meta property="og:locale" content="de_DE">
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Peter Kretzer",
-    "url": "https://www.edv-kretzer.de/",
-    "description": "Entwickler von capulus-core, einem offenen GitOps-Homelab auf k3s, ArgoCD und Tailscale.",
-    "email": "info@edv-kretzer.de",
-    "sameAs": ["https://github.com/pkr-lab"]
-  }
+  <meta property="og:type" content="website" data-seo>
+  <meta property="og:site_name" content="EDV-Kretzer" data-seo>
+  <meta property="og:title" content="EDV-Kretzer – capulus-core: GitOps-Homelab auf k3s, ArgoCD &amp; Tailscale" data-seo>
+  <meta property="og:description" content="capulus-core ist ein offenes, GitOps-gesteuertes Homelab aus drei k3s-Clustern (ENTW, TECH, PROD): ArgoCD, Ansible und Tailscale, geprüfte Updates, null offene Ports." data-seo>
+  <meta property="og:url" content="https://www.edv-kretzer.de/" data-seo>
+  <meta property="og:locale" content="de_DE" data-seo>
+  <meta property="og:image" content="https://www.edv-kretzer.de/assets/images/screenshot-argocd.png" data-seo>
+  <meta name="twitter:card" content="summary_large_image" data-seo>
+  <meta name="twitter:title" content="EDV-Kretzer – capulus-core: GitOps-Homelab auf k3s, ArgoCD &amp; Tailscale" data-seo>
+  <meta name="twitter:description" content="capulus-core ist ein offenes, GitOps-gesteuertes Homelab aus drei k3s-Clustern (ENTW, TECH, PROD): ArgoCD, Ansible und Tailscale, geprüfte Updates, null offene Ports." data-seo>
+  <script type="application/ld+json" data-seo>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.edv-kretzer.de/#person",
+      "name": "Peter Kretzer",
+      "url": "https://www.edv-kretzer.de/",
+      "email": "info@edv-kretzer.de",
+      "description": "Entwickler von capulus-core, einem offenen GitOps-Homelab auf k3s, ArgoCD und Tailscale.",
+      "sameAs": [
+        "https://github.com/pkr-lab/capulus-core"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.edv-kretzer.de/#website",
+      "url": "https://www.edv-kretzer.de/",
+      "name": "EDV-Kretzer",
+      "inLanguage": "de-DE",
+      "publisher": {
+        "@id": "https://www.edv-kretzer.de/#person"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.edv-kretzer.de/#webpage",
+      "url": "https://www.edv-kretzer.de/",
+      "name": "EDV-Kretzer – capulus-core: GitOps-Homelab auf k3s, ArgoCD & Tailscale",
+      "description": "capulus-core ist ein offenes, GitOps-gesteuertes Homelab aus drei k3s-Clustern (ENTW, TECH, PROD): ArgoCD, Ansible und Tailscale, geprüfte Updates, null offene Ports.",
+      "inLanguage": "de-DE",
+      "isPartOf": {
+        "@id": "https://www.edv-kretzer.de/#website"
+      },
+      "about": {
+        "@id": "https://www.edv-kretzer.de/#person"
+      }
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -52,6 +85,7 @@
           </button>
           <div class="nav-dropdown-menu" id="projekt-menu">
             <a href="projekt.html">Projekt-Übersicht</a>
+            <a href="capulus.html">capulus im Überblick</a>
             <a href="anwendungen.html">Anwendungen</a>
             <a href="mediamtx-drohnenstream.html">Drohnenstream-Anleitung</a>
           </div>
@@ -73,6 +107,7 @@
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html" aria-current="page">Home</a>
     <a href="projekt.html">Projekt</a>
+    <a href="capulus.html" class="sub">capulus im Überblick</a>
     <a href="anwendungen.html" class="sub">Anwendungen</a>
     <a href="mediamtx-drohnenstream.html" class="sub">Drohnenstream-Anleitung</a>
     <a href="app.html">App</a>

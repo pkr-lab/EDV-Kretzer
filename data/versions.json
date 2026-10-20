@@ -1,0 +1,32 @@
+{
+  "capulus-core": {
+    "tag": "v3.54.0",
+    "date": "2026-10-19",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.54.0"
+  },
+  "capulus-ansible": {
+    "tag": "v1.0.1",
+    "date": "2026-10-19",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.0.1"
+  },
+  "capulus-ios": {
+    "tag": "v1.0.1",
+    "date": "2026-10-19",
+    "url": "https://github.com/pkr-lab/capulus-ios/releases/tag/v1.0.1"
+  },
+  "capulus-wiki-sync": {
+    "tag": "v1.1.1",
+    "date": "2026-10-19",
+    "url": "https://github.com/pkr-lab/capulus-wiki-sync/releases/tag/v1.1.1"
+  },
+  "cubi": {
+    "tag": "v1.0.0",
+    "date": "2026-10-18",
+    "url": "https://github.com/pkr-lab/cubi/releases/tag/v1.0.0"
+  },
+  "ui-terminal-config": {
+    "tag": "v1.0.0",
+    "date": "2026-10-18",
+    "url": "https://github.com/pkr-lab/ui-terminal-config/releases/tag/v1.0.0"
+  }
+}

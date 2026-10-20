@@ -10,15 +10,233 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.edv-kretzer.de/anwendungen.html">
 
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="EDV-Kretzer">
-  <meta property="og:title" content="Anwendungen im capulus-core Cluster | EDV-Kretzer">
-  <meta property="og:description" content="Self-hosted Services von Nextcloud bis Vaultwarden – vorkonfiguriert, per GitOps deployed.">
-  <meta property="og:url" content="https://www.edv-kretzer.de/anwendungen.html">
-  <meta property="og:locale" content="de_DE">
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+  <meta property="og:type" content="website" data-seo>
+  <meta property="og:site_name" content="EDV-Kretzer" data-seo>
+  <meta property="og:title" content="Anwendungen – Self-Hosted Services im capulus-core Cluster" data-seo>
+  <meta property="og:description" content="Ein Auszug der 30+ vorkonfigurierten Anwendungen in capulus-core: Nextcloud, Immich, Vaultwarden, Grafana, ArgoCD und mehr – durchsuchbar nach Kategorie." data-seo>
+  <meta property="og:url" content="https://www.edv-kretzer.de/anwendungen.html" data-seo>
+  <meta property="og:locale" content="de_DE" data-seo>
+  <meta property="og:image" content="https://www.edv-kretzer.de/assets/images/screenshot-uptime-kuma.png" data-seo>
+  <meta name="twitter:card" content="summary_large_image" data-seo>
+  <meta name="twitter:title" content="Anwendungen – Self-Hosted Services im capulus-core Cluster" data-seo>
+  <meta name="twitter:description" content="Ein Auszug der 30+ vorkonfigurierten Anwendungen in capulus-core: Nextcloud, Immich, Vaultwarden, Grafana, ArgoCD und mehr – durchsuchbar nach Kategorie." data-seo>
+  <script type="application/ld+json" data-seo>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.edv-kretzer.de/anwendungen.html#webpage",
+      "url": "https://www.edv-kretzer.de/anwendungen.html",
+      "name": "Anwendungen – Self-Hosted Services im capulus-core Cluster",
+      "description": "Ein Auszug der 30+ vorkonfigurierten Anwendungen in capulus-core: Nextcloud, Immich, Vaultwarden, Grafana, ArgoCD und mehr – durchsuchbar nach Kategorie.",
+      "inLanguage": "de-DE",
+      "isPartOf": {
+        "@id": "https://www.edv-kretzer.de/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.edv-kretzer.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projekt",
+          "item": "https://www.edv-kretzer.de/projekt.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Anwendungen",
+          "item": "https://www.edv-kretzer.de/anwendungen.html"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Anwendungen",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Traefik",
+          "url": "https://traefik.io/traefik/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pi-hole",
+          "url": "https://pi-hole.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "lldap",
+          "url": "https://github.com/lldap/lldap"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Sealed Secrets",
+          "url": "https://github.com/bitnami-labs/sealed-secrets"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Tailscale",
+          "url": "https://tailscale.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Cloudflare Tunnel",
+          "url": "https://www.cloudflare.com/products/tunnel/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Grafana",
+          "url": "https://grafana.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "VictoriaMetrics",
+          "url": "https://victoriametrics.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Uptime Kuma",
+          "url": "https://github.com/louislam/uptime-kuma"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "ntfy",
+          "url": "https://ntfy.sh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Argo Workflows",
+          "url": "https://argoproj.github.io/workflows/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "MinIO",
+          "url": "https://min.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "n8n",
+          "url": "https://n8n.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "ArgoCD",
+          "url": "https://argo-cd.readthedocs.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "Nextcloud",
+          "url": "https://nextcloud.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "Immich",
+          "url": "https://immich.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "name": "Vaultwarden",
+          "url": "https://github.com/dani-garcia/vaultwarden"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "Paperless-ngx",
+          "url": "https://docs.paperless-ngx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "Wiki.js",
+          "url": "https://js.wiki/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "Zammad",
+          "url": "https://zammad.org/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "MediaMTX",
+          "url": "https://github.com/bluenviron/mediamtx"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "Headlamp",
+          "url": "https://headlamp.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "Semaphore UI",
+          "url": "https://semaphoreui.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "name": "CrowdSec",
+          "url": "https://www.crowdsec.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "name": "VictoriaLogs",
+          "url": "https://docs.victoriametrics.com/victorialogs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "name": "GitHub Release Watcher",
+          "url": "https://github.com/pkr-lab/capulus-core/tree/main/argocd/apps/tech/github-release-watcher"
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "name": "Xibo CMS",
+          "url": "https://xibosignage.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "name": "Alarmmonitor-Verwaltung",
+          "url": "https://github.com/pkr-lab/capulus-core/tree/main/argocd/apps/tech/alamos-apager"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -38,6 +256,7 @@
           </button>
           <div class="nav-dropdown-menu" id="projekt-menu">
             <a href="projekt.html">Projekt-Übersicht</a>
+            <a href="capulus.html">capulus im Überblick</a>
             <a href="anwendungen.html" aria-current="page">Anwendungen</a>
             <a href="mediamtx-drohnenstream.html">Drohnenstream-Anleitung</a>
           </div>
@@ -57,6 +276,7 @@
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
     <a href="projekt.html">Projekt</a>
+    <a href="capulus.html" class="sub">capulus im Überblick</a>
     <a href="anwendungen.html" aria-current="page" class="sub">Anwendungen</a>
     <a href="mediamtx-drohnenstream.html" class="sub">Drohnenstream-Anleitung</a>
     <a href="app.html">App</a>

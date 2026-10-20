@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /automation/
+Disallow: /scripts/
+Disallow: /.github/
 
 Sitemap: https://www.edv-kretzer.de/sitemap.xml
