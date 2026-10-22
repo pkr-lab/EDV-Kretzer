@@ -20,9 +20,9 @@
     "url": "https://github.com/pkr-lab/capulus-wiki-sync/releases/tag/v1.1.1"
   },
   "cubi": {
-    "tag": "v1.1.0",
-    "date": "2026-10-20",
-    "url": "https://github.com/pkr-lab/cubi/releases/tag/v1.1.0"
+    "tag": "v1.3.0",
+    "date": "2026-10-22",
+    "url": "https://github.com/pkr-lab/cubi/releases/tag/v1.3.0"
   },
   "ui-terminal-config": {
     "tag": "v1.0.0",
