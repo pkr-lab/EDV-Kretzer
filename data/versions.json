@@ -19,6 +19,11 @@
     "date": "2026-10-19",
     "url": "https://github.com/pkr-lab/capulus-wiki-sync/releases/tag/v1.1.1"
   },
+  "capulus-operator": {
+    "tag": "v1.2.0",
+    "date": "2026-10-23",
+    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.2.0"
+  },
   "cubi": {
     "tag": "v1.3.0",
     "date": "2026-10-22",
