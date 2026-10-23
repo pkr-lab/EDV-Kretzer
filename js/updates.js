@@ -38,7 +38,7 @@
       return;
     }
 
-    meta.textContent = "Die letzten " + sorted.length + (sorted.length === 1 ? " Release" : " Releases") + " von capulus-core";
+    meta.textContent = "Die letzten " + sorted.length + (sorted.length === 1 ? " Release" : " Releases") + " der capulus-Repos";
 
     list.innerHTML = sorted
       .map(function (u, i) {
@@ -51,7 +51,7 @@
           "</div>" +
           "<h3>" + u.title + "</h3>" +
           "<p>" + u.body + "</p>" +
-          (u.url && u.url.indexOf("https://github.com/pkr-lab/capulus-core/releases/") === 0
+          (u.url && u.url.indexOf("https://github.com/pkr-lab/capulus-") === 0
             ? '<p><a href="' + u.url + '" target="_blank" rel="noopener">Release auf GitHub</a></p>'
             : "") +
           "</article>"

@@ -1,6 +1,38 @@
 [
   {
-    "id": "v3.55.0",
+    "id": "capulus-operator-v1.2.0",
+    "date": "2026-10-23",
+    "tag": "Feature",
+    "title": "capulus-operator v1.2.0",
+    "body": "Neu: github-actions: add workflow to mirror repository to GitLab",
+    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.2.0"
+  },
+  {
+    "id": "capulus-operator-v1.1.1",
+    "date": "2026-10-23",
+    "tag": "Fix",
+    "title": "capulus-operator v1.1.1",
+    "body": "Behoben: rbac: Operator darf Events erzeugen",
+    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.1.1"
+  },
+  {
+    "id": "capulus-operator-v1.1.0",
+    "date": "2026-10-23",
+    "tag": "Feature",
+    "title": "capulus-operator v1.1.0",
+    "body": "Neu: backup: restic-Gruppierung, Metrik suspended, numerische UID, kurzer Image-Tag; build: calculate short tag for image versioning",
+    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.1.0"
+  },
+  {
+    "id": "capulus-operator-v1.0.0",
+    "date": "2026-10-23",
+    "tag": "Feature",
+    "title": "capulus-operator v1.0.0",
+    "body": "Neu: backup: Operator-Gerüst mit Backup-Controller",
+    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.0.0"
+  },
+  {
+    "id": "capulus-core-v3.55.0",
     "date": "2026-10-19",
     "tag": "Feature",
     "title": "capulus-core v3.55.0",
@@ -8,7 +40,7 @@
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.55.0"
   },
   {
-    "id": "v3.54.0",
+    "id": "capulus-core-v3.54.0",
     "date": "2026-10-19",
     "tag": "Feature",
     "title": "capulus-core v3.54.0",
@@ -16,7 +48,7 @@
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.54.0"
   },
   {
-    "id": "v3.53.0",
+    "id": "capulus-core-v3.53.0",
     "date": "2026-10-19",
     "tag": "Feature",
     "title": "capulus-core v3.53.0",
@@ -24,7 +56,7 @@
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.53.0"
   },
   {
-    "id": "v3.52.2",
+    "id": "capulus-core-v3.52.2",
     "date": "2026-10-19",
     "tag": "Fix",
     "title": "capulus-core v3.52.2",
@@ -32,51 +64,19 @@
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.2"
   },
   {
-    "id": "v3.52.1",
+    "id": "capulus-ansible-v1.0.1",
     "date": "2026-10-19",
     "tag": "Fix",
-    "title": "capulus-core v3.52.1",
-    "body": "Behoben: renovate: wiki-sync-Image ohne Wartezeit und Wochenfenster aktualisieren; renovate: Wochenfenster auf ganzen Montag erweitern und nur capulus-Repos bearbeiten",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.1"
+    "title": "capulus-ansible v1.0.1",
+    "body": "Behoben: renovate: Zeitplan auf ganzen Montag erweitern; semaphore_bootstrap: bestehendes Repository auf neue git_url und Branch umstellen",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.0.1"
   },
   {
-    "id": "v3.52.0",
-    "date": "2026-10-18",
-    "tag": "Feature",
-    "title": "capulus-core v3.52.0",
-    "body": "Neu: ci: Release und Commitlint über die zentralen Workflows",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.0"
-  },
-  {
-    "id": "v3.51.0",
-    "date": "2026-10-18",
-    "tag": "Feature",
-    "title": "capulus-core v3.51.0",
-    "body": "Neu: wiki-docs-sync: dryRun aus, Sync schreibt nach Wiki.js",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.51.0"
-  },
-  {
-    "id": "v3.50.0",
-    "date": "2026-10-18",
-    "tag": "Feature",
-    "title": "capulus-core v3.50.0",
-    "body": "Neu: wiki-docs-sync: Sync als eigenes Image, Quelle ist pkr-lab-docs",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.50.0"
-  },
-  {
-    "id": "v3.49.0",
-    "date": "2026-10-18",
-    "tag": "Feature",
-    "title": "capulus-core v3.49.0",
-    "body": "Neu: security: enhance firewall rules and remove deprecated kaniko workflow",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.49.0"
-  },
-  {
-    "id": "v3.48.0",
-    "date": "2026-10-18",
-    "tag": "Feature",
-    "title": "capulus-core v3.48.0",
-    "body": "Neu: security: add vault credentials for VM write and logs access",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.48.0"
+    "id": "capulus-ios-v1.0.1",
+    "date": "2026-10-19",
+    "tag": "Fix",
+    "title": "capulus-ios v1.0.1",
+    "body": "Behoben: renovate: Zeitplan auf ganzen Montag erweitern",
+    "url": "https://github.com/pkr-lab/capulus-ios/releases/tag/v1.0.1"
   }
 ]
