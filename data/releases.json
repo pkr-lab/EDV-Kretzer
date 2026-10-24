@@ -1,5 +1,13 @@
 [
   {
+    "id": "capulus-core-v3.57.0",
+    "date": "2026-10-24",
+    "tag": "Feature",
+    "title": "capulus-core v3.57.0",
+    "body": "Neu: nextcloud: update Nextcloud image tag to 34.0.5-apache",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.57.0"
+  },
+  {
     "id": "capulus-ansible-v1.2.0",
     "date": "2026-10-24",
     "tag": "Feature",
@@ -70,13 +78,5 @@
     "title": "capulus-operator v1.1.0",
     "body": "Neu: backup: restic-Gruppierung, Metrik suspended, numerische UID, kurzer Image-Tag; build: calculate short tag for image versioning",
     "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.1.0"
-  },
-  {
-    "id": "capulus-operator-v1.0.0",
-    "date": "2026-10-23",
-    "tag": "Feature",
-    "title": "capulus-operator v1.0.0",
-    "body": "Neu: backup: Operator-Gerüst mit Backup-Controller",
-    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.0.0"
   }
 ]
