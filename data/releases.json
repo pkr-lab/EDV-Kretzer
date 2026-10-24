@@ -1,5 +1,13 @@
 [
   {
+    "id": "capulus-ansible-v1.2.0",
+    "date": "2026-10-24",
+    "tag": "Feature",
+    "title": "capulus-ansible v1.2.0",
+    "body": "Neu: xibo_kiosk: implement EDID forcing and orphan file management for display handling",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.2.0"
+  },
+  {
     "id": "capulus-operator-v1.2.1",
     "date": "2026-10-23",
     "tag": "Fix",
@@ -70,13 +78,5 @@
     "title": "capulus-operator v1.0.0",
     "body": "Neu: backup: Operator-Gerüst mit Backup-Controller",
     "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.0.0"
-  },
-  {
-    "id": "capulus-core-v3.55.0",
-    "date": "2026-10-19",
-    "tag": "Feature",
-    "title": "capulus-core v3.55.0",
-    "body": "Neu: n8n: enable restic backup and add encrypted password",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.55.0"
   }
 ]
