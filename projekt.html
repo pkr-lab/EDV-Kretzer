@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projekt – capulus-core: GitOps-Homelab auf k3s &amp; ArgoCD | EDV-Kretzer</title>
   <meta name="description" content="Wie capulus-core mit Ansible, drei k3s-Clustern, ArgoCD und Tailscale ein produktionsreifes GitOps-Homelab bildet – Architektur, Repositories, Workflow und Hardware.">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#1b120d">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.edv-kretzer.de/projekt.html">
@@ -59,6 +60,7 @@
   </script>
 </head>
 <body>
+  <div class="bg-wheel bg-wheel-sm" aria-hidden="true"><svg><use href="assets/icons/sprite.svg#icon-wheel"></use></svg></div>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <header class="site-header">
@@ -181,12 +183,12 @@
         <div class="solution-visual glass reveal">
           <div class="device" style="max-width:420px;">
             <div class="screen-bar"><span></span><span></span><span></span></div>
-            <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.82rem; line-height:1.9; color: var(--color-text);">
-              <div>$ mkdir -p argocd/apps/tech/mein-service</div>
-              <div>$ git add argocd/apps/tech/mein-service</div>
-              <div>$ git commit -m "add mein-service"</div>
-              <div>$ git push</div>
-              <div style="color: var(--color-accent-light); font-weight:600;">✓ Merge → ArgoCD synct</div>
+            <div class="screen code-screen">
+              <div><span class="tok-muted">$</span> <span class="tok-key">mkdir</span> -p argocd/apps/tech/mein-service</div>
+              <div><span class="tok-muted">$</span> <span class="tok-key">git</span> add argocd/apps/tech/mein-service</div>
+              <div><span class="tok-muted">$</span> <span class="tok-key">git</span> commit -m "add mein-service"</div>
+              <div><span class="tok-muted">$</span> <span class="tok-key">git</span> push</div>
+              <div class="tok-hl">✓ Merge → ArgoCD synct<span class="code-cursor"></span></div>
             </div>
           </div>
         </div>
@@ -218,9 +220,9 @@
         <div class="solution-visual glass reveal">
           <div class="device">
             <div class="screen-bar"><span></span><span></span><span></span></div>
-            <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.82rem; line-height:2; color: var(--color-text);">
-              <div style="color: var(--color-text-muted);"># extern · Cloudflare Tunnel</div>
-              <div>nextcloud<span style="color: var(--color-accent-light); font-weight:600;">-prod</span>.pke-lab.de</div>
+            <div class="screen code-screen">
+              <div class="tok-muted"># extern · Cloudflare Tunnel</div>
+              <div>nextcloud<span class="tok-hl">-prod</span>.pke-lab.de<span class="code-cursor"></span></div>
             </div>
           </div>
         </div>
@@ -267,8 +269,8 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Repositories</p>
-          <h2>Ein Projekt, fünf Repositories</h2>
-          <p>capulus-core ist der Kern, aber nicht mehr alles in einem Repo: Hosts, App, Doku und Wiki-Sync leben in eigenen Repositories mit eigenen Releases.</p>
+          <h2>Ein Projekt, sechs Repositories</h2>
+          <p>capulus-core ist der Kern, aber nicht mehr alles in einem Repo: Hosts, App, Doku, Wiki-Sync und Operator leben in eigenen Repositories mit eigenen Releases.</p>
         </div>
         <div class="grid grid-3">
           <article class="product-card glass-card reveal">
@@ -305,6 +307,13 @@
             <p>Spiegelt die Doku automatisch als Seitenbaum nach Wiki.js und hält sie aktuell.</p>
             <div class="tag-row"><span class="tag">Python</span><span class="tag">Wiki.js</span></div>
             <a href="https://github.com/pkr-lab/capulus-wiki-sync" target="_blank" rel="noopener" class="card-link">Auf GitHub <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></div>
+            <h3>capulus-operator</h3>
+            <p>Kubernetes-Operator: löst CronJobs und manuelle Abläufe über deklarative Ressourcen aus, aktuell Backups mit restic für SQLite und Postgres.</p>
+            <div class="tag-row"><span class="tag">Kubernetes</span><span class="tag">restic</span></div>
+            <a href="https://github.com/pkr-lab/capulus-operator" target="_blank" rel="noopener" class="card-link">Auf GitHub <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
           </article>
         </div>
       </div>
@@ -543,7 +552,7 @@
         chatId: 1,
         show: false,
         flat: true,
-        background: '#0d1230',
+        background: '#26160f',
         fontSize: '13px',
         title: '<strong>Chat</strong> mit mir'
       });
