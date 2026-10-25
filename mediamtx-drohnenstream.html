@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MediaMTX-Anleitung – Drohnen-Livestream zum ELW | EDV-Kretzer</title>
   <meta name="description" content="Schritt-für-Schritt-Anleitung: Live-Video von der Drohne per MediaMTX in den Einsatzleitwagen (ELW) übertragen – für DRK-Einsätze und vergleichbare Szenarien.">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#1b120d">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.edv-kretzer.de/mediamtx-drohnenstream.html">
@@ -64,6 +65,7 @@
   </script>
 </head>
 <body>
+  <div class="bg-code" aria-hidden="true" style="font-size:min(30vw, 320px); transform:rotate(3deg);">$_</div>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <header class="site-header">
@@ -261,27 +263,27 @@
         <div class="grid grid-2">
           <div class="device reveal" style="max-width:100%;">
             <div class="screen-bar"><span></span><span></span><span></span></div>
-            <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.8rem; line-height:1.8; color: var(--color-text);">
-              <div style="color: var(--color-text-muted);"># mediamtx.yml</div>
-              <div>paths:</div>
+            <div class="screen code-screen">
+              <div class="tok-muted"># mediamtx.yml</div>
+              <div><span class="tok-key">paths</span>:</div>
               <div>&nbsp;&nbsp;drohne-elw:</div>
               <div>&nbsp;&nbsp;&nbsp;&nbsp;publishUser: drk</div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;publishPass: &lt;sicheres-passwort&gt;</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;publishPass: <span class="tok-var">&lt;sicheres-passwort&gt;</span></div>
               <div>&nbsp;&nbsp;&nbsp;&nbsp;readUser: elw</div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;readPass: &lt;weiteres-passwort&gt;</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;readPass: <span class="tok-var">&lt;weiteres-passwort&gt;</span></div>
             </div>
           </div>
           <div class="device reveal" style="max-width:100%;">
             <div class="screen-bar"><span></span><span></span><span></span></div>
-            <div class="screen" style="padding:1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:0.8rem; line-height:1.8; color: var(--color-text);">
-              <div style="color: var(--color-text-muted);"># Stream von der Bodenstation senden</div>
-              <div>$ ffmpeg -i &lt;videoquelle&gt; \</div>
+            <div class="screen code-screen">
+              <div class="tok-muted"># Stream von der Bodenstation senden</div>
+              <div><span class="tok-muted">$</span> <span class="tok-key">ffmpeg</span> -i <span class="tok-var">&lt;videoquelle&gt;</span> \</div>
               <div>&nbsp;&nbsp;-c:v libx264 -preset veryfast -tune zerolatency \</div>
-              <div>&nbsp;&nbsp;-f flv rtmp://drk:&lt;passwort&gt;@&lt;server&gt;/drohne-elw</div>
+              <div>&nbsp;&nbsp;-f flv rtmp://drk:<span class="tok-var">&lt;passwort&gt;</span>@<span class="tok-var">&lt;server&gt;</span>/drohne-elw</div>
               <div>&nbsp;</div>
-              <div style="color: var(--color-text-muted);"># Empfang im ELW (VLC, minimale Latenz)</div>
-              <div>rtsp://elw:&lt;passwort&gt;@&lt;server&gt;:8554/drohne-elw</div>
-              <div style="color: var(--color-accent-light); font-weight:600;">✓ Browser: https://&lt;server&gt;:8888/drohne-elw/index.m3u8</div>
+              <div class="tok-muted"># Empfang im ELW (VLC, minimale Latenz)</div>
+              <div>rtsp://elw:<span class="tok-var">&lt;passwort&gt;</span>@<span class="tok-var">&lt;server&gt;</span>:8554/drohne-elw</div>
+              <div class="tok-hl">✓ Browser: https://<span class="tok-var">&lt;server&gt;</span>:8888/drohne-elw/index.m3u8<span class="code-cursor"></span></div>
             </div>
           </div>
         </div>
@@ -401,7 +403,7 @@
         chatId: 1,
         show: false,
         flat: true,
-        background: '#0d1230',
+        background: '#26160f',
         fontSize: '13px',
         title: '<strong>Chat</strong> mit mir'
       });
