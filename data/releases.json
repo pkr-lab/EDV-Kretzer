@@ -1,82 +1,82 @@
 [
   {
+    "id": "capulus-core-v3.70.1",
+    "date": "2026-10-26",
+    "tag": "Fix",
+    "title": "capulus-core v3.70.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.70.1"
+  },
+  {
+    "id": "capulus-core-v3.70.0",
+    "date": "2026-10-26",
+    "tag": "Feature",
+    "title": "capulus-core v3.70.0",
+    "body": "Neu: add app installation and uninstallation options for iPads in MDM workflow. Behoben: add app blocklist functionality and update related workflows",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.70.0"
+  },
+  {
+    "id": "capulus-ios-v1.1.1",
+    "date": "2026-10-26",
+    "tag": "Fix",
+    "title": "capulus-ios v1.1.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-ios/releases/tag/v1.1.1"
+  },
+  {
+    "id": "capulus-ansible-v1.3.1",
+    "date": "2026-10-26",
+    "tag": "Fix",
+    "title": "capulus-ansible v1.3.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.3.1"
+  },
+  {
+    "id": "capulus-core-v3.69.0",
+    "date": "2026-10-26",
+    "tag": "Feature",
+    "title": "capulus-core v3.69.0",
+    "body": "Neu: deps: Pin dependencies; deps: Update dependency tailscale/tailscale to v1.104.2; deps: Update ghcr.io/pkr-lab/capulus-wiki-sync Docker tag to v1.1.2 und 1 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.69.0"
+  },
+  {
+    "id": "capulus-core-v3.68.0",
+    "date": "2026-10-26",
+    "tag": "Feature",
+    "title": "capulus-core v3.68.0",
+    "body": "Neu: deps: Update actions/setup-python action to v7.1.0; deps: Update argocd/apps/prod/immich to v3.3.5; deps: Update argocd/apps/tech/n8n/image und 4 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.68.0"
+  },
+  {
+    "id": "capulus-core-v3.67.0",
+    "date": "2026-10-26",
+    "tag": "Feature",
+    "title": "capulus-core v3.67.0",
+    "body": "Neu: deps: Update ghcr.io/paperless-ngx/paperless-ngx Docker tag to v3.3.4; deps: Update python Docker tag to v3.15",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.67.0"
+  },
+  {
+    "id": "capulus-core-v3.66.0",
+    "date": "2026-10-26",
+    "tag": "Feature",
+    "title": "capulus-core v3.66.0",
+    "body": "Neu: deps: Update mysql Docker tag to v26.10; deps: Update ollama/ollama Docker tag to v0.40.11; deps: Update pihole/pihole Docker tag to v2026.10.0 und 2 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.66.0"
+  },
+  {
+    "id": "capulus-core-v3.65.0",
+    "date": "2026-10-26",
+    "tag": "Feature",
+    "title": "capulus-core v3.65.0",
+    "body": "Neu: deps: Update dependency typescript to v7; deps: Update module github.com/oschwald/geoip2-golang to v2; deps: Update python Docker tag to v3.15 und 3 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.65.0"
+  },
+  {
     "id": "capulus-core-v3.64.0",
     "date": "2026-10-26",
     "tag": "Feature",
     "title": "capulus-core v3.64.0",
     "body": "Neu: add config field to app_catalog and update app installation workflow",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.64.0"
-  },
-  {
-    "id": "capulus-core-v3.63.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.63.0",
-    "body": "Neu: deps: Update postgres Docker tag to v18",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.63.0"
-  },
-  {
-    "id": "capulus-core-v3.62.1",
-    "date": "2026-10-26",
-    "tag": "Fix",
-    "title": "capulus-core v3.62.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.62.1"
-  },
-  {
-    "id": "capulus-wiki-sync-v1.1.3",
-    "date": "2026-10-26",
-    "tag": "Fix",
-    "title": "capulus-wiki-sync v1.1.3",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-wiki-sync/releases/tag/v1.1.3"
-  },
-  {
-    "id": "capulus-core-v3.62.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.62.0",
-    "body": "Neu: deps: Update ubuntu Docker tag to v26; simplify MDM profile rendering by removing version parameter and hardcoding version in template",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.62.0"
-  },
-  {
-    "id": "capulus-core-v3.61.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.61.0",
-    "body": "Neu: add encrypted mobileconfig data for MDM enrollment profile",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.61.0"
-  },
-  {
-    "id": "capulus-core-v3.60.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.60.0",
-    "body": "Neu: deps: Pin dependencies; deps: Update binwiederhier/ntfy Docker tag to v2.33.1",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.60.0"
-  },
-  {
-    "id": "capulus-core-v3.59.1",
-    "date": "2026-10-26",
-    "tag": "Fix",
-    "title": "capulus-core v3.59.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.59.1"
-  },
-  {
-    "id": "capulus-ansible-v1.3.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-ansible v1.3.0",
-    "body": "Neu: argocd: add 'mdm' to workloads and refined namespaces, update network policies",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.3.0"
-  },
-  {
-    "id": "capulus-core-v3.59.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.59.0",
-    "body": "Neu: add MDM workflow for certificate and DEP token renewal with validation and notification",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.59.0"
   }
 ]
