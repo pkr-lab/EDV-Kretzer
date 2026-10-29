@@ -1,5 +1,13 @@
 [
   {
+    "id": "capulus-core-v3.71.0",
+    "date": "2026-10-29",
+    "tag": "Feature",
+    "title": "capulus-core v3.71.0",
+    "body": "Neu: add script for syncing app catalog with MDM database",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.71.0"
+  },
+  {
     "id": "capulus-core-v3.70.1",
     "date": "2026-10-26",
     "tag": "Fix",
@@ -70,13 +78,5 @@
     "title": "capulus-core v3.65.0",
     "body": "Neu: deps: Update dependency typescript to v7; deps: Update module github.com/oschwald/geoip2-golang to v2; deps: Update python Docker tag to v3.15 und 3 weitere",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.65.0"
-  },
-  {
-    "id": "capulus-core-v3.64.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.64.0",
-    "body": "Neu: add config field to app_catalog and update app installation workflow",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.64.0"
   }
 ]
