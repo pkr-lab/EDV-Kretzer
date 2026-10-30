@@ -1,5 +1,29 @@
 [
   {
+    "id": "capulus-ansible-v1.5.0",
+    "date": "2026-10-30",
+    "tag": "Feature",
+    "title": "capulus-ansible v1.5.0",
+    "body": "Neu: argocd: add ticket-gate to workloads and network policies",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.5.0"
+  },
+  {
+    "id": "capulus-ansible-v1.4.0",
+    "date": "2026-10-30",
+    "tag": "Feature",
+    "title": "capulus-ansible v1.4.0",
+    "body": "Neu: infotafel_poweroff: add role and tasks for poweroff functionality with n8n integration",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.4.0"
+  },
+  {
+    "id": "capulus-core-v3.72.0",
+    "date": "2026-10-30",
+    "tag": "Feature",
+    "title": "capulus-core v3.72.0",
+    "body": "Neu: Update iPad lock workflow to include automatic message prefix and add shutdown workflows for Infotafel and MDM iPads",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.72.0"
+  },
+  {
     "id": "capulus-core-v3.71.0",
     "date": "2026-10-29",
     "tag": "Feature",
@@ -54,29 +78,5 @@
     "title": "capulus-core v3.68.0",
     "body": "Neu: deps: Update actions/setup-python action to v7.1.0; deps: Update argocd/apps/prod/immich to v3.3.5; deps: Update argocd/apps/tech/n8n/image und 4 weitere",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.68.0"
-  },
-  {
-    "id": "capulus-core-v3.67.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.67.0",
-    "body": "Neu: deps: Update ghcr.io/paperless-ngx/paperless-ngx Docker tag to v3.3.4; deps: Update python Docker tag to v3.15",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.67.0"
-  },
-  {
-    "id": "capulus-core-v3.66.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.66.0",
-    "body": "Neu: deps: Update mysql Docker tag to v26.10; deps: Update ollama/ollama Docker tag to v0.40.11; deps: Update pihole/pihole Docker tag to v2026.10.0 und 2 weitere",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.66.0"
-  },
-  {
-    "id": "capulus-core-v3.65.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.65.0",
-    "body": "Neu: deps: Update dependency typescript to v7; deps: Update module github.com/oschwald/geoip2-golang to v2; deps: Update python Docker tag to v3.15 und 3 weitere",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.65.0"
   }
 ]
