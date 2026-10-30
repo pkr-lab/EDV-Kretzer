@@ -318,6 +318,32 @@
             <a href="https://github.com/pkr-lab/capulus-operator" target="_blank" rel="noopener" class="card-link">Auf GitHub <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
           </article>
         </div>
+
+        <h3 class="text-center mt-4 mb-2" id="mirror">Vom Push bis zum GitLab-Mirror</h3>
+        <p class="text-center reveal" style="max-width:640px;margin-inline:auto;color:var(--color-text-muted);">Jede Änderung geht per Push und Pull Request nach GitHub. Von dort wird das Repository automatisch nach GitLab gespiegelt, damit der Code auch bei einem GitHub-Ausfall erreichbar bleibt.</p>
+
+        <div class="mirrorflow glass-card reveal" aria-hidden="true">
+          <div class="mirrorflow-row">
+            <div class="mirrorflow-node mirrorflow-src">
+              <svg width="22" height="22"><use href="assets/icons/sprite.svg#icon-terminal"></use></svg>
+              <div><strong>Entwicklung</strong><span>git push</span></div>
+            </div>
+            <div class="mirrorflow-conn c0"><span class="mirrorflow-dot"></span><span class="mirrorflow-label">Push</span></div>
+            <div class="mirrorflow-node mirrorflow-gh">
+              <svg width="22" height="22"><use href="assets/icons/sprite.svg#icon-github"></use></svg>
+              <div><strong>GitHub</strong>
+                <span class="mirrorflow-status"><em class="st-push">Push empfangen</em><em class="st-pr">Pull Request gemergt</em></span>
+              </div>
+            </div>
+            <div class="mirrorflow-conn c1"><span class="mirrorflow-dot"></span><span class="mirrorflow-label">Mirror</span></div>
+            <div class="mirrorflow-node mirrorflow-gl">
+              <svg width="22" height="22"><use href="assets/icons/sprite.svg#icon-gitlab"></use></svg>
+              <div><strong>GitLab</strong>
+                <span class="mirrorflow-status"><em class="st-wait">wartet auf Sync</em><em class="st-sync">synchron ✓</em></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

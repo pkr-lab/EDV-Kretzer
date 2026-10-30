@@ -1202,6 +1202,110 @@ p { color: var(--color-text-muted); }
 .loadflow-worker { animation: loadflow-worker-state 10s ease-in-out infinite; }
 .loadflow-worker.w1 { animation-delay: 0.15s; }
 
+/* ---------- Push-und-Mirror-Diagramm (Projekt-Seite) ---------- */
+.mirrorflow {
+  max-width: 880px;
+  margin-inline: auto;
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-lg);
+}
+.mirrorflow-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mirrorflow-node {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 230px;
+  padding: 0.8em 1.2em;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--tint-2);
+  text-align: left;
+}
+.mirrorflow-node strong { display: block; font-size: 0.9rem; color: var(--color-heading); }
+.mirrorflow-node span { font-size: 0.72rem; color: var(--color-text-muted); }
+.mirrorflow-node > svg { flex-shrink: 0; width: 22px; height: 22px; color: var(--color-accent-text); }
+
+.mirrorflow-status {
+  display: grid;
+  margin-top: 0.1em;
+}
+.mirrorflow-status em {
+  grid-area: 1 / 1;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.mirrorflow-conn {
+  position: relative;
+  flex-shrink: 0;
+  width: 2px;
+  height: 56px;
+  background: var(--glass-border);
+  margin-block: 0.4em;
+}
+.mirrorflow-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  box-shadow: 0 0 10px var(--color-accent-light);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.mirrorflow-label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.mirrorflow-src { animation: mirrorflow-src 10s ease-in-out infinite; }
+.mirrorflow-gh { animation: mirrorflow-gh 10s ease-in-out infinite; }
+.mirrorflow-gl { animation: mirrorflow-gl 10s ease-in-out infinite; }
+.mirrorflow-dot { animation: mirrorflow-travel-y 10s ease-in-out infinite; }
+.mirrorflow-conn.c1 .mirrorflow-dot { animation-delay: -4.8s; }
+.st-push { animation: mirrorflow-st-push 10s ease-in-out infinite; }
+.st-pr   { animation: mirrorflow-st-pr 10s ease-in-out infinite; }
+.st-wait { animation: mirrorflow-st-wait 10s ease-in-out infinite; }
+.st-sync { animation: mirrorflow-st-sync 10s ease-in-out infinite; }
+
+@media (min-width: 760px) {
+  .mirrorflow-row { flex-direction: row; }
+  .mirrorflow-node { width: auto; flex: 0 0 auto; }
+  .mirrorflow-conn {
+    flex: 1 1 0;
+    min-width: 56px;
+    width: auto;
+    height: 2px;
+    margin-block: 0;
+    margin-inline: 0.4em;
+  }
+  .mirrorflow-dot {
+    left: 0;
+    top: 50%;
+    animation-name: mirrorflow-travel-x;
+  }
+  .mirrorflow-label {
+    left: 50%;
+    top: -1.6em;
+    transform: translateX(-50%);
+  }
+}
+
 /* ---------- App Store Page ---------- */
 .toolbar {
   padding: var(--space-3);
@@ -1481,7 +1585,7 @@ p { color: var(--color-text-muted); }
 .timeline-item .year {
   font-weight: 800;
   color: var(--color-accent-text);
-  min-width: 70px;
+  min-width: 96px;
 }
 
 .values-grid { margin-top: var(--space-2); }

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iPad-Verwaltung per MDM mit NanoDEP | EDV-Kretzer</title>
-  <meta name="description" content="Wie ich meine iPads zentral verwalte: Automatisches Enrollment über Apple Business Manager mit NanoDEP und einem MDM, ohne Handarbeit pro Gerät.">
+  <title>Eigener MDM-Server für iPads mit NanoMDM | EDV-Kretzer</title>
+  <meta name="description" content="Self-hosted MDM für die Vereins-iPads: NanoMDM, NanoDEP und SCEP auf k3s, automatisches Enrollment über Apple Business und Automatisierung mit n8n.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
@@ -15,13 +15,13 @@
   <link rel="stylesheet" href="css/animations.css">
   <meta property="og:type" content="website" data-seo>
   <meta property="og:site_name" content="EDV-Kretzer" data-seo>
-  <meta property="og:title" content="iPad-Verwaltung per MDM mit NanoDEP" data-seo>
-  <meta property="og:description" content="Wie ich meine iPads zentral verwalte: Automatisches Enrollment über Apple Business Manager mit NanoDEP und einem MDM, ohne Handarbeit pro Gerät." data-seo>
+  <meta property="og:title" content="Eigener MDM-Server für iPads mit NanoMDM" data-seo>
+  <meta property="og:description" content="Self-hosted MDM für die Vereins-iPads: NanoMDM, NanoDEP und SCEP auf k3s, automatisches Enrollment über Apple Business und Automatisierung mit n8n." data-seo>
   <meta property="og:url" content="https://www.edv-kretzer.de/mdm/" data-seo>
   <meta property="og:locale" content="de_DE" data-seo>
   <meta name="twitter:card" content="summary" data-seo>
-  <meta name="twitter:title" content="iPad-Verwaltung per MDM mit NanoDEP" data-seo>
-  <meta name="twitter:description" content="Wie ich meine iPads zentral verwalte: Automatisches Enrollment über Apple Business Manager mit NanoDEP und einem MDM, ohne Handarbeit pro Gerät." data-seo>
+  <meta name="twitter:title" content="Eigener MDM-Server für iPads mit NanoMDM" data-seo>
+  <meta name="twitter:description" content="Self-hosted MDM für die Vereins-iPads: NanoMDM, NanoDEP und SCEP auf k3s, automatisches Enrollment über Apple Business und Automatisierung mit n8n." data-seo>
   <script type="application/ld+json" data-seo>
 {
   "@context": "https://schema.org",
@@ -30,8 +30,8 @@
       "@type": "WebPage",
       "@id": "https://www.edv-kretzer.de/mdm/#webpage",
       "url": "https://www.edv-kretzer.de/mdm/",
-      "name": "iPad-Verwaltung per MDM mit NanoDEP",
-      "description": "Wie ich meine iPads zentral verwalte: Automatisches Enrollment über Apple Business Manager mit NanoDEP und einem MDM, ohne Handarbeit pro Gerät.",
+      "name": "Eigener MDM-Server für iPads mit NanoMDM",
+      "description": "Self-hosted MDM für die Vereins-iPads: NanoMDM, NanoDEP und SCEP auf k3s, automatisches Enrollment über Apple Business und Automatisierung mit n8n.",
       "inLanguage": "de-DE",
       "isPartOf": {
         "@id": "https://www.edv-kretzer.de/#website"
@@ -113,38 +113,192 @@
     <section class="page-hero container">
       <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>iPad-Verwaltung</span></div>
       <p class="eyebrow text-center">iPad-Verwaltung</p>
-      <h1>iPads zentral verwalten mit NanoDEP</h1>
-      <p>Damit ich die iPads nicht einzeln von Hand einrichten muss, verwalte ich sie per MDM (Mobile Device Management). NanoDEP stellt dafür die Verbindung zu Apple Business Manager her: Ein Gerät, das dort meiner Organisation zugeordnet ist, meldet sich beim ersten Einschalten automatisch bei meinem MDM an.</p>
+      <h1>Ein eigener MDM-Server für die Vereins-iPads</h1>
+      <p>Im Homelab läuft ein selbst gehosteter, rein quelloffener Mobile-Device-Management-Server für die iPads. Neue Geräte melden sich beim Einrichten automatisch an, werden beaufsichtigt (supervised) und bekommen ihre Konfiguration ohne Handarbeit. Alles, was sich automatisieren lässt, übernimmt n8n.</p>
     </section>
 
-    <section class="container">
+    <!-- Ablauf -->
+    <section class="container" id="ablauf">
       <div class="solution-block">
         <div class="solution-text reveal">
           <p class="eyebrow">Automatisches Enrollment</p>
-          <h2>Vom Auspacken bis zum verwalteten Gerät</h2>
-          <p>NanoDEP ist ein schlankes Werkzeug für die Apple-Schnittstelle zum automatischen Geräte-Enrollment (früher DEP, heute Automated Device Enrollment). Es holt die Geräte aus Apple Business Manager ab und weist ihnen ein Enrollment-Profil zu, das auf mein MDM zeigt.</p>
+          <h2>Vom Auspacken bis zum verwalteten iPad</h2>
+          <p>Die iPads sind in Apple Business der Organisation zugeordnet. NanoDEP gleicht sie alle zehn Minuten mit Apple ab und weist jeder neuen Seriennummer das Enrollment-Profil zu. Beim ersten Einschalten läuft der Rest von allein:</p>
           <ul>
-            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Geräte sind schon vor dem Auspacken einer Organisation zugeordnet</li>
-            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Beim ersten Start meldet sich das iPad selbstständig beim MDM an</li>
-            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Konfiguration und Einschränkungen kommen zentral vom MDM statt vom Gerät</li>
-            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Einmal einrichten, jedes weitere iPad folgt demselben Ablauf</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Das iPad holt das Enrollment-Profil und bezieht per SCEP sein Geräte-Zertifikat</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Es meldet sich bei NanoMDM an und ist ab dann beaufsichtigt, das MDM lässt sich nicht entfernen</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> n8n reiht die Basisprofile ein, heute die Nachricht auf dem Sperrbildschirm</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Das iPad quittiert, der Stand landet in der Datenbank, nichts wird doppelt gesendet</li>
           </ul>
         </div>
         <div class="solution-visual glass reveal">
           <div class="stack-diagram">
             <div class="stack-layer">
               <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-cloud"></use></svg></span>
-              <div><strong>Apple Business Manager</strong><span>Geräte der Organisation</span></div>
+              <div><strong>Apple Business</strong><span>Geräte · DEP-Schnittstelle</span></div>
+            </div>
+            <div class="stack-connector"></div>
+            <div class="stack-layer highlight">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-server"></use></svg></span>
+              <div><strong>NanoDEP + NanoMDM</strong><span>Zuweisung · Check-in · Befehle</span></div>
+            </div>
+            <div class="stack-connector"></div>
+            <div class="stack-layer">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-cog"></use></svg></span>
+              <div><strong>n8n</strong><span>Profile · Aufträge · Überwachung</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Komponenten -->
+    <section class="section" id="komponenten">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Bausteine</p>
+          <h2>Ein Helm-Chart, alle Komponenten</h2>
+          <p>Der MDM-Stack liegt als ein Chart in capulus-core und wird wie jede andere App per ArgoCD im TECH-Cluster ausgerollt.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-server"></use></svg></div>
+            <h3>NanoMDM</h3>
+            <p>MDM-Kern: Check-in der iPads, Befehlswarteschlange, APNs-Push und Admin-API.</p>
+            <div class="tag-row"><span class="tag">Go</span><span class="tag">NanoMDM</span></div>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-cloud"></use></svg></div>
+            <h3>NanoDEP</h3>
+            <p>Anbindung an Apple Business: Token-Verwaltung, Geräte-Sync und automatische Profil-Zuweisung.</p>
+            <div class="tag-row"><span class="tag">Go</span><span class="tag">DEP</span></div>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-lock"></use></svg></div>
+            <h3>SCEP-Server</h3>
+            <p>Stellt jedem iPad sein Identitätszertifikat aus. Das Image baut die CI selbst.</p>
+            <div class="tag-row"><span class="tag">micromdm/scep</span></div>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-database"></use></svg></div>
+            <h3>PostgreSQL</h3>
+            <p>Speichert NanoMDM, NanoDEP und den Zustand der Automatisierung. Backup per restic auf das NAS.</p>
+            <div class="tag-row"><span class="tag">PostgreSQL</span><span class="tag">restic</span></div>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-box"></use></svg></div>
+            <h3>Enrollment-Server</h3>
+            <p>Liefert das Enrollment-Profil aus, das NanoMDM selbst nicht ausliefert.</p>
+            <div class="tag-row"><span class="tag">nginx</span></div>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-cog"></use></svg></div>
+            <h3>n8n</h3>
+            <p>Über ein Dutzend Workflows für Profile, Aufträge, Überwachung und Erinnerungen.</p>
+            <div class="tag-row"><span class="tag">n8n</span><span class="tag">ntfy</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Automatisierung -->
+    <section class="container" id="automatisierung">
+      <div class="solution-block reverse">
+        <div class="solution-text reveal">
+          <p class="eyebrow">Automatisierung</p>
+          <h2>Aufträge per Formular oder Mail</h2>
+          <p>Statt Befehle von Hand einzureihen, gibt es n8n-Workflows mit Formularen. Ein Auftrag kann auch per E-Mail kommen. Er gilt für alle iPads, eine Gruppe oder einzelne Geräte.</p>
+          <ul>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Sperrbildschirm-Text und Hintergrundbild ändern</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Apps aus einem Katalog auf die iPads installieren</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Nachricht an die iPads senden, iPads sperren oder herunterfahren</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Neue Geräte bekommen ihre Basisprofile automatisch</li>
+          </ul>
+        </div>
+        <div class="solution-visual glass reveal">
+          <div class="stack-diagram">
+            <div class="stack-layer">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-mail"></use></svg></span>
+              <div><strong>Formular oder Mail</strong><span>Auftrag erfassen</span></div>
             </div>
             <div class="stack-connector"></div>
             <div class="stack-layer highlight">
               <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-cog"></use></svg></span>
-              <div><strong>NanoDEP</strong><span>Enrollment-Profil zuweisen</span></div>
+              <div><strong>n8n</strong><span>prüfen · Befehle bauen · einreihen</span></div>
             </div>
             <div class="stack-connector"></div>
             <div class="stack-layer">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-bell"></use></svg></span>
+              <div><strong>Rückmeldung</strong><span>Ergebnis per ntfy</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Überwachung -->
+    <section class="section" id="ueberwachung">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Betrieb</p>
+          <h2>Der MDM-Server überwacht sich selbst</h2>
+          <p>Ein MDM hängt an Zertifikaten, die ablaufen. Damit das nicht überrascht, prüfen Workflows laufend, ob alles gesund ist.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-calendar"></use></svg></div>
+            <h3>Ablauf-Überwachung</h3>
+            <p>Push-Zertifikat, DEP-Token und SCEP-CA laufen ab. n8n erinnert 30, 14, 7 und 1 Tag vorher und schickt die Checkliste zur Verlängerung mit.</p>
+            <div class="tag-row"><span class="tag">ntfy</span><span class="tag">Zammad</span></div>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-signal"></use></svg></div>
+            <h3>Healthcheck</h3>
+            <p>Alle zehn Minuten: öffentliche Endpunkte, TLS-Restlaufzeit, Pods und fehlgeschlagene Geräteprofile. Mit Entwarnung, sobald alles wieder grün ist.</p>
+            <div class="tag-row"><span class="tag">10 Minuten</span></div>
+          </article>
+          <article class="product-card glass-card reveal">
+            <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-search"></use></svg></div>
+            <h3>DEP-Sync und Backup</h3>
+            <p>Meldet Seriennummern ohne Profil und prüft täglich, ob das Backup der Datenbank gelaufen ist.</p>
+            <div class="tag-row"><span class="tag">täglich</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Sicherheit -->
+    <section class="container" id="sicherheit">
+      <div class="solution-block">
+        <div class="solution-text reveal">
+          <p class="eyebrow">Sicherheit</p>
+          <h2>Ein MDM ist ein Hochrisiko-Ziel</h2>
+          <p>Wer die Admin-Schnittstelle erreicht, könnte alle iPads aus der Ferne sperren oder löschen. Deshalb ist sie nur im Cluster erreichbar. Von außen stehen ausschließlich die drei Pfade offen, die die iPads brauchen.</p>
+          <ul>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Geräte authentifizieren sich mit ihrem SCEP-Zertifikat, nicht mit einem Passwort</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Default-Deny-NetworkPolicies im Namespace, Freigaben nur für den nötigen Verkehr</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Alle Geheimnisse liegen als SealedSecrets im Repo, nichts im Klartext</li>
+            <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Pods ohne Root-Rechte, Images auf Digest gepinnt, Backup verschlüsselt auf dem NAS</li>
+          </ul>
+        </div>
+        <div class="solution-visual glass reveal">
+          <div class="stack-diagram">
+            <div class="stack-layer">
+              <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-cloud"></use></svg></span>
+              <div><strong>Öffentlich</strong><span>nur Check-in, Enrollment, SCEP</span></div>
+            </div>
+            <div class="stack-connector"></div>
+            <div class="stack-layer highlight">
               <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-shield"></use></svg></span>
-              <div><strong>MDM</strong><span>Verwaltung der iPads</span></div>
+              <div><strong>Cluster-intern</strong><span>Admin-APIs · Datenbank · n8n</span></div>
             </div>
           </div>
         </div>
@@ -154,12 +308,12 @@
     <section class="section">
       <div class="container">
         <div class="cta-section glass reveal">
-          <h2>Fragen zur iPad-Verwaltung?</h2>
-          <p>Die Seite beschreibt meine private Umgebung, keine fertige Anleitung. Wenn du etwas Ähnliches aufbauen willst, frag gern nach.</p>
+          <h2>Mehr Details in der Doku</h2>
+          <p>Architektur, Installation, Apple-Setup, Automatisierung, Betrieb und Sicherheit sind im Wiki ausführlich beschrieben. Der Chart liegt in capulus-core.</p>
           <div class="cta-actions">
-            <a href="kontakt.html?interesse=iPad-Verwaltung" class="btn btn-primary">Frage stellen</a>
-            <a href="https://github.com/micromdm/nanodep" target="_blank" rel="noopener" class="btn btn-outline">NanoDEP auf GitHub</a>
-            <a href="app.html" class="btn btn-outline">Zur PKR-Lab App</a>
+            <a href="https://wiki-prod.pke-lab.de/en/docs/capulus/capulus-core/3-apps-workloads/300r0-mdm" target="_blank" rel="noopener" class="btn btn-primary">MDM in der Doku</a>
+            <a href="https://github.com/pkr-lab/capulus-core/tree/main/argocd/apps/tech/mdm" target="_blank" rel="noopener" class="btn btn-outline">Chart auf GitHub</a>
+            <a href="kontakt.html?interesse=iPad-Verwaltung" class="btn btn-outline">Frage stellen</a>
           </div>
         </div>
       </div>
