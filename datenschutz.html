@@ -123,7 +123,6 @@
           <li><a href="#cookies">Cookies &amp; lokaler Speicher</a></li>
           <li><a href="#kontakt">Kontaktaufnahme &amp; Zammad-Formular</a></li>
           <li><a href="#chat">Live-Chat (Zammad)</a></li>
-          <li><a href="#jquery">jQuery (externe Ressource)</a></li>
           <li><a href="#ssl">SSL/TLS-Verschlüsselung</a></li>
           <li><a href="#rechte">Rechte der betroffenen Personen</a></li>
           <li><a href="#aenderung">Aktualität &amp; Änderung</a></li>
@@ -135,6 +134,8 @@
         <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
         <p>
           Peter Kretzer<br>
+          Keltenstraße 18<br>
+          56648 Saffig<br>
           E-Mail: <a href="mailto:info@edv-kretzer.de">info@edv-kretzer.de</a>
         </p>
 
@@ -167,14 +168,10 @@
         <p>Inhaltliche Daten (z. B. dein Name und der Chatverlauf) werden nur übertragen und gespeichert, wenn du den Chat aktiv startest und eine Nachricht schreibst. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an schneller, direkter Erreichbarkeit) bzw. Art. 6 Abs. 1 lit. b DSGVO, sofern der Chat der Anbahnung eines Vertragsverhältnisses dient. Möchtest du das vermeiden, nutze stattdessen das <a href="kontakt.html">Kontaktformular</a> oder schreib mir per E-Mail.</p>
         <p>Das Chat-System läuft auf eigener Infrastruktur (demselben Homelab wie diese Website), es besteht daher kein Auftragsverarbeitungsvertrag mit einem externen Hosting-Anbieter.</p>
 
-        <h2 id="jquery">7. jQuery (externe Ressource)</h2>
-        <p>Zur technischen Umsetzung des Kontaktformulars und des Live-Chats laden wir die JavaScript-Bibliothek jQuery auf jeder Seite von einem externen Server (<code>code.jquery.com</code>, bereitgestellt über ein Content Delivery Network). Dabei wird deine IP-Adresse an den Betreiber dieses CDN übermittelt, da ohne diese Übermittlung keine Auslieferung der Datei an deinen Browser möglich ist.</p>
-        <p>Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an technisch stabiler und performanter Bereitstellung von Kontaktformular und Chat). Es kann nicht ausgeschlossen werden, dass dabei Daten in Länder außerhalb der EU/des EWR (z. B. USA) übertragen werden. Wer dies vermeiden möchte, kann uns direkt per E-Mail oder Telefon kontaktieren (siehe <a href="kontakt.html">Kontakt</a>).</p>
-
-        <h2 id="ssl">8. SSL/TLS-Verschlüsselung</h2>
+        <h2 id="ssl">7. SSL/TLS-Verschlüsselung</h2>
         <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in deiner Browserzeile.</p>
 
-        <h2 id="rechte">9. Rechte der betroffenen Personen</h2>
+        <h2 id="rechte">8. Rechte der betroffenen Personen</h2>
         <p>Du hast im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:</p>
         <ul>
           <li>Auskunft über deine gespeicherten personenbezogenen Daten (Art. 15 DSGVO)</li>
@@ -186,8 +183,8 @@
         </ul>
         <p>Solltest du eine erteilte Einwilligung widerrufen wollen, genügt eine formlose E-Mail an <a href="mailto:info@edv-kretzer.de">info@edv-kretzer.de</a>. Zudem steht dir ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
 
-        <h2 id="aenderung">10. Aktualität &amp; Änderung dieser Datenschutzerklärung</h2>
-        <p>Diese Datenschutzerklärung ist aktuell gültig (Stand: <span data-year></span>). Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Erklärung zu ändern.</p>
+        <h2 id="aenderung">9. Aktualität &amp; Änderung dieser Datenschutzerklärung</h2>
+        <p>Diese Datenschutzerklärung ist aktuell gültig (Stand: 30. Oktober 2026). Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Erklärung zu ändern.</p>
       </div>
     </section>
   </main>
@@ -244,7 +241,7 @@
   <script src="js/main.js"></script>
 
   <!-- Zammad Live-Chat -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/vendor/jquery-3.6.0.min.js"></script>
   <script src="https://support-tech.pke-lab.de/assets/chat/chat.min.js"></script>
   <script>
     $(function () {
