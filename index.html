@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EDV-Kretzer – capulus-core: GitOps-Homelab auf k3s, ArgoCD &amp; Tailscale</title>
   <meta name="description" content="capulus-core ist ein offenes, GitOps-gesteuertes Homelab aus drei k3s-Clustern (ENTW, TECH, PROD): ArgoCD, Ansible und Tailscale, geprüfte Updates, null offene Ports.">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#1b120d">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.edv-kretzer.de/">
@@ -67,6 +68,7 @@
   </script>
 </head>
 <body>
+  <div class="bg-wheel bg-wheel-hero bg-wheel-spin" aria-hidden="true"><svg><use href="assets/icons/sprite.svg#icon-wheel"></use></svg></div>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <header class="site-header">
@@ -268,6 +270,14 @@
             <p>Der komplette Code ist öffentlich auf GitHub – nachvollziehbar, forkbar, frei nutzbar.</p>
           </div>
         </div>
+        <div class="device reveal mt-4" style="max-width:480px; margin-inline:auto;">
+          <div class="screen-bar"><span></span><span></span><span></span></div>
+          <div class="screen code-screen">
+            <div><span class="tok-muted">$</span> <span class="tok-key">git</span> push origin main</div>
+            <div class="tok-muted"># ☕ kurz Kaffee nachschenken …</div>
+            <div class="tok-hl">✓ ArgoCD sync · Healthy · ~3 Min<span class="code-cursor"></span></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -358,7 +368,7 @@
         chatId: 1,
         show: false,
         flat: true,
-        background: '#0d1230',
+        background: '#26160f',
         fontSize: '13px',
         title: '<strong>Chat</strong> mit mir'
       });

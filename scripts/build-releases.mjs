@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
-const REPO = "pkr-lab/capulus-core";
+const OWNER = "pkr-lab";
 const COUNT = 10;
 const MAX_BULLETS = 3;
 const MAX_LENGTH = 320;
@@ -11,10 +11,17 @@ const escapeHtml = (value) =>
 const headers = { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" };
 if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 
-const response = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=${COUNT}`, { headers });
-if (!response.ok) {
-  console.error(`GitHub-API: HTTP ${response.status}`);
-  process.exit(1);
+const projects = JSON.parse(readFileSync("data/projects.json", "utf8"));
+const capulusRepos = projects.map((project) => project.repo).filter((repo) => repo.startsWith("capulus-"));
+
+const fetched = [];
+for (const repo of capulusRepos) {
+  const response = await fetch(`https://api.github.com/repos/${OWNER}/${repo}/releases?per_page=${COUNT}`, { headers });
+  if (!response.ok) {
+    console.error(`GitHub-API (${repo}): HTTP ${response.status}`);
+    process.exit(1);
+  }
+  for (const release of await response.json()) fetched.push({ repo, release });
 }
 
 const summarize = (notes) => {
@@ -48,17 +55,18 @@ const summarize = (notes) => {
   return summary || "Release veröffentlicht.";
 };
 
-const releases = (await response.json())
-  .filter((release) => !release.draft && !release.prerelease)
+const releases = fetched
+  .filter(({ release }) => !release.draft && !release.prerelease)
+  .sort((a, b) => b.release.published_at.localeCompare(a.release.published_at))
   .slice(0, COUNT)
-  .map((release) => {
+  .map(({ repo, release }) => {
     const hasFeature = /^###\s+Features\s*$/m.test(release.body || "");
     const major = /^#\s+\[\d+\.0\.0\]/m.test(release.body || "");
     return {
-      id: release.tag_name,
+      id: `${repo}-${release.tag_name}`,
       date: release.published_at.slice(0, 10),
       tag: major ? "Major" : hasFeature ? "Feature" : "Fix",
-      title: escapeHtml(`capulus-core ${release.tag_name}`),
+      title: escapeHtml(`${repo} ${release.tag_name}`),
       body: escapeHtml(summarize(release.body)),
       url: release.html_url,
     };
@@ -67,7 +75,6 @@ const releases = (await response.json())
 writeFileSync("data/releases.json", `${JSON.stringify(releases, null, 2)}\n`);
 console.log(`${releases.length} Releases geschrieben`);
 
-const projects = JSON.parse(readFileSync("data/projects.json", "utf8"));
 const versions = {};
 for (const project of projects) {
   const latest = await fetch(`https://api.github.com/repos/pkr-lab/${project.repo}/releases/latest`, { headers });

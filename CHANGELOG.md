@@ -1,3 +1,11 @@
+## [1.4.0](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.3.1...v1.4.0) (2026-10-23)
+
+### Features
+
+* **capulus:** Seite capulus im Überblick mit Architekturdiagramm und Projektkarten ([5332f0e](https://github.com/pkr-lab/EDV-Kretzer/commit/5332f0eabd2fac48d735e69e58a2ec1007094a47))
+* **gitlab-mirror:** add workflow for mirroring GitHub repository to GitLab ([b739ab5](https://github.com/pkr-lab/EDV-Kretzer/commit/b739ab5447528a6f6a3734b047ed15e45ee16e71))
+* **seo:** SEO per Skript erzeugen, prüfen und nach jedem Push aktualisieren ([86af93d](https://github.com/pkr-lab/EDV-Kretzer/commit/86af93dea7261935660ea64e839de42fa698bbbb))
+
 ## [1.3.1](https://github.com/pkr-lab/EDV-Kretzer/compare/v1.3.0...v1.3.1) (2026-10-19)
 
 ### Bug Fixes
