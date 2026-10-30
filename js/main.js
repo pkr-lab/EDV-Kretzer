@@ -40,12 +40,16 @@
   }
 
   /* ---------- Aktiven Navigationslink markieren ---------- */
-  var currentPage = (location.pathname.split("/").pop() || "index.html");
+  // Seitenname aus Pfad oder Link: "/projekt/", "projekt.html#x" und "projekt" ergeben "projekt", die Startseite "index"
+  function pageName(path) {
+    var name = path.split("#")[0].split("?")[0].replace(/\/$/, "").split("/").pop().replace(/\.html$/, "");
+    return name || "index";
+  }
+  var currentPage = pageName(location.pathname);
   document.querySelectorAll(".nav-links a, .mobile-menu a, .footer-col a").forEach(function (link) {
     var href = link.getAttribute("href");
-    if (!href) return;
-    var hrefPage = href.split("#")[0] || "index.html";
-    if (hrefPage === currentPage || (currentPage === "" && hrefPage === "index.html")) {
+    if (!href || /^(https?:|mailto:|tel:)/.test(href)) return;
+    if (pageName(href) === currentPage) {
       link.setAttribute("aria-current", "page");
     }
   });

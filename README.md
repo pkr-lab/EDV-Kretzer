@@ -10,7 +10,7 @@ cd EDV-Kretzer
 python3 -m http.server 8000
 ```
 
-Dann <http://localhost:8000/> öffnen. Ein Push auf `main` deployt per GitHub Actions nach netcup.
+Dann <http://localhost:8000/> öffnen. Mit sauberen URLs wie live: `node scripts/build-site.mjs && python3 -m http.server 8000 -d dist`. Ein Push auf `main` baut die Seite und deployt sie per GitHub Actions nach netcup.
 
 ## Dokumentation
 
