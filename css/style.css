@@ -1628,90 +1628,18 @@ p { color: var(--color-text-muted); }
   border: 1px dashed var(--glass-border);
 }
 
-/* ---------- Zammad-Formular (extern eingebunden, noCSS: true) ---------- */
-@keyframes zammad-modal-in {
-  from { opacity: 0; transform: translateY(16px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-@keyframes zammad-backdrop-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.zammad-form-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-2);
-}
-
-.zammad-form-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(43, 24, 16, 0.45);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  animation: zammad-backdrop-in 0.25s var(--ease) both;
-}
-
-.zammad-form-modal-body {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 460px;
-  max-height: 88vh;
-  overflow-y: auto;
-  background: #ffffff;
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--glass-shadow);
-  padding: var(--space-4);
-  animation: zammad-modal-in 0.3s var(--ease) both;
-}
-
-.zammad-form-close {
-  position: absolute;
-  top: var(--space-2);
-  right: var(--space-2);
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  color: var(--color-text);
-  font-size: 1.3rem;
-  line-height: 1;
-  transition: background var(--transition-fast), transform var(--transition-fast);
-}
-.zammad-form-close:hover { background: var(--glass-bg-strong); transform: rotate(90deg); }
-
-.zammad-form h2 {
-  font-size: 1.3rem;
-  margin-bottom: var(--space-3);
-  padding-right: 2rem;
-}
-
-.zammad-form .zammad-form-group {
-  margin-bottom: var(--space-2);
-}
-
-.zammad-form label {
+/* ---------- Kontaktformular mit E-Mail-Bestätigung ---------- */
+.verify-step { margin-bottom: var(--space-2); }
+.verify-step label {
   display: block;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-text);
-  margin-bottom: 0.4em;
+  margin: var(--space-2) 0 0.4em;
 }
+.verify-step label:first-of-type { margin-top: 0; }
 
-.zammad-form .zammad-form-control {
+.verify-input {
   width: 100%;
   padding: 0.8em 1em;
   border-radius: var(--radius-sm);
@@ -1721,82 +1649,53 @@ p { color: var(--color-text-muted); }
   font: inherit;
   transition: border-color var(--transition-fast);
 }
-.zammad-form .zammad-form-control::placeholder { color: var(--color-text-muted); }
-.zammad-form .zammad-form-control:focus { border-color: var(--color-accent-text); }
-.zammad-form textarea.zammad-form-control { min-height: 120px; resize: vertical; }
-.zammad-form input[type="file"].zammad-form-control { padding: 0.5em; background: transparent; }
-.zammad-form input[type="file"].zammad-form-control::file-selector-button {
-  padding: 0.5em 1em;
-  margin-right: 0.8em;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--glass-border);
-  background: var(--glass-bg-strong);
-  color: var(--color-text);
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
+.verify-input::placeholder { color: var(--color-text-muted); }
+.verify-input:focus { border-color: var(--color-accent-text); }
+textarea.verify-input { min-height: 140px; resize: vertical; }
+.verify-code {
+  font-size: 1.6rem;
+  letter-spacing: 0.4em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
-.zammad-form .zammad-form-group:has(.zammad-form-checkbox) { margin-bottom: var(--space-3); }
-.zammad-form label:has(.zammad-form-checkbox) {
-  display: flex;
+.verify-check {
+  display: flex !important;
   align-items: flex-start;
   gap: 0.6em;
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--color-text-muted);
+  font-weight: 400 !important;
+  color: var(--color-text-muted) !important;
 }
-.zammad-form .zammad-form-checkbox {
+.verify-check input {
   width: 16px;
   height: 16px;
   margin-top: 0.2em;
   flex-shrink: 0;
   accent-color: var(--color-accent);
 }
-.zammad-form label a { color: var(--color-accent-text); text-decoration: underline; }
+.verify-check a { color: var(--color-accent-text); text-decoration: underline; }
 
-.zammad-form-group--has-error .zammad-form-control { border-color: var(--color-accent); }
-.zammad-form-group--has-error label { color: var(--color-accent-text); }
-
-.zammad-form button[type="submit"] {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
+.verify-ok { color: var(--color-text); }
+.verify-link {
+  display: block;
+  margin: var(--space-2) auto 0;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--color-accent-text);
+  font: inherit;
+  font-size: 0.88rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.verify-status {
+  min-height: 1.4em;
   margin-top: var(--space-2);
-  padding: 0.9em 1.8em;
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: 0.98rem;
-  color: var(--color-text-dark);
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
-  box-shadow: 0 8px 24px rgba(198, 130, 63, 0.35);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
-}
-.zammad-form button[type="submit"]:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(198, 130, 63, 0.5);
-}
-.zammad-form button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
-
-.zammad-form-thankyou {
-  text-align: center;
-  padding: var(--space-3) 0;
-  font-size: 1.05rem;
-  color: var(--color-text);
-}
-
-.js-noConfig {
-  color: var(--color-text-muted);
   font-size: 0.92rem;
+  color: var(--color-text-muted);
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .zammad-form-modal-backdrop,
-  .zammad-form-modal-body {
-    animation: none !important;
-  }
-}
+.verify-status.is-error { color: var(--color-danger); font-weight: 600; }
+.verify .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* ---------- Sitemap ---------- */
 .sitemap-grid {
@@ -1928,34 +1827,6 @@ p { color: var(--color-text-muted); }
 .legal-toc h2 { margin: 0 0 var(--space-1) 0; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
 .legal-toc ol { padding-left: 1.2em; }
 .legal-toc a { font-size: 0.92rem; }
-
-/* ---------- Zammad Live-Chat Button ---------- */
-.chat-fab {
-  position: fixed;
-  right: var(--space-3);
-  bottom: 104px;
-  z-index: 240;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
-  color: var(--color-text-dark);
-  box-shadow: 0 8px 24px rgba(198, 130, 63, 0.45);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-.chat-fab:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 32px rgba(198, 130, 63, 0.55);
-}
-.chat-fab svg { width: 24px; height: 24px; }
-.chat-fab.is-inactive { display: none; }
-
-@media (max-width: 639px) {
-  .chat-fab { right: var(--space-2); width: 50px; height: 50px; }
-}
 
 /* ---------- Cookie / Info Banner ---------- */
 .info-banner {
