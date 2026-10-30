@@ -65,7 +65,7 @@ const projects = readJson("data/projects.json") || [];
 const versions = readJson("data/versions.json") || {};
 const apps = readJson("data/apps.json") || [];
 
-const canonicalOf = (file) => (file === "index.html" ? `${SITE}/` : `${SITE}/${file}`);
+const canonicalOf = (file) => (file === "index.html" ? `${SITE}/` : `${SITE}/${file.replace(/\.html$/, "")}/`);
 
 const buildGraph = (file, meta) => {
   const url = canonicalOf(file);

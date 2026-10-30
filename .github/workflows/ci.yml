@@ -31,3 +31,6 @@ jobs:
 
       - name: SEO prüfen
         run: node scripts/build-seo.mjs --check
+
+      - name: Seite bauen
+        run: node scripts/build-site.mjs
