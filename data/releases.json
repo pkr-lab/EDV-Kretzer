@@ -1,5 +1,13 @@
 [
   {
+    "id": "capulus-core-v3.72.1",
+    "date": "2026-10-30",
+    "tag": "Fix",
+    "title": "capulus-core v3.72.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.72.1"
+  },
+  {
     "id": "capulus-ansible-v1.5.0",
     "date": "2026-10-30",
     "tag": "Feature",
@@ -70,13 +78,5 @@
     "title": "capulus-core v3.69.0",
     "body": "Neu: deps: Pin dependencies; deps: Update dependency tailscale/tailscale to v1.104.2; deps: Update ghcr.io/pkr-lab/capulus-wiki-sync Docker tag to v1.1.2 und 1 weitere",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.69.0"
-  },
-  {
-    "id": "capulus-core-v3.68.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.68.0",
-    "body": "Neu: deps: Update actions/setup-python action to v7.1.0; deps: Update argocd/apps/prod/immich to v3.3.5; deps: Update argocd/apps/tech/n8n/image und 4 weitere",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.68.0"
   }
 ]
