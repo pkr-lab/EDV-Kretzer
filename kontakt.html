@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – Sprich mit uns | EDV-Kretzer</title>
-  <meta name="description" content="Nimm Kontakt zu EDV-Kretzer auf – per Formular, Live-Chat oder E-Mail. Fragen zu capulus-core oder eigenen Projekten? Schreib mir.">
+  <meta name="description" content="Nimm Kontakt zu EDV-Kretzer auf – per Formular oder E-Mail. Fragen zu capulus-core oder eigenen Projekten? Schreib mir.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
@@ -15,12 +15,12 @@
   <meta property="og:type" content="website" data-seo>
   <meta property="og:site_name" content="EDV-Kretzer" data-seo>
   <meta property="og:title" content="Kontakt – Sprich mit uns" data-seo>
-  <meta property="og:description" content="Nimm Kontakt zu EDV-Kretzer auf – per Formular, Live-Chat oder E-Mail. Fragen zu capulus-core oder eigenen Projekten? Schreib mir." data-seo>
+  <meta property="og:description" content="Nimm Kontakt zu EDV-Kretzer auf – per Formular oder E-Mail. Fragen zu capulus-core oder eigenen Projekten? Schreib mir." data-seo>
   <meta property="og:url" content="https://www.edv-kretzer.de/kontakt/" data-seo>
   <meta property="og:locale" content="de_DE" data-seo>
   <meta name="twitter:card" content="summary" data-seo>
   <meta name="twitter:title" content="Kontakt – Sprich mit uns" data-seo>
-  <meta name="twitter:description" content="Nimm Kontakt zu EDV-Kretzer auf – per Formular, Live-Chat oder E-Mail. Fragen zu capulus-core oder eigenen Projekten? Schreib mir." data-seo>
+  <meta name="twitter:description" content="Nimm Kontakt zu EDV-Kretzer auf – per Formular oder E-Mail. Fragen zu capulus-core oder eigenen Projekten? Schreib mir." data-seo>
   <script type="application/ld+json" data-seo>
 {
   "@context": "https://schema.org",
@@ -30,7 +30,7 @@
       "@id": "https://www.edv-kretzer.de/kontakt/#webpage",
       "url": "https://www.edv-kretzer.de/kontakt/",
       "name": "Kontakt – Sprich mit uns",
-      "description": "Nimm Kontakt zu EDV-Kretzer auf – per Formular, Live-Chat oder E-Mail. Fragen zu capulus-core oder eigenen Projekten? Schreib mir.",
+      "description": "Nimm Kontakt zu EDV-Kretzer auf – per Formular oder E-Mail. Fragen zu capulus-core oder eigenen Projekten? Schreib mir.",
       "inLanguage": "de-DE",
       "isPartOf": {
         "@id": "https://www.edv-kretzer.de/#website"
@@ -158,13 +158,47 @@
 
         <div class="contact-form-card glass-card reveal">
           <h3 class="mt-2" id="form-heading">Kontaktformular</h3>
-          <p>Öffne unser Kontaktformular in einem Fenster und schick uns dein Anliegen direkt zu.</p>
+          <p>Bestätige zuerst deine E-Mail-Adresse mit einem Code. Danach kannst du dein Anliegen absenden.</p>
           <p id="interest-note" style="display:none; margin-bottom: var(--space-2);"></p>
-          <button id="zammad-feedback-form" class="btn btn-primary btn-block mt-2">Kontaktformular öffnen</button>
+
+          <div class="verify" id="verify" hidden>
+            <form class="verify-step" id="step-email" novalidate>
+              <label for="v-email">E-Mail-Adresse</label>
+              <input class="verify-input" type="email" id="v-email" name="email" autocomplete="email" maxlength="254" required>
+              <button type="submit" class="btn btn-primary btn-block mt-2" id="v-send">Code senden</button>
+            </form>
+
+            <form class="verify-step" id="step-code" novalidate hidden>
+              <p>Wir haben einen 6-stelligen Code an <strong id="v-sent-to"></strong> geschickt. Er ist 10 Minuten gültig.</p>
+              <label for="v-code">Bestätigungscode</label>
+              <input class="verify-input verify-code" type="text" id="v-code" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+              <button type="submit" class="btn btn-primary btn-block mt-2" id="v-confirm">Code prüfen</button>
+              <button type="button" class="btn btn-outline btn-block mt-2" id="v-resend" disabled>Code erneut senden</button>
+              <button type="button" class="verify-link" id="v-change">Andere E-Mail-Adresse verwenden</button>
+            </form>
+
+            <form class="verify-step" id="step-ticket" novalidate hidden>
+              <p class="verify-ok">E-Mail-Adresse bestätigt: <strong id="v-verified"></strong></p>
+              <label for="t-name">Name (optional)</label>
+              <input class="verify-input" type="text" id="t-name" name="name" autocomplete="name" maxlength="100">
+              <label for="t-subject">Betreff</label>
+              <input class="verify-input" type="text" id="t-subject" name="subject" maxlength="200" required>
+              <label for="t-message">Nachricht</label>
+              <textarea class="verify-input" id="t-message" name="message" rows="6" maxlength="10000" required></textarea>
+              <label class="verify-check">
+                <input type="checkbox" id="t-consent" required>
+                <span>Ich stimme der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zu.</span>
+              </label>
+              <button type="submit" class="btn btn-primary btn-block mt-2" id="t-submit">Übermitteln</button>
+            </form>
+
+            <p class="verify-status" id="v-status" role="status" aria-live="polite"></p>
+          </div>
+
           <noscript>
             <p class="mt-2">Bitte aktiviere JavaScript, um das Kontaktformular zu nutzen, oder schreibe uns direkt an <a href="mailto:info@edv-kretzer.de">info@edv-kretzer.de</a>.</p>
           </noscript>
-          <p class="form-note mt-4">Das Formular wird über unser Zammad-Ticketsystem (support-tech.pke-lab.de) bereitgestellt. Details zur Datenverarbeitung findest du in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+          <p class="form-note mt-4">Der Bestätigungscode wird per E-Mail verschickt, das Ticket landet in unserem Zammad-Ticketsystem. Details zur Datenverarbeitung findest du in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
         </div>
       </div>
     </section>
@@ -244,67 +278,6 @@
     })();
   </script>
 
-  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
-    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
-  </button>
-
-  <!-- Zammad Kontaktformular & Live-Chat -->
-  <script src="js/vendor/jquery-3.6.0.min.js"></script>
-  <script id="zammad_form_script" src="https://support-tech.pke-lab.de/assets/form/form.js"></script>
-  <script src="https://support-tech.pke-lab.de/assets/chat/chat.min.js"></script>
-  <script>
-    $(function () {
-      new ZammadChat({
-        chatId: 1,
-        show: false,
-        flat: true,
-        background: '#26160f',
-        fontSize: '13px',
-        title: '<strong>Chat</strong> mit mir'
-      });
-
-      var interest = window.__contactInterest;
-      $('#zammad-feedback-form').ZammadForm({
-        agreementMessage: 'Ich stimme der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zu.',
-        messageTitle: interest ? 'Anfrage: ' + interest : 'Anfrage',
-        messageSubmit: 'Übermitteln',
-        messageThankYou: 'Vielen Dank für Ihre Anfrage (#%s). Wir melden uns umgehend.',
-        showTitle: true,
-        modal: true,
-        noCSS: true,
-        attachmentSupport: true
-      });
-
-      // Eigenes Styling statt Zammad-CSS: Schließen-Button ergänzen,
-      // Scrollen der Seite sperren, solange das Modal offen ist.
-      var closeModal = function () {
-        var backdrop = document.querySelector('.js-zammad-form-modal-backdrop');
-        if (backdrop) backdrop.click();
-      };
-
-      var observer = new MutationObserver(function () {
-        var modal = document.querySelector('.zammad-form-modal');
-        if (modal && !modal.dataset.enhanced) {
-          modal.dataset.enhanced = 'true';
-          document.body.style.overflow = 'hidden';
-          var closeBtn = document.createElement('button');
-          closeBtn.type = 'button';
-          closeBtn.className = 'zammad-form-close';
-          closeBtn.setAttribute('aria-label', 'Formular schließen');
-          closeBtn.innerHTML = '&times;';
-          closeBtn.addEventListener('click', closeModal);
-          var body = modal.querySelector('.js-zammad-form-modal-body');
-          if (body) body.prepend(closeBtn);
-        } else if (!modal) {
-          document.body.style.overflow = '';
-        }
-      });
-      observer.observe(document.body, { childList: true });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
-      });
-    });
-  </script>
+  <script src="js/kontakt-verifizierung.js"></script>
 </body>
 </html>
