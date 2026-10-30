@@ -40,12 +40,16 @@ jobs:
           install -m 700 -d ~/.ssh
           printf '%s\n' "$NETCUP_SSH_KEY" > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
-          # Host-Key aus dem Secret (known_hosts-Zeile), keine Vertrauensbildung beim ersten Verbinden
+          # Host-Key aus dem Secret, keine Vertrauensbildung beim ersten Verbinden
           if [ -z "$NETCUP_HOST_KEY" ]; then
             echo "::error::Secret NETCUP_HOST_KEY fehlt (known_hosts-Zeile des netcup-Servers)"
             exit 1
           fi
-          printf '%s\n' "$NETCUP_HOST_KEY" > ~/.ssh/known_hosts
+          # nur Schlüsselart und Schlüssel aus dem Secret nehmen, der Hostname kommt aus NETCUP_HOST
+          port="${NETCUP_PORT:-22}"
+          host_spec="$NETCUP_HOST"
+          [ "$port" = "22" ] || host_spec="[$NETCUP_HOST]:$port"
+          printf '%s %s\n' "$host_spec" "$(printf '%s' "$NETCUP_HOST_KEY" | awk 'NF >= 2 { print $(NF-1), $NF; exit }')" > ~/.ssh/known_hosts
           tar -C dist -czf - . | ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             -o StrictHostKeyChecking=yes -o UserKnownHostsFile=~/.ssh/known_hosts \
-            -p "${NETCUP_PORT:-22}" "$NETCUP_USER@$NETCUP_HOST" "tar -xzf - -C '$NETCUP_PATH'"
+            -p "$port" "$NETCUP_USER@$NETCUP_HOST" "tar -xzf - -C '$NETCUP_PATH'"
