@@ -1585,7 +1585,7 @@ p { color: var(--color-text-muted); }
 .timeline-item .year {
   font-weight: 800;
   color: var(--color-accent-text);
-  min-width: 70px;
+  min-width: 96px;
 }
 
 .values-grid { margin-top: var(--space-2); }
