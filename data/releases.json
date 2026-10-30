@@ -1,82 +1,82 @@
 [
   {
-    "id": "v3.55.0",
-    "date": "2026-10-19",
+    "id": "capulus-core-v3.71.0",
+    "date": "2026-10-29",
     "tag": "Feature",
-    "title": "capulus-core v3.55.0",
-    "body": "Neu: n8n: enable restic backup and add encrypted password",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.55.0"
+    "title": "capulus-core v3.71.0",
+    "body": "Neu: add script for syncing app catalog with MDM database",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.71.0"
   },
   {
-    "id": "v3.54.0",
-    "date": "2026-10-19",
-    "tag": "Feature",
-    "title": "capulus-core v3.54.0",
-    "body": "Neu: uptime-kuma: CORS-Header für die öffentliche Status-Page der Website",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.54.0"
-  },
-  {
-    "id": "v3.53.0",
-    "date": "2026-10-19",
-    "tag": "Feature",
-    "title": "capulus-core v3.53.0",
-    "body": "Neu: n8n: verschlüsseltes restic-Backup hinter Schalter (Incident 037)",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.53.0"
-  },
-  {
-    "id": "v3.52.2",
-    "date": "2026-10-19",
+    "id": "capulus-core-v3.70.1",
+    "date": "2026-10-26",
     "tag": "Fix",
-    "title": "capulus-core v3.52.2",
-    "body": "Behoben: n8n: update storageClassName to local-path and add nodeSelector",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.2"
+    "title": "capulus-core v3.70.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.70.1"
   },
   {
-    "id": "v3.52.1",
-    "date": "2026-10-19",
+    "id": "capulus-core-v3.70.0",
+    "date": "2026-10-26",
+    "tag": "Feature",
+    "title": "capulus-core v3.70.0",
+    "body": "Neu: add app installation and uninstallation options for iPads in MDM workflow. Behoben: add app blocklist functionality and update related workflows",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.70.0"
+  },
+  {
+    "id": "capulus-ios-v1.1.1",
+    "date": "2026-10-26",
     "tag": "Fix",
-    "title": "capulus-core v3.52.1",
-    "body": "Behoben: renovate: wiki-sync-Image ohne Wartezeit und Wochenfenster aktualisieren; renovate: Wochenfenster auf ganzen Montag erweitern und nur capulus-Repos bearbeiten",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.1"
+    "title": "capulus-ios v1.1.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-ios/releases/tag/v1.1.1"
   },
   {
-    "id": "v3.52.0",
-    "date": "2026-10-18",
-    "tag": "Feature",
-    "title": "capulus-core v3.52.0",
-    "body": "Neu: ci: Release und Commitlint über die zentralen Workflows",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.52.0"
+    "id": "capulus-ansible-v1.3.1",
+    "date": "2026-10-26",
+    "tag": "Fix",
+    "title": "capulus-ansible v1.3.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.3.1"
   },
   {
-    "id": "v3.51.0",
-    "date": "2026-10-18",
+    "id": "capulus-core-v3.69.0",
+    "date": "2026-10-26",
     "tag": "Feature",
-    "title": "capulus-core v3.51.0",
-    "body": "Neu: wiki-docs-sync: dryRun aus, Sync schreibt nach Wiki.js",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.51.0"
+    "title": "capulus-core v3.69.0",
+    "body": "Neu: deps: Pin dependencies; deps: Update dependency tailscale/tailscale to v1.104.2; deps: Update ghcr.io/pkr-lab/capulus-wiki-sync Docker tag to v1.1.2 und 1 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.69.0"
   },
   {
-    "id": "v3.50.0",
-    "date": "2026-10-18",
+    "id": "capulus-core-v3.68.0",
+    "date": "2026-10-26",
     "tag": "Feature",
-    "title": "capulus-core v3.50.0",
-    "body": "Neu: wiki-docs-sync: Sync als eigenes Image, Quelle ist pkr-lab-docs",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.50.0"
+    "title": "capulus-core v3.68.0",
+    "body": "Neu: deps: Update actions/setup-python action to v7.1.0; deps: Update argocd/apps/prod/immich to v3.3.5; deps: Update argocd/apps/tech/n8n/image und 4 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.68.0"
   },
   {
-    "id": "v3.49.0",
-    "date": "2026-10-18",
+    "id": "capulus-core-v3.67.0",
+    "date": "2026-10-26",
     "tag": "Feature",
-    "title": "capulus-core v3.49.0",
-    "body": "Neu: security: enhance firewall rules and remove deprecated kaniko workflow",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.49.0"
+    "title": "capulus-core v3.67.0",
+    "body": "Neu: deps: Update ghcr.io/paperless-ngx/paperless-ngx Docker tag to v3.3.4; deps: Update python Docker tag to v3.15",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.67.0"
   },
   {
-    "id": "v3.48.0",
-    "date": "2026-10-18",
+    "id": "capulus-core-v3.66.0",
+    "date": "2026-10-26",
     "tag": "Feature",
-    "title": "capulus-core v3.48.0",
-    "body": "Neu: security: add vault credentials for VM write and logs access",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.48.0"
+    "title": "capulus-core v3.66.0",
+    "body": "Neu: deps: Update mysql Docker tag to v26.10; deps: Update ollama/ollama Docker tag to v0.40.11; deps: Update pihole/pihole Docker tag to v2026.10.0 und 2 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.66.0"
+  },
+  {
+    "id": "capulus-core-v3.65.0",
+    "date": "2026-10-26",
+    "tag": "Feature",
+    "title": "capulus-core v3.65.0",
+    "body": "Neu: deps: Update dependency typescript to v7; deps: Update module github.com/oschwald/geoip2-golang to v2; deps: Update python Docker tag to v3.15 und 3 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.65.0"
   }
 ]

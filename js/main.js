@@ -162,6 +162,28 @@
     }
   }
 
+  /* ---------- Hintergrund-Wheel: dreht sich beim Scrollen ---------- */
+  var bgWheel = document.querySelector(".bg-wheel-spin");
+  if (bgWheel && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var wheelTicking = false;
+    var updateWheelRotation = function () {
+      var deg = (window.scrollY || window.pageYOffset || 0) * 0.08;
+      bgWheel.style.transform = "rotate(" + deg.toFixed(2) + "deg)";
+      wheelTicking = false;
+    };
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!wheelTicking) {
+          window.requestAnimationFrame(updateWheelRotation);
+          wheelTicking = true;
+        }
+      },
+      { passive: true }
+    );
+    updateWheelRotation();
+  }
+
   /* ---------- Info-/Datenschutz-Banner ---------- */
   var banner = document.querySelector(".info-banner");
   if (banner) {
