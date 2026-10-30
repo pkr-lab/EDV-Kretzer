@@ -10,18 +10,42 @@ concurrency:
   group: deploy-netcup
   cancel-in-progress: false
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Spiegel aktualisieren und nach httpdocs auschecken
-        uses: appleboy/ssh-action@v1.0.3
+      # ref: main, weil die Aufrufer-Workflows (seo, releases, status) vorher einen Bot-Commit auf main pushen
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          host: ${{ secrets.NETCUP_HOST }}
-          username: ${{ secrets.NETCUP_USER }}
-          key: ${{ secrets.NETCUP_SSH_KEY }}
-          port: ${{ secrets.NETCUP_PORT || '22' }}
-          script: |
-            set -e
-            git -C "$HOME/git/EDV-Kretzer" fetch --prune origin
-            git --git-dir="$HOME/git/EDV-Kretzer" --work-tree="${{ secrets.NETCUP_PATH }}" checkout -f main
+          ref: main
+          persist-credentials: false
+
+      - name: Seite mit sauberen URLs bauen
+        run: node scripts/build-site.mjs
+
+      - name: Nach netcup übertragen
+        env:
+          NETCUP_HOST: ${{ secrets.NETCUP_HOST }}
+          NETCUP_USER: ${{ secrets.NETCUP_USER }}
+          NETCUP_PORT: ${{ secrets.NETCUP_PORT }}
+          NETCUP_PATH: ${{ secrets.NETCUP_PATH }}
+          NETCUP_SSH_KEY: ${{ secrets.NETCUP_SSH_KEY }}
+          NETCUP_HOST_KEY: ${{ secrets.NETCUP_HOST_KEY }}
+        run: |
+          set -euo pipefail
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$NETCUP_SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          # Host-Key aus dem Secret (known_hosts-Zeile), keine Vertrauensbildung beim ersten Verbinden
+          if [ -z "$NETCUP_HOST_KEY" ]; then
+            echo "::error::Secret NETCUP_HOST_KEY fehlt (known_hosts-Zeile des netcup-Servers)"
+            exit 1
+          fi
+          printf '%s\n' "$NETCUP_HOST_KEY" > ~/.ssh/known_hosts
+          tar -C dist -czf - . | ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile=~/.ssh/known_hosts \
+            -p "${NETCUP_PORT:-22}" "$NETCUP_USER@$NETCUP_HOST" "tar -xzf - -C '$NETCUP_PATH'"
