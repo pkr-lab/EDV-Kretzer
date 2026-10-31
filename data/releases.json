@@ -1,5 +1,45 @@
 [
   {
+    "id": "capulus-core-v3.74.0",
+    "date": "2026-10-31",
+    "tag": "Feature",
+    "title": "capulus-core v3.74.0",
+    "body": "Neu: config: add Tag field to Zammad configuration and update values.yaml",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.74.0"
+  },
+  {
+    "id": "capulus-core-v3.73.3",
+    "date": "2026-10-31",
+    "tag": "Fix",
+    "title": "capulus-core v3.73.3",
+    "body": "Behoben: values: update ZAMMAD_GROUP to HomePage",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.73.3"
+  },
+  {
+    "id": "capulus-core-v3.73.2",
+    "date": "2026-10-31",
+    "tag": "Fix",
+    "title": "capulus-core v3.73.2",
+    "body": "Behoben: secrets: enable secrets and update encrypted values for ticket-gate",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.73.2"
+  },
+  {
+    "id": "capulus-core-v3.73.1",
+    "date": "2026-10-31",
+    "tag": "Fix",
+    "title": "capulus-core v3.73.1",
+    "body": "Behoben: postgres-configmap: move dep-enrollment-profile.json to data section",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.73.1"
+  },
+  {
+    "id": "capulus-core-v3.73.0",
+    "date": "2026-10-31",
+    "tag": "Feature",
+    "title": "capulus-core v3.73.0",
+    "body": "Neu: add ticket-gate namespace to ArgoCD project configuration",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.73.0"
+  },
+  {
     "id": "capulus-core-v3.72.1",
     "date": "2026-10-30",
     "tag": "Fix",
@@ -38,45 +78,5 @@
     "title": "capulus-core v3.71.0",
     "body": "Neu: add script for syncing app catalog with MDM database",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.71.0"
-  },
-  {
-    "id": "capulus-core-v3.70.1",
-    "date": "2026-10-26",
-    "tag": "Fix",
-    "title": "capulus-core v3.70.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.70.1"
-  },
-  {
-    "id": "capulus-core-v3.70.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.70.0",
-    "body": "Neu: add app installation and uninstallation options for iPads in MDM workflow. Behoben: add app blocklist functionality and update related workflows",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.70.0"
-  },
-  {
-    "id": "capulus-ios-v1.1.1",
-    "date": "2026-10-26",
-    "tag": "Fix",
-    "title": "capulus-ios v1.1.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-ios/releases/tag/v1.1.1"
-  },
-  {
-    "id": "capulus-ansible-v1.3.1",
-    "date": "2026-10-26",
-    "tag": "Fix",
-    "title": "capulus-ansible v1.3.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.3.1"
-  },
-  {
-    "id": "capulus-core-v3.69.0",
-    "date": "2026-10-26",
-    "tag": "Feature",
-    "title": "capulus-core v3.69.0",
-    "body": "Neu: deps: Pin dependencies; deps: Update dependency tailscale/tailscale to v1.104.2; deps: Update ghcr.io/pkr-lab/capulus-wiki-sync Docker tag to v1.1.2 und 1 weitere",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.69.0"
   }
 ]
