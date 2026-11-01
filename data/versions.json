@@ -1,8 +1,8 @@
 {
   "capulus-core": {
-    "tag": "v3.76.0",
+    "tag": "v3.77.0",
     "date": "2026-11-01",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.76.0"
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.77.0"
   },
   "capulus-ansible": {
     "tag": "v1.7.0",
