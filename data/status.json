@@ -1,9 +1,11 @@
 {
-  "active": false,
+  "active": true,
   "level": "maintenance",
   "title": "",
-  "message": "Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.",
-  "areas": [],
-  "since": "",
-  "until": ""
+  "message": "Test",
+  "areas": [
+    "Alarmmonitor"
+  ],
+  "since": "2026-11-04T11:37:06Z",
+  "until": "2026-11-04T12:36:59.320Z"
 }
