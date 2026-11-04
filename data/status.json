@@ -1,11 +1,9 @@
 {
-  "active": true,
+  "active": false,
   "level": "maintenance",
   "title": "",
-  "message": "Test",
-  "areas": [
-    "Website"
-  ],
-  "since": "2026-11-04T11:53:58Z",
+  "message": "Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.",
+  "areas": [],
+  "since": "",
   "until": ""
 }
