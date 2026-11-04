@@ -1,5 +1,45 @@
 [
   {
+    "id": "capulus-core-v3.85.1",
+    "date": "2026-11-04",
+    "tag": "Fix",
+    "title": "capulus-core v3.85.1",
+    "body": "Behoben: Update SMTP credentials across multiple workflows to ensure consistent automation",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.85.1"
+  },
+  {
+    "id": "capulus-core-v3.85.0",
+    "date": "2026-11-04",
+    "tag": "Feature",
+    "title": "capulus-core v3.85.0",
+    "body": "Neu: Add email notification nodes for various workflows including ticket processing and alerts",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.85.0"
+  },
+  {
+    "id": "capulus-core-v3.84.0",
+    "date": "2026-11-04",
+    "tag": "Feature",
+    "title": "capulus-core v3.84.0",
+    "body": "Neu: Implement form for creating new AI drafts for Zammad tickets and enhance ticket processing logic. Behoben: Update position of HTTP request node in Zammad ticket processing workflow; Update ticket-gate credentials and adjust rotation settings",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.84.0"
+  },
+  {
+    "id": "capulus-core-v3.82.1",
+    "date": "2026-11-04",
+    "tag": "Fix",
+    "title": "capulus-core v3.82.1",
+    "body": "Behoben: Add email template for e-learning access request from Lena Fischer",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.82.1"
+  },
+  {
+    "id": "capulus-core-v3.82.0",
+    "date": "2026-11-04",
+    "tag": "Feature",
+    "title": "capulus-core v3.82.0",
+    "body": "Neu: Enhance course link handling in workflows and documentation",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.82.0"
+  },
+  {
     "id": "capulus-core-v3.81.1",
     "date": "2026-11-02",
     "tag": "Fix",
@@ -38,45 +78,5 @@
     "title": "capulus-core v3.78.0",
     "body": "Neu: Implement kurslink functionality and enhance error handling in workflows",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.78.0"
-  },
-  {
-    "id": "capulus-ansible-v1.8.0",
-    "date": "2026-11-01",
-    "tag": "Feature",
-    "title": "capulus-ansible v1.8.0",
-    "body": "Neu: ollama: update idle suspend settings and add Tailscale route management",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.8.0"
-  },
-  {
-    "id": "capulus-core-v3.77.1",
-    "date": "2026-11-01",
-    "tag": "Fix",
-    "title": "capulus-core v3.77.1",
-    "body": "Behoben: Adjust OLLAMA_KEEP_ALIVE duration and improve error handling in Zammad workflow",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.77.1"
-  },
-  {
-    "id": "capulus-core-v3.77.0",
-    "date": "2026-11-01",
-    "tag": "Feature",
-    "title": "capulus-core v3.77.0",
-    "body": "Neu: Enhance ticket processing logic and add new workflow nodes for handling ticket states",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.77.0"
-  },
-  {
-    "id": "capulus-core-v3.76.0",
-    "date": "2026-11-01",
-    "tag": "Feature",
-    "title": "capulus-core v3.76.0",
-    "body": "Neu: Update contact information and clarify waiting list details in documentation",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.76.0"
-  },
-  {
-    "id": "capulus-core-v3.75.1",
-    "date": "2026-11-01",
-    "tag": "Fix",
-    "title": "capulus-core v3.75.1",
-    "body": "Behoben: Update JavaScript code for ticket response extraction to improve internal notes handling",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.75.1"
   }
 ]
