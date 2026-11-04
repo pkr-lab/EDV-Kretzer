@@ -2,10 +2,10 @@
   "active": true,
   "level": "maintenance",
   "title": "",
-  "message": "Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.",
+  "message": "Test",
   "areas": [
-    "Nextcloud"
+    "Website"
   ],
-  "since": "2026-11-04T11:45:59Z",
-  "until": "2026-11-05T11:45:51.426Z"
+  "since": "2026-11-04T11:53:58Z",
+  "until": ""
 }
