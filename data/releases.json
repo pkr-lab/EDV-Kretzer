@@ -1,82 +1,82 @@
 [
   {
-    "id": "capulus-core-v3.85.1",
-    "date": "2026-11-04",
+    "id": "capulus-ansible-v1.15.0",
+    "date": "2026-11-05",
+    "tag": "Feature",
+    "title": "capulus-ansible v1.15.0",
+    "body": "Neu: k3s: add support for configurable resolv.search in k3s configuration",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.15.0"
+  },
+  {
+    "id": "capulus-core-v3.90.1",
+    "date": "2026-11-05",
     "tag": "Fix",
-    "title": "capulus-core v3.85.1",
-    "body": "Behoben: Update SMTP credentials across multiple workflows to ensure consistent automation",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.85.1"
+    "title": "capulus-core v3.90.1",
+    "body": "Behoben: lldap: CPU-Limit erhöhen und startupProbe ergänzen",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.90.1"
   },
   {
-    "id": "capulus-core-v3.85.0",
-    "date": "2026-11-04",
+    "id": "capulus-ansible-v1.14.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-core v3.85.0",
-    "body": "Neu: Add email notification nodes for various workflows including ticket processing and alerts",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.85.0"
+    "title": "capulus-ansible v1.14.0",
+    "body": "Neu: k3s: add configurable resolv.conf and nameserver support",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.14.0"
   },
   {
-    "id": "capulus-core-v3.84.0",
-    "date": "2026-11-04",
-    "tag": "Feature",
-    "title": "capulus-core v3.84.0",
-    "body": "Neu: Implement form for creating new AI drafts for Zammad tickets and enhance ticket processing logic. Behoben: Update position of HTTP request node in Zammad ticket processing workflow; Update ticket-gate credentials and adjust rotation settings",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.84.0"
-  },
-  {
-    "id": "capulus-core-v3.82.1",
-    "date": "2026-11-04",
+    "id": "capulus-ansible-v1.13.1",
+    "date": "2026-11-05",
     "tag": "Fix",
-    "title": "capulus-core v3.82.1",
-    "body": "Behoben: Add email template for e-learning access request from Lena Fischer",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.82.1"
+    "title": "capulus-ansible v1.13.1",
+    "body": "Behoben: cpu_power_limit: refine conditions for service state management in check mode",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.13.1"
   },
   {
-    "id": "capulus-core-v3.82.0",
-    "date": "2026-11-04",
+    "id": "capulus-core-v3.90.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-core v3.82.0",
-    "body": "Neu: Enhance course link handling in workflows and documentation",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.82.0"
+    "title": "capulus-core v3.90.0",
+    "body": "Neu: Add Horizontal Pod Autoscaler configuration for CoreDNS",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.90.0"
   },
   {
-    "id": "capulus-core-v3.81.1",
-    "date": "2026-11-02",
-    "tag": "Fix",
-    "title": "capulus-core v3.81.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.81.1"
-  },
-  {
-    "id": "capulus-core-v3.81.0",
-    "date": "2026-11-02",
+    "id": "capulus-core-v3.89.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-core v3.81.0",
-    "body": "Neu: deps: Update argocd/apps/tech/alert-caller; deps: Update curlimages/curl:8.23.0 Docker digest to 3fb7e13; deps: Update docker.io/valkey/valkey:9-alpine Docker digest to bf09d58 und 2 weitere",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.81.0"
+    "title": "capulus-core v3.89.0",
+    "body": "Neu: Add tolerations and affinity settings for cloudflared, headlamp, and kubeseal-webgui",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.89.0"
   },
   {
-    "id": "capulus-core-v3.80.0",
-    "date": "2026-11-02",
+    "id": "capulus-core-v3.88.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-core v3.80.0",
-    "body": "Neu: Reintroduce course links in new knowledge-refs file",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.80.0"
+    "title": "capulus-core v3.88.0",
+    "body": "Neu: Add tolerations and affinity settings for improved scheduling on controlplane-1",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.88.0"
   },
   {
-    "id": "capulus-core-v3.79.0",
-    "date": "2026-11-02",
+    "id": "capulus-ansible-v1.13.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-core v3.79.0",
-    "body": "Neu: Add terminationGracePeriodSeconds to deployment and update N8N_GRACEFUL_SHUTDOWN_TIMEOUT in values.yaml",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.79.0"
+    "title": "capulus-ansible v1.13.0",
+    "body": "Neu: cpu_power_limit: add role for managing CPU power limits with configurable settings",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.13.0"
   },
   {
-    "id": "capulus-core-v3.78.0",
-    "date": "2026-11-02",
+    "id": "capulus-ansible-v1.12.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-core v3.78.0",
-    "body": "Neu: Implement kurslink functionality and enhance error handling in workflows",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.78.0"
+    "title": "capulus-ansible v1.12.0",
+    "body": "Neu: k3s: add ntfy integration for snapshot notifications",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.12.0"
+  },
+  {
+    "id": "capulus-core-v3.87.0",
+    "date": "2026-11-05",
+    "tag": "Feature",
+    "title": "capulus-core v3.87.0",
+    "body": "Neu: Add VMRule for worker-0 availability monitoring; Remove outdated etcd snapshot alerts and configuration; Update monitoring configuration for controlplane-1 and etcd",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.87.0"
   }
 ]
