@@ -1,11 +1,9 @@
 {
-  "active": true,
+  "active": false,
   "level": "maintenance",
   "title": "",
-  "message": "Komplette Hardware Wartung, alle Services sind nicht erreichbar ab 20:00 Uhr",
-  "areas": [
-    "Gesamter Cluster"
-  ],
-  "since": "2026-11-05T17:26:42Z",
+  "message": "Alles bis auf Zammad wieder am laufen\r\nZammad kommt in den naechsten 30 min Online",
+  "areas": [],
+  "since": "",
   "until": ""
 }
