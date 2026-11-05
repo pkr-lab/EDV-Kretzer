@@ -245,7 +245,7 @@
       }
       document.body.insertBefore(box, document.body.firstChild);
 
-      /* Wartung am gesamten Cluster: zusätzlich ein Block ganz oben auf der Startseite */
+      /* Wartung am gesamten Cluster: zusätzlich ein Block ganz oben (Startseite und Updates) */
       var slot = document.querySelector("[data-status-block]");
       var clusterWide = Array.isArray(status.areas) && status.areas.indexOf("Gesamter Cluster") !== -1;
       if (slot && level === "maintenance" && clusterWide) {
