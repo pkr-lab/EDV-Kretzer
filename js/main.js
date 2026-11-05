@@ -244,6 +244,34 @@
         box.appendChild(meta);
       }
       document.body.insertBefore(box, document.body.firstChild);
+
+      /* Wartung am gesamten Cluster: zusätzlich ein Block ganz oben auf der Startseite */
+      var slot = document.querySelector("[data-status-block]");
+      var clusterWide = Array.isArray(status.areas) && status.areas.indexOf("Gesamter Cluster") !== -1;
+      if (slot && level === "maintenance" && clusterWide) {
+        var block = document.createElement("div");
+        block.className = "status-block";
+        block.setAttribute("role", "status");
+        var blockTitle = document.createElement("h2");
+        blockTitle.textContent = "Wartung am gesamten Cluster";
+        var blockLead = document.createElement("p");
+        blockLead.className = "status-block-lead";
+        blockLead.textContent = "Während der Wartung ist kein Service erreichbar.";
+        block.appendChild(blockTitle);
+        block.appendChild(blockLead);
+        if (status.message) {
+          var blockText = document.createElement("p");
+          blockText.textContent = status.message;
+          block.appendChild(blockText);
+        }
+        if (since || end) {
+          var blockMeta = document.createElement("p");
+          blockMeta.className = "status-block-meta";
+          blockMeta.textContent = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+          block.appendChild(blockMeta);
+        }
+        slot.appendChild(block);
+      }
     })
     .catch(function () {});
 
