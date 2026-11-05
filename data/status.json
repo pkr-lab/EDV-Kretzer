@@ -1,9 +1,11 @@
 {
-  "active": false,
+  "active": true,
   "level": "maintenance",
   "title": "",
-  "message": "Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.",
-  "areas": [],
-  "since": "",
+  "message": "Komplette Hardware Wartung, alle Services sind nicht erreichbar ab 20:00 Uhr",
+  "areas": [
+    "Gesamter Cluster"
+  ],
+  "since": "2026-11-05T17:26:42Z",
   "until": ""
 }
