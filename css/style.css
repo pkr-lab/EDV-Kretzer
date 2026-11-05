@@ -1870,6 +1870,21 @@ textarea.verify-input { min-height: 140px; resize: vertical; }
 .status-banner.status-info { color: #fff; background: var(--color-primary-light); }
 .status-banner small { opacity: 0.8; }
 
+/* Wartung am gesamten Cluster: Block ganz oben auf der Startseite */
+[data-status-block]:not(:empty) { padding-top: var(--space-4); }
+.status-block {
+  padding: var(--space-3);
+  text-align: center;
+  color: #1a1400;
+  background: #ffc542;
+  border-radius: var(--radius-lg);
+}
+.status-block h2,
+.status-block p { color: inherit; }
+.status-block h2 { margin-bottom: var(--space-1); }
+.status-block-lead { font-size: 1.1rem; font-weight: 700; }
+.status-block-meta { margin-top: var(--space-1); font-size: 0.85rem; opacity: 0.8; }
+
 /* ---------- Scroll Reveal ---------- */
 .reveal {
   opacity: 0;
