@@ -1,5 +1,21 @@
 [
   {
+    "id": "capulus-core-v3.91.1",
+    "date": "2026-11-06",
+    "tag": "Fix",
+    "title": "capulus-core v3.91.1",
+    "body": "Behoben: Update Zammad ticket processing to handle attachments and improve internal notes",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.1"
+  },
+  {
+    "id": "capulus-core-v3.91.0",
+    "date": "2026-11-06",
+    "tag": "Feature",
+    "title": "capulus-core v3.91.0",
+    "body": "Neu: Enhance Zammad ticket processing with attachment handling and add seminar app notification guidelines",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.0"
+  },
+  {
     "id": "capulus-ansible-v1.15.0",
     "date": "2026-11-05",
     "tag": "Feature",
@@ -62,21 +78,5 @@
     "title": "capulus-ansible v1.13.0",
     "body": "Neu: cpu_power_limit: add role for managing CPU power limits with configurable settings",
     "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.13.0"
-  },
-  {
-    "id": "capulus-ansible-v1.12.0",
-    "date": "2026-11-05",
-    "tag": "Feature",
-    "title": "capulus-ansible v1.12.0",
-    "body": "Neu: k3s: add ntfy integration for snapshot notifications",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.12.0"
-  },
-  {
-    "id": "capulus-core-v3.87.0",
-    "date": "2026-11-05",
-    "tag": "Feature",
-    "title": "capulus-core v3.87.0",
-    "body": "Neu: Add VMRule for worker-0 availability monitoring; Remove outdated etcd snapshot alerts and configuration; Update monitoring configuration for controlplane-1 and etcd",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.87.0"
   }
 ]
