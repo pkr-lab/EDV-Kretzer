@@ -1,82 +1,82 @@
 [
   {
-    "id": "capulus-ansible-v1.2.0",
-    "date": "2026-10-24",
-    "tag": "Feature",
-    "title": "capulus-ansible v1.2.0",
-    "body": "Neu: xibo_kiosk: implement EDID forcing and orphan file management for display handling",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.2.0"
-  },
-  {
-    "id": "capulus-operator-v1.2.1",
-    "date": "2026-10-23",
+    "id": "capulus-core-v3.91.2",
+    "date": "2026-11-06",
     "tag": "Fix",
-    "title": "capulus-operator v1.2.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.2.1"
+    "title": "capulus-core v3.91.2",
+    "body": "Behoben: Remove redundant thank you messages from email response examples; Update internal references to avoid exposing file names in responses",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.2"
   },
   {
-    "id": "capulus-wiki-sync-v1.1.2",
-    "date": "2026-10-23",
+    "id": "capulus-core-v3.91.1",
+    "date": "2026-11-06",
     "tag": "Fix",
-    "title": "capulus-wiki-sync v1.1.2",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-wiki-sync/releases/tag/v1.1.2"
+    "title": "capulus-core v3.91.1",
+    "body": "Behoben: Update Zammad ticket processing to handle attachments and improve internal notes",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.1"
   },
   {
-    "id": "capulus-ios-v1.1.0",
-    "date": "2026-10-23",
+    "id": "capulus-core-v3.91.0",
+    "date": "2026-11-06",
     "tag": "Feature",
-    "title": "capulus-ios v1.1.0",
-    "body": "Neu: gitlab: add workflow for mirroring GitHub repository to GitLab",
-    "url": "https://github.com/pkr-lab/capulus-ios/releases/tag/v1.1.0"
+    "title": "capulus-core v3.91.0",
+    "body": "Neu: Enhance Zammad ticket processing with attachment handling and add seminar app notification guidelines",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.0"
   },
   {
-    "id": "capulus-ansible-v1.1.0",
-    "date": "2026-10-23",
+    "id": "capulus-ansible-v1.15.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-ansible v1.1.0",
-    "body": "Neu: argocd: add capulus-operator to platform and refined namespaces; gitlab_mirror: add workflow for mirroring GitHub repository to GitLab; xibo_kiosk: add display mode handling and screen resolution detection und 1 weitere. Behoben: xibo_kiosk: add display detection timeout and fallback mode configuration",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.1.0"
+    "title": "capulus-ansible v1.15.0",
+    "body": "Neu: k3s: add support for configurable resolv.search in k3s configuration",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.15.0"
   },
   {
-    "id": "capulus-core-v3.56.0",
-    "date": "2026-10-23",
-    "tag": "Feature",
-    "title": "capulus-core v3.56.0",
-    "body": "Neu: Add Custom Resource Definitions for Capulus Operator; deps: Pin dependencies; deps: Pin docker.io/bitnami/sealed-secrets-controller Docker tag to b1ff382 und 6 weitere. Behoben: capulus-operator: ClusterRole um Events erweitert; gitlab-mirror: update branch matching and improve error handling for secrets; update…",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.56.0"
-  },
-  {
-    "id": "capulus-operator-v1.2.0",
-    "date": "2026-10-23",
-    "tag": "Feature",
-    "title": "capulus-operator v1.2.0",
-    "body": "Neu: github-actions: add workflow to mirror repository to GitLab",
-    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.2.0"
-  },
-  {
-    "id": "capulus-operator-v1.1.1",
-    "date": "2026-10-23",
+    "id": "capulus-core-v3.90.1",
+    "date": "2026-11-05",
     "tag": "Fix",
-    "title": "capulus-operator v1.1.1",
-    "body": "Behoben: rbac: Operator darf Events erzeugen",
-    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.1.1"
+    "title": "capulus-core v3.90.1",
+    "body": "Behoben: lldap: CPU-Limit erhöhen und startupProbe ergänzen",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.90.1"
   },
   {
-    "id": "capulus-operator-v1.1.0",
-    "date": "2026-10-23",
+    "id": "capulus-ansible-v1.14.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-operator v1.1.0",
-    "body": "Neu: backup: restic-Gruppierung, Metrik suspended, numerische UID, kurzer Image-Tag; build: calculate short tag for image versioning",
-    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.1.0"
+    "title": "capulus-ansible v1.14.0",
+    "body": "Neu: k3s: add configurable resolv.conf and nameserver support",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.14.0"
   },
   {
-    "id": "capulus-operator-v1.0.0",
-    "date": "2026-10-23",
+    "id": "capulus-ansible-v1.13.1",
+    "date": "2026-11-05",
+    "tag": "Fix",
+    "title": "capulus-ansible v1.13.1",
+    "body": "Behoben: cpu_power_limit: refine conditions for service state management in check mode",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.13.1"
+  },
+  {
+    "id": "capulus-core-v3.90.0",
+    "date": "2026-11-05",
     "tag": "Feature",
-    "title": "capulus-operator v1.0.0",
-    "body": "Neu: backup: Operator-Gerüst mit Backup-Controller",
-    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.0.0"
+    "title": "capulus-core v3.90.0",
+    "body": "Neu: Add Horizontal Pod Autoscaler configuration for CoreDNS",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.90.0"
+  },
+  {
+    "id": "capulus-core-v3.89.0",
+    "date": "2026-11-05",
+    "tag": "Feature",
+    "title": "capulus-core v3.89.0",
+    "body": "Neu: Add tolerations and affinity settings for cloudflared, headlamp, and kubeseal-webgui",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.89.0"
+  },
+  {
+    "id": "capulus-core-v3.88.0",
+    "date": "2026-11-05",
+    "tag": "Feature",
+    "title": "capulus-core v3.88.0",
+    "body": "Neu: Add tolerations and affinity settings for improved scheduling on controlplane-1",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.88.0"
   }
 ]

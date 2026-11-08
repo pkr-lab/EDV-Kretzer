@@ -23,6 +23,7 @@ const PAGES = {
   "anwendungen.html": { crumb: "Anwendungen", priority: "0.9", changefreq: "monthly", image: "screenshot-uptime-kuma.png", deps: ["data/apps.json"], group: "projekt.html" },
   "mediamtx-drohnenstream.html": { crumb: "Drohnenstream-Anleitung", priority: "0.7", changefreq: "yearly", group: "projekt.html" },
   "app.html": { crumb: "App", priority: "0.8", changefreq: "monthly", image: "app-uebersicht.png" },
+  "mdm.html": { crumb: "iPad-Verwaltung", priority: "0.7", changefreq: "yearly" },
   "updates.html": { crumb: "Updates", priority: "0.6", changefreq: "daily", deps: ["data/releases.json"] },
   "ueber-mich.html": { crumb: "Über mich", priority: "0.6", changefreq: "yearly", image: "peter-kretzer.jpg" },
   "kontakt.html": { crumb: "Kontakt", priority: "0.7", changefreq: "yearly" },
@@ -65,7 +66,7 @@ const projects = readJson("data/projects.json") || [];
 const versions = readJson("data/versions.json") || {};
 const apps = readJson("data/apps.json") || [];
 
-const canonicalOf = (file) => (file === "index.html" ? `${SITE}/` : `${SITE}/${file}`);
+const canonicalOf = (file) => (file === "index.html" ? `${SITE}/` : `${SITE}/${file.replace(/\.html$/, "")}/`);
 
 const buildGraph = (file, meta) => {
   const url = canonicalOf(file);
