@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>capulus im Überblick: Architektur und Projekte | EDV-Kretzer</title>
   <meta name="description" content="Wie capulus-core, capulus-ansible, capulus-ios, capulus-wiki-sync und capulus-operator zusammenspielen: Architekturdiagramm, Werkzeuge und aktuelle Versionen aller Projekte.">
-  <meta name="theme-color" content="#1b120d">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.edv-kretzer.de/capulus.html">
+  <link rel="canonical" href="https://www.edv-kretzer.de/capulus/">
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
@@ -17,7 +17,7 @@
   <meta property="og:site_name" content="EDV-Kretzer" data-seo>
   <meta property="og:title" content="capulus im Überblick: Architektur und Projekte" data-seo>
   <meta property="og:description" content="Wie capulus-core, capulus-ansible, capulus-ios, capulus-wiki-sync und capulus-operator zusammenspielen: Architekturdiagramm, Werkzeuge und aktuelle Versionen aller Projekte." data-seo>
-  <meta property="og:url" content="https://www.edv-kretzer.de/capulus.html" data-seo>
+  <meta property="og:url" content="https://www.edv-kretzer.de/capulus/" data-seo>
   <meta property="og:locale" content="de_DE" data-seo>
   <meta property="og:image" content="https://www.edv-kretzer.de/assets/images/screenshot-argocd.png" data-seo>
   <meta name="twitter:card" content="summary_large_image" data-seo>
@@ -29,8 +29,8 @@
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.edv-kretzer.de/capulus.html#webpage",
-      "url": "https://www.edv-kretzer.de/capulus.html",
+      "@id": "https://www.edv-kretzer.de/capulus/#webpage",
+      "url": "https://www.edv-kretzer.de/capulus/",
       "name": "capulus im Überblick: Architektur und Projekte",
       "description": "Wie capulus-core, capulus-ansible, capulus-ios, capulus-wiki-sync und capulus-operator zusammenspielen: Architekturdiagramm, Werkzeuge und aktuelle Versionen aller Projekte.",
       "inLanguage": "de-DE",
@@ -51,13 +51,13 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Projekt",
-          "item": "https://www.edv-kretzer.de/projekt.html"
+          "item": "https://www.edv-kretzer.de/projekt/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "capulus im Überblick",
-          "item": "https://www.edv-kretzer.de/capulus.html"
+          "item": "https://www.edv-kretzer.de/capulus/"
         }
       ]
     },
@@ -74,7 +74,7 @@
             "description": "GitOps-Repository des Homelabs: ArgoCD-Applications für die drei k3s-Cluster TECH, PROD und ENTW, Promotion-Kette und Token-Register.",
             "codeRepository": "https://github.com/pkr-lab/capulus-core",
             "programmingLanguage": "Helm",
-            "version": "v3.56.0",
+            "version": "v3.91.2",
             "author": {
               "@id": "https://www.edv-kretzer.de/#person"
             }
@@ -89,7 +89,7 @@
             "description": "Ansible-Playbooks und Rollen: provisionieren die Ubuntu-Hosts, die k3s-Cluster, Kiosk-Raspberry-Pis und die Host-Dienste.",
             "codeRepository": "https://github.com/pkr-lab/capulus-ansible",
             "programmingLanguage": "Ansible",
-            "version": "v1.2.0",
+            "version": "v1.15.0",
             "author": {
               "@id": "https://www.edv-kretzer.de/#person"
             }
@@ -104,7 +104,7 @@
             "description": "SwiftUI-App „Homeserver Dashboard“ für iPhone und iPad: Alarme, Host-Metriken und Dienststatus des Homelabs.",
             "codeRepository": "https://github.com/pkr-lab/capulus-ios",
             "programmingLanguage": "Swift",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "author": {
               "@id": "https://www.edv-kretzer.de/#person"
             }
@@ -119,7 +119,7 @@
             "description": "Spiegelt das Docs-Repo als Seitenbaum nach Wiki.js, mit umgeschriebenen Links und Bildern.",
             "codeRepository": "https://github.com/pkr-lab/capulus-wiki-sync",
             "programmingLanguage": "Python",
-            "version": "v1.1.2",
+            "version": "v1.1.3",
             "author": {
               "@id": "https://www.edv-kretzer.de/#person"
             }
@@ -201,6 +201,7 @@
           </div>
         </div>
         <a href="app.html">App</a>
+        <a href="mdm.html">MDM</a>
         <a href="updates.html">Updates</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
@@ -219,6 +220,7 @@
     <a href="anwendungen.html" class="sub">Anwendungen</a>
     <a href="mediamtx-drohnenstream.html" class="sub">Drohnenstream-Anleitung</a>
     <a href="app.html">App</a>
+    <a href="mdm.html">MDM</a>
     <a href="updates.html">Updates</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
@@ -380,12 +382,13 @@
             <li><a href="projekt.html#hardware">Hardware</a></li>
             <li><a href="anwendungen.html">Anwendungen</a></li>
             <li><a href="app.html">PKR-Lab App</a></li>
+            <li><a href="mdm.html">MDM</a></li>
             <li><a href="mediamtx-drohnenstream.html">Drohnenstream-Anleitung</a></li>
             <li><a href="updates.html">Updates &amp; Status</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Unternehmen</h4>
+          <h4>Über die Seite</h4>
           <ul>
             <li><a href="ueber-mich.html">Über mich</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
@@ -401,7 +404,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span data-year></span> EDV-Kretzer. Alle Rechte vorbehalten.</span>
+        <span>© <span data-year></span> Peter Kretzer · EDV-Kretzer ist eine private Website, keine Firma.</span>
         <span>Konzept, Design &amp; Entwicklung in Eigenregie.</span>
       </div>
     </div>
@@ -413,10 +416,6 @@
       <button class="btn btn-primary btn-sm" data-banner-accept>Verstanden</button>
     </div>
   </div>
-
-  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
-    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
-  </button>
 
   <script src="js/main.js"></script>
   <script src="js/capulus.js"></script>
