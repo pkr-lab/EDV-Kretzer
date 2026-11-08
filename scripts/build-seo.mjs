@@ -3,7 +3,7 @@ import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "
 import path from "node:path";
 
 const SITE = "https://www.edv-kretzer.de";
-const SITE_NAME = "EDV-Kretzer";
+const SITE_NAME = "PKR";
 const CHECK_ONLY = process.argv.includes("--check");
 
 const PERSON = {
@@ -147,7 +147,7 @@ for (const file of files.filter((name) => PAGES[name])) {
   if (plainTitle.length > 80) warn(file, `Titel hat ${plainTitle.length} Zeichen (empfohlen bis 80)`);
   if (plainDescription.length < 50 || plainDescription.length > 220) warn(file, `Description hat ${plainDescription.length} Zeichen (empfohlen 50 bis 220)`);
 
-  const shortTitle = plainTitle.replace(/\s*\|\s*EDV-Kretzer\s*$/, "");
+  const shortTitle = plainTitle.replace(/\s*\|\s*PKR\s*$/, "");
   const page = { title: shortTitle, shortTitle: meta.crumb || shortTitle, description: plainDescription };
 
   const tags = [
