@@ -63,9 +63,9 @@
 
   <header class="site-header">
     <div class="container nav-inner glass">
-      <a href="index.html" class="brand" aria-label="EDV-Kretzer Startseite">
-        <span class="brand-mark"><img src="assets/icons/logo-edv-kretzer.png" width="38" height="38" alt=""></span>
-        <span>EDV-<em>Kretzer</em></span>
+      <a href="index.html" class="brand" aria-label="PKR Startseite">
+        <span class="brand-mark"><img src="assets/icons/logo-pkr.png" width="38" height="38" alt=""></span>
+        <span>PKR</span>
       </a>
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
@@ -163,13 +163,13 @@
         <p>Das Zammad-Ticketsystem läuft auf eigener Infrastruktur (demselben Homelab wie diese Website), es besteht daher kein Auftragsverarbeitungsvertrag mit einem externen Hosting-Anbieter.</p>
 
         <h2 id="chat">6. Live-Chat (Zammad)</h2>
-        <p>Auf jeder Seite dieser Website biete ich über den Chat-Button unten rechts einen Live-Chat an, technisch bereitgestellt durch Zammad unter <code>support-tech.pke-lab.de</code>. Das dafür nötige Skript (<code>chat.min.js</code>) sowie eine Verbindung zum Chat-Server werden bereits beim Laden der Seite eingerichtet, damit der Button den Verfügbarkeitsstatus anzeigen kann – dabei wird deine IP-Adresse an den Chat-Server übermittelt.</p>
+        <p>Auf jeder Seite dieser Website biete ich über den Chat-Button unten rechts einen Live-Chat an, technisch bereitgestellt durch Zammad unter <code>support-tech.pke-lab.de</code>. Das dafür nötige Skript (<code>chat-no-jquery.min.js</code>) sowie eine Verbindung zum Chat-Server werden bereits beim Laden der Seite eingerichtet, damit der Button den Verfügbarkeitsstatus anzeigen kann – dabei wird deine IP-Adresse an den Chat-Server übermittelt.</p>
         <p>Inhaltliche Daten (z. B. dein Name und der Chatverlauf) werden nur übertragen und gespeichert, wenn du den Chat aktiv startest und eine Nachricht schreibst. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an schneller, direkter Erreichbarkeit) bzw. Art. 6 Abs. 1 lit. b DSGVO, sofern der Chat der Anbahnung eines Vertragsverhältnisses dient. Möchtest du das vermeiden, nutze stattdessen das <a href="kontakt.html">Kontaktformular</a> oder schreib mir per E-Mail.</p>
         <p>Das Chat-System läuft auf eigener Infrastruktur (demselben Homelab wie diese Website), es besteht daher kein Auftragsverarbeitungsvertrag mit einem externen Hosting-Anbieter.</p>
 
         <h2 id="jquery">7. jQuery (externe Ressource)</h2>
-        <p>Zur technischen Umsetzung des Kontaktformulars und des Live-Chats laden wir die JavaScript-Bibliothek jQuery auf jeder Seite von einem externen Server (<code>code.jquery.com</code>, bereitgestellt über ein Content Delivery Network). Dabei wird deine IP-Adresse an den Betreiber dieses CDN übermittelt, da ohne diese Übermittlung keine Auslieferung der Datei an deinen Browser möglich ist.</p>
-        <p>Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an technisch stabiler und performanter Bereitstellung von Kontaktformular und Chat). Es kann nicht ausgeschlossen werden, dass dabei Daten in Länder außerhalb der EU/des EWR (z. B. USA) übertragen werden. Wer dies vermeiden möchte, kann uns direkt per E-Mail oder Telefon kontaktieren (siehe <a href="kontakt.html">Kontakt</a>).</p>
+        <p>Zur technischen Umsetzung des Kontaktformulars auf der <a href="kontakt.html">Kontaktseite</a> laden wir dort die JavaScript-Bibliothek jQuery von einem externen Server (<code>code.jquery.com</code>, bereitgestellt über ein Content Delivery Network). Dabei wird deine IP-Adresse an den Betreiber dieses CDN übermittelt, da ohne diese Übermittlung keine Auslieferung der Datei an deinen Browser möglich ist. Der Live-Chat auf den übrigen Seiten benötigt keine jQuery-Bibliothek.</p>
+        <p>Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an technisch stabiler und performanter Bereitstellung des Kontaktformulars). Es kann nicht ausgeschlossen werden, dass dabei Daten in Länder außerhalb der EU/des EWR (z. B. USA) übertragen werden. Wer dies vermeiden möchte, kann uns direkt per E-Mail oder Telefon kontaktieren (siehe <a href="kontakt.html">Kontakt</a>).</p>
 
         <h2 id="ssl">8. SSL/TLS-Verschlüsselung</h2>
         <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in deiner Browserzeile.</p>
@@ -197,8 +197,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="brand">
-            <span class="brand-mark"><img src="assets/icons/logo-edv-kretzer.png" width="38" height="38" alt=""></span>
-            <span>EDV-<em>Kretzer</em></span>
+            <span class="brand-mark"><img src="assets/icons/logo-pkr.png" width="38" height="38" alt=""></span>
+            <span>PKR</span>
           </a>
           <p>Ich baue capulus-core – ein offenes GitOps-Homelab auf k3s, ArgoCD und Tailscale. Diese Seite dokumentiert den Weg dahin.</p>
         </div>
@@ -244,19 +244,15 @@
   <script src="js/main.js"></script>
 
   <!-- Zammad Live-Chat -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://support-tech.pke-lab.de/assets/chat/chat.min.js"></script>
+  <script src="https://support-tech.pke-lab.de/assets/chat/chat-no-jquery.min.js"></script>
   <script>
-    $(function () {
+    (function () {
       new ZammadChat({
-        chatId: 1,
-        show: false,
-        flat: true,
-        background: '#26160f',
-        fontSize: '13px',
-        title: '<strong>Chat</strong> mit mir'
+        background: '#3e2b22',
+        fontSize: '12px',
+        chatId: 1
       });
-    });
+    })();
   </script>
 </body>
 </html>
