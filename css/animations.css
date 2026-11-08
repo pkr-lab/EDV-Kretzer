@@ -62,6 +62,64 @@
   95%, 100% { opacity: 0.4; box-shadow: none; border-color: var(--glass-border); }
 }
 
+/* Push-und-Mirror-Diagramm (Projekt-Seite): ein Durchlauf in 10 s
+   0-18 % Push, 18-52 % GitHub aktiv (Push, dann Pull Request),
+   52-70 % Mirror unterwegs, 70-95 % GitLab synchron */
+@keyframes mirrorflow-travel-x {
+  0%        { left: 0; opacity: 0; }
+  2%        { opacity: 1; }
+  16%       { opacity: 1; }
+  18%, 100% { left: 100%; opacity: 0; }
+}
+
+@keyframes mirrorflow-travel-y {
+  0%        { top: 0; opacity: 0; }
+  2%        { opacity: 1; }
+  16%       { opacity: 1; }
+  18%, 100% { top: 100%; opacity: 0; }
+}
+
+@keyframes mirrorflow-src {
+  0%, 12%   { border-color: rgba(227, 168, 98, 0.5); box-shadow: 0 0 22px rgba(198, 130, 63, 0.4); }
+  20%, 100% { border-color: var(--glass-border); box-shadow: none; }
+}
+
+@keyframes mirrorflow-gh {
+  0%, 16%   { border-color: var(--glass-border); box-shadow: none; opacity: 0.55; }
+  22%, 50%  { border-color: rgba(227, 168, 98, 0.5); box-shadow: 0 0 22px rgba(198, 130, 63, 0.4); opacity: 1; }
+  58%, 100% { border-color: var(--glass-border); box-shadow: none; opacity: 0.85; }
+}
+
+@keyframes mirrorflow-gl {
+  0%, 68%   { border-color: var(--glass-border); box-shadow: none; opacity: 0.55; }
+  74%, 94%  { border-color: rgba(227, 168, 98, 0.5); box-shadow: 0 0 22px rgba(198, 130, 63, 0.4); opacity: 1; }
+  100%      { border-color: var(--glass-border); box-shadow: none; opacity: 0.55; }
+}
+
+@keyframes mirrorflow-st-push {
+  0%, 17%   { opacity: 0; }
+  20%, 30%  { opacity: 1; }
+  33%, 100% { opacity: 0; }
+}
+
+@keyframes mirrorflow-st-pr {
+  0%, 31%   { opacity: 0; }
+  34%, 54%  { opacity: 1; }
+  58%, 100% { opacity: 0.7; }
+}
+
+@keyframes mirrorflow-st-wait {
+  0%, 69%   { opacity: 1; }
+  72%, 96%  { opacity: 0; }
+  100%      { opacity: 1; }
+}
+
+@keyframes mirrorflow-st-sync {
+  0%, 71%   { opacity: 0; }
+  74%, 94%  { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-glow,
   .device,
@@ -70,9 +128,15 @@
   .loadflow-home,
   .loadflow-dot,
   .loadflow-meter-fill,
-  .loadflow-worker {
+  .loadflow-worker,
+  .mirrorflow-node,
+  .mirrorflow-dot,
+  .mirrorflow-status em {
     animation: none !important;
   }
+  .mirrorflow-dot,
+  .st-push,
+  .st-wait { display: none !important; }
   .loadflow-meter-fill { width: 45% !important; }
   .loadflow-worker { opacity: 0.75 !important; }
   .loadflow-dot { display: none !important; }

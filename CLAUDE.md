@@ -1,16 +1,17 @@
 # CLAUDE.md — Arbeitsregeln für EDV-Kretzer
 
-Statische Website von EDV-Kretzer (<https://www.edv-kretzer.de>): Homelab-Projekt capulus, Anwendungskatalog, iOS-App, Updates mit Live-Status, Kontakt, Impressum und Datenschutz. Reines HTML, CSS und JavaScript ohne Build-Schritt und ohne Framework. Sprache im Repo ist **Deutsch** (Seiten, Commit-Beschreibungen, PR-Texte). Regeln wie in capulus-core.
+Statische Website von EDV-Kretzer (<https://www.edv-kretzer.de>): Homelab-Projekt capulus, Anwendungskatalog, iOS-App, Updates mit Live-Status, Kontakt, Impressum und Datenschutz. Reines HTML, CSS und JavaScript ohne Framework. Die Quellen sind flach (`projekt.html`); `deploy.yml` erzeugt daraus mit `scripts/build-site.mjs` den Ordner `dist/` mit sauberen URLs (`/projekt/`). Sprache im Repo ist **Deutsch** (Seiten, Commit-Beschreibungen, PR-Texte). Regeln wie in capulus-core.
 
 ---
 
 ## Harte Regeln
 
 - **Nie direkt auf `main` arbeiten.** Änderungen gehen nur per PR hinein (der Branch-Schutz auf GitHub ist hier nicht aktiv, die Regel gilt trotzdem). Steht das Arbeitsverzeichnis auf `main`, vor der ersten Änderung einen neuen Branch anlegen (`git switch -c <typ>/<kurzbeschreibung>`, z. B. `feat/anwendungen-filter`, `fix/kontakt-link`) und nur dort arbeiten. Den Branch legt Claude an, Commit, Push und PR macht der Nutzer.
-- **Jeder Push auf `main` deployt sofort nach netcup** (`deploy.yml`) und ist damit live. Nichts Unfertiges nach `main`.
+- **Jeder Push auf `main` deployt sofort nach netcup** (`deploy.yml`: bauen, dann per SSH/tar nach `NETCUP_PATH`) und ist damit live. Nichts Unfertiges nach `main`.
+- **Saubere URLs:** Quellen verlinken weiter mit `projekt.html`, `css/…`, `data/…`; `build-site.mjs` schreibt das in `dist/` auf `/projekt/` und `/css/…` um. Canonical-Links in den HTML-Dateien stehen deshalb ohne `.html` mit Slash am Ende (`https://www.edv-kretzer.de/projekt/`). `dist/` nie committen (`.gitignore`).
 - **Doku liegt nicht in diesem Repo, sondern in [pkr-lab-docs](https://github.com/pkr-lab/pkr-lab-docs)** unter `EDV-Kretzer/`. Jede Änderung am Verhalten bekommt dort einen PR (z. B. `konfiguration.md` für Datendateien, `nutzung.md` für Abläufe, `seo.md`). Konventionen stehen in der `CLAUDE.md` von pkr-lab-docs.
 - **Generierte Dateien nie von Hand ändern:** `data/releases.json`, `data/versions.json` (`scripts/build-releases.mjs`), `sitemap.xml`, `robots.txt` und alle mit `data-seo` markierten Bereiche in den HTML-Dateien (`scripts/build-seo.mjs`). `data/status.json` schreibt der Workflow `status.yml`. Ändern sich Quellen (Seitentexte, `data/projects.json`, `data/apps.json`), das passende Skript ausführen und das Ergebnis mitnehmen.
-- **Keine Secrets, Tokens oder interne Hostnamen im Klartext** in Seiten, JS oder Daten. Die Status-Basis-URL in `js/updates.js` steht bewusst verschleiert (Base64); das ist keine Sicherheit, nur Schutz vor beiläufigem Fund. Deploy-Zugangsdaten liegen als GitHub-Secrets (`NETCUP_*`).
+- **Keine Secrets, Tokens oder interne Hostnamen im Klartext** in Seiten, JS oder Daten. Die Status-Basis-URL in `js/updates.js` steht bewusst verschleiert (Base64); das ist keine Sicherheit, nur Schutz vor beiläufigem Fund. Deploy-Zugangsdaten liegen als GitHub-Secrets (`NETCUP_*`); `NETCUP_HOST_KEY` enthält die known_hosts-Zeile des Servers, der Deploy bricht ohne sie ab.
 - **Impressum und Datenschutz** (`impressum.html`, `datenschutz.html`) nur ändern, wenn der Nutzer es ausdrücklich verlangt, und die Änderung klar benennen. Es sind rechtliche Pflichtangaben.
 - Texte aus externen Quellen (GitHub-Release-Notes, Daten aus `data/*.json`) werden HTML-escaped, bevor sie per `innerHTML` landen. Neue Renderer in `js/` genauso.
 
@@ -29,12 +30,13 @@ Statische Website von EDV-Kretzer (<https://www.edv-kretzer.de>): Homelab-Projek
 | `data/releases.json`, `data/versions.json` | Release-Verlauf und aktuelle Versionen, erzeugt aus der GitHub-API |
 | `data/status.json` | Status-Hinweis (Wartung/Störung), per Workflow geschaltet |
 | `scripts/build-releases.mjs` | Releases aller `capulus-*`-Repos aus `projects.json` holen, `releases.json` und `versions.json` schreiben |
+| `scripts/build-site.mjs` | flache Quellen nach `dist/` mit sauberen URLs bauen und interne Links prüfen (läuft in `deploy.yml` und `ci.yml`) |
 | `scripts/build-seo.mjs` | Meta-Tags, JSON-LD, Sitemap und robots.txt aus der Tabelle `PAGES` erzeugen bzw. prüfen |
 | `automation/` | n8n-Workflow zum Schalten des Status-Hinweises |
 | `assets/` | Icons und Bilder |
 | `.github/workflows/` | `ci.yml` (Prüfung auf PRs), `deploy.yml`, `releases.yml` (stündlicher Release-Verlauf), `status.yml`, `seo.yml`, `release.yml`, `commitlint.yml` |
 
-Neue HTML-Seite: Eintrag in `PAGES` in `scripts/build-seo.mjs` ergänzen (sonst bricht das Skript ab), danach `node scripts/build-seo.mjs`.
+Neue HTML-Seite: Eintrag in `PAGES` in `scripts/build-seo.mjs` ergänzen (sonst bricht das Skript ab), `<link rel="canonical">` auf `https://www.edv-kretzer.de/<name>/` setzen, danach `node scripts/build-seo.mjs`.
 
 Neues capulus-Repo: Eintrag in `data/projects.json` (Name beginnt mit `capulus-`), dann taucht es automatisch im Release-Verlauf und bei den Versionen auf.
 
@@ -49,8 +51,10 @@ for f in data/*.json automation/*.json; do jq empty "$f"; done
 for f in scripts/*.mjs js/*.js; do node --check "$f"; done
 node scripts/build-seo.mjs
 node scripts/build-seo.mjs --check
+node scripts/build-site.mjs
 GITHUB_TOKEN=$(gh auth token) node scripts/build-releases.mjs
-python3 -m http.server 8000
+python3 -m http.server 8000            # Quellen direkt, Links mit .html
+python3 -m http.server 8000 -d dist    # gebaute Seite, saubere URLs wie live
 ```
 
 - Die Seite lokal unter <http://localhost:8000/> ansehen. Layout, Diagramme und Animationen kann Claude ohne Browser nicht beurteilen; bei visuellen Änderungen dem Nutzer sagen, was er prüfen soll.

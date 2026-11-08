@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projekt – capulus-core: GitOps-Homelab auf k3s &amp; ArgoCD | EDV-Kretzer</title>
   <meta name="description" content="Wie capulus-core mit Ansible, drei k3s-Clustern, ArgoCD und Tailscale ein produktionsreifes GitOps-Homelab bildet – Architektur, Repositories, Workflow und Hardware.">
-  <meta name="theme-color" content="#1b120d">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.edv-kretzer.de/projekt.html">
+  <link rel="canonical" href="https://www.edv-kretzer.de/projekt/">
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
@@ -17,7 +17,7 @@
   <meta property="og:site_name" content="EDV-Kretzer" data-seo>
   <meta property="og:title" content="Projekt – capulus-core: GitOps-Homelab auf k3s &amp; ArgoCD" data-seo>
   <meta property="og:description" content="Wie capulus-core mit Ansible, drei k3s-Clustern, ArgoCD und Tailscale ein produktionsreifes GitOps-Homelab bildet – Architektur, Repositories, Workflow und Hardware." data-seo>
-  <meta property="og:url" content="https://www.edv-kretzer.de/projekt.html" data-seo>
+  <meta property="og:url" content="https://www.edv-kretzer.de/projekt/" data-seo>
   <meta property="og:locale" content="de_DE" data-seo>
   <meta property="og:image" content="https://www.edv-kretzer.de/assets/images/screenshot-argocd.png" data-seo>
   <meta name="twitter:card" content="summary_large_image" data-seo>
@@ -29,8 +29,8 @@
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.edv-kretzer.de/projekt.html#webpage",
-      "url": "https://www.edv-kretzer.de/projekt.html",
+      "@id": "https://www.edv-kretzer.de/projekt/#webpage",
+      "url": "https://www.edv-kretzer.de/projekt/",
       "name": "Projekt – capulus-core: GitOps-Homelab auf k3s & ArgoCD",
       "description": "Wie capulus-core mit Ansible, drei k3s-Clustern, ArgoCD und Tailscale ein produktionsreifes GitOps-Homelab bildet – Architektur, Repositories, Workflow und Hardware.",
       "inLanguage": "de-DE",
@@ -51,7 +51,7 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Projekt",
-          "item": "https://www.edv-kretzer.de/projekt.html"
+          "item": "https://www.edv-kretzer.de/projekt/"
         }
       ]
     }
@@ -84,6 +84,7 @@
           </div>
         </div>
         <a href="app.html">App</a>
+        <a href="mdm.html">MDM</a>
         <a href="updates.html">Updates</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
@@ -102,6 +103,7 @@
     <a href="anwendungen.html" class="sub">Anwendungen</a>
     <a href="mediamtx-drohnenstream.html" class="sub">Drohnenstream-Anleitung</a>
     <a href="app.html">App</a>
+    <a href="mdm.html">MDM</a>
     <a href="updates.html">Updates</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
@@ -178,7 +180,7 @@
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Jede App bekommt ihren eigenen Namespace</li>
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Promotion ENTW → TECH → PROD mit Gesundheits-Gate: erst testen, dann ausrollen</li>
           </ul>
-          <a href="https://github.com/pkr-lab/pkr-lab-docs/blob/main/capulus-core/b-kubernetes-gitops/b0010-argocd.md" target="_blank" rel="noopener" class="btn btn-primary">Workflow in der Doku</a>
+          <a href="https://wiki-prod.pke-lab.de/en/docs/capulus" target="_blank" rel="noopener" class="btn btn-primary">Workflow in der Doku</a>
         </div>
         <div class="solution-visual glass reveal">
           <div class="device" style="max-width:420px;">
@@ -215,7 +217,7 @@
             <span class="tag">prod → PROD-Cluster</span>
             <span class="tag">dev → ENTW-Cluster</span>
           </div>
-          <a href="https://github.com/pkr-lab/pkr-lab-docs/blob/main/capulus-core/c-netzwerk-dns/c0040-domain-tiers.md" target="_blank" rel="noopener" class="btn btn-primary">Tier-Konvention in der Doku</a>
+          <a href="https://wiki-prod.pke-lab.de/en/docs/capulus/capulus-core/c-netzwerk-dns/c0040-domain-tiers" target="_blank" rel="noopener" class="btn btn-primary">Tier-Konvention in der Doku</a>
         </div>
         <div class="solution-visual glass reveal">
           <div class="device">
@@ -270,7 +272,7 @@
         <div class="section-head reveal">
           <p class="eyebrow">Repositories</p>
           <h2>Ein Projekt, sechs Repositories</h2>
-          <p>capulus-core ist der Kern, aber nicht mehr alles in einem Repo: Hosts, App, Doku, Wiki-Sync und Operator leben in eigenen Repositories mit eigenen Releases.</p>
+          <p>capulus-core ist der Kern, aber nicht mehr alles in einem Repo: Hosts, App, Doku, Wiki-Sync und Operator leben in eigenen Repositories mit eigenen Releases. Zur Ausfallsicherheit spiegele ich alle GitHub-Repositories zusätzlich nach <a href="https://gitlab.com/pke-lab/capulus" target="_blank" rel="noopener">GitLab</a>: Fällt GitHub aus, bleibt der Code dort erreichbar.</p>
         </div>
         <div class="grid grid-3">
           <article class="product-card glass-card reveal">
@@ -315,6 +317,32 @@
             <div class="tag-row"><span class="tag">Kubernetes</span><span class="tag">restic</span></div>
             <a href="https://github.com/pkr-lab/capulus-operator" target="_blank" rel="noopener" class="card-link">Auf GitHub <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
           </article>
+        </div>
+
+        <h3 class="text-center mt-4 mb-2" id="mirror">Vom Push bis zum GitLab-Mirror</h3>
+        <p class="text-center reveal" style="max-width:640px;margin-inline:auto;color:var(--color-text-muted);">Jede Änderung geht per Push und Pull Request nach GitHub. Von dort wird das Repository automatisch nach GitLab gespiegelt, damit der Code auch bei einem GitHub-Ausfall erreichbar bleibt.</p>
+
+        <div class="mirrorflow glass-card reveal" aria-hidden="true">
+          <div class="mirrorflow-row">
+            <div class="mirrorflow-node mirrorflow-src">
+              <svg width="22" height="22"><use href="assets/icons/sprite.svg#icon-terminal"></use></svg>
+              <div><strong>Entwicklung</strong><span>git push</span></div>
+            </div>
+            <div class="mirrorflow-conn c0"><span class="mirrorflow-dot"></span><span class="mirrorflow-label">Push</span></div>
+            <div class="mirrorflow-node mirrorflow-gh">
+              <svg width="22" height="22"><use href="assets/icons/sprite.svg#icon-github"></use></svg>
+              <div><strong>GitHub</strong>
+                <span class="mirrorflow-status"><em class="st-push">Push empfangen</em><em class="st-pr">Pull Request gemergt</em></span>
+              </div>
+            </div>
+            <div class="mirrorflow-conn c1"><span class="mirrorflow-dot"></span><span class="mirrorflow-label">Mirror</span></div>
+            <div class="mirrorflow-node mirrorflow-gl">
+              <svg width="22" height="22"><use href="assets/icons/sprite.svg#icon-gitlab"></use></svg>
+              <div><strong>GitLab</strong>
+                <span class="mirrorflow-status"><em class="st-wait">wartet auf Sync</em><em class="st-sync">synchron ✓</em></span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -472,8 +500,9 @@
           <p>Der komplette Code, alle Ansible-Rollen und über 150 Doku-Seiten liegen offen auf GitHub – MIT-lizenziert, forkbar, ohne Anmeldung.</p>
           <div class="cta-actions">
             <a href="https://github.com/pkr-lab" target="_blank" rel="noopener" class="btn btn-primary">Auf GitHub ansehen</a>
+            <a href="https://gitlab.com/pke-lab/capulus" target="_blank" rel="noopener" class="btn btn-outline">GitLab-Mirror</a>
             <a href="anwendungen.html" class="btn btn-outline">Anwendungen durchstöbern</a>
-            <a href="https://wiki-prod.pke-lab.de/" target="_blank" rel="noopener" class="btn btn-outline">Zum Wiki</a>
+            <a href="https://wiki-prod.pke-lab.de/en/docs/capulus" target="_blank" rel="noopener" class="btn btn-outline">Zum Wiki</a>
           </div>
         </div>
       </div>
@@ -503,12 +532,13 @@
             <li><a href="projekt.html#hardware">Hardware</a></li>
             <li><a href="anwendungen.html">Anwendungen</a></li>
             <li><a href="app.html">PKR-Lab App</a></li>
+            <li><a href="mdm.html">MDM</a></li>
             <li><a href="mediamtx-drohnenstream.html">Drohnenstream-Anleitung</a></li>
             <li><a href="updates.html">Updates &amp; Status</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Unternehmen</h4>
+          <h4>Über die Seite</h4>
           <ul>
             <li><a href="ueber-mich.html">Über mich</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
@@ -524,7 +554,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span data-year></span> EDV-Kretzer. Alle Rechte vorbehalten.</span>
+        <span>© <span data-year></span> Peter Kretzer · EDV-Kretzer ist eine private Website, keine Firma.</span>
         <span>Konzept, Design &amp; Entwicklung in Eigenregie.</span>
       </div>
     </div>
@@ -536,10 +566,6 @@
       <button class="btn btn-primary btn-sm" data-banner-accept>Verstanden</button>
     </div>
   </div>
-
-  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
-    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
-  </button>
 
   <script src="js/main.js"></script>
 
