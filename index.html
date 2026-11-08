@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EDV-Kretzer – capulus-core: GitOps-Homelab auf k3s, ArgoCD &amp; Tailscale</title>
   <meta name="description" content="capulus-core ist ein offenes, GitOps-gesteuertes Homelab aus drei k3s-Clustern (ENTW, TECH, PROD): ArgoCD, Ansible und Tailscale, geprüfte Updates, null offene Ports.">
-  <meta name="theme-color" content="#1b120d">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
   <meta name="robots" content="index, follow">
@@ -93,6 +93,7 @@
           </div>
         </div>
         <a href="app.html">App</a>
+        <a href="mdm.html">MDM</a>
         <a href="updates.html">Updates</a>
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
@@ -113,6 +114,7 @@
     <a href="anwendungen.html" class="sub">Anwendungen</a>
     <a href="mediamtx-drohnenstream.html" class="sub">Drohnenstream-Anleitung</a>
     <a href="app.html">App</a>
+    <a href="mdm.html">MDM</a>
     <a href="updates.html">Updates</a>
     <a href="ueber-mich.html">Über mich</a>
     <a href="kontakt.html">Kontakt</a>
@@ -120,6 +122,9 @@
   </div>
 
   <main id="main">
+    <!-- Wartungs-Block (nur bei Wartung am gesamten Cluster, befüllt js/main.js) -->
+    <div class="container" data-status-block></div>
+
     <!-- Hero -->
     <section class="hero">
       <div class="hero-glow" aria-hidden="true"></div>
@@ -319,12 +324,13 @@
             <li><a href="projekt.html#hardware">Hardware</a></li>
             <li><a href="anwendungen.html">Anwendungen</a></li>
             <li><a href="app.html">PKR-Lab App</a></li>
+            <li><a href="mdm.html">MDM</a></li>
             <li><a href="mediamtx-drohnenstream.html">Drohnenstream-Anleitung</a></li>
             <li><a href="updates.html">Updates &amp; Status</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Unternehmen</h4>
+          <h4>Über die Seite</h4>
           <ul>
             <li><a href="ueber-mich.html">Über mich</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
@@ -340,7 +346,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span data-year></span> EDV-Kretzer. Alle Rechte vorbehalten.</span>
+        <span>© <span data-year></span> Peter Kretzer · EDV-Kretzer ist eine private Website, keine Firma.</span>
         <span>Konzept, Design &amp; Entwicklung in Eigenregie.</span>
       </div>
     </div>
@@ -352,10 +358,6 @@
       <button class="btn btn-primary btn-sm" data-banner-accept>Verstanden</button>
     </div>
   </div>
-
-  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
-    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
-  </button>
 
   <script src="js/main.js"></script>
 

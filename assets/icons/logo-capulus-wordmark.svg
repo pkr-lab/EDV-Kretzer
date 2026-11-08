@@ -6,10 +6,10 @@
     </linearGradient>
   </defs>
   <svg x="2" y="4" width="36" height="36" viewBox="0 0 24 24">
-    <path d="M9.5,7.5 Q8.3,5 9.6,2.2" fill="none" stroke="#f4e8d8" stroke-width="1.4" stroke-linecap="round"/>
-    <path d="M14,7.2 Q15.2,4.8 13.8,2.6" fill="none" stroke="#f4e8d8" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M9.5,7.5 Q8.3,5 9.6,2.2" fill="none" stroke="#6e4530" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M14,7.2 Q15.2,4.8 13.8,2.6" fill="none" stroke="#6e4530" stroke-width="1.4" stroke-linecap="round"/>
     <path d="M7,8 L17,8 L16,18 Q16,19 15,19 L9,19 Q8,19 8,18 Z" fill="url(#g)"/>
     <path d="M17,10.3 A2.6,2.6 0 1 1 17,14.7" fill="none" stroke="url(#g)" stroke-width="1.6" stroke-linecap="round"/>
   </svg>
-  <text x="48" y="30" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif" font-size="26" font-weight="700" fill="#f4e8d8">Capulus</text>
+  <text x="48" y="30" font-family="Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif" font-size="26" font-weight="700" fill="#1b120d">Capulus</text>
 </svg>
