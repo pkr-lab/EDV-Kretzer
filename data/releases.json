@@ -1,5 +1,21 @@
 [
   {
+    "id": "capulus-core-v3.91.4",
+    "date": "2026-11-08",
+    "tag": "Fix",
+    "title": "capulus-core v3.91.4",
+    "body": "Behoben: enhance Zammad ticket processing by adding signature handling and improving email address extraction; update completion message in zammad-ki-neu-formular workflow and refactor jsCode in zammad-tickets-verarbeiten workflow",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.4"
+  },
+  {
+    "id": "capulus-core-v3.91.3",
+    "date": "2026-11-08",
+    "tag": "Fix",
+    "title": "capulus-core v3.91.3",
+    "body": "Behoben: Add new network policies for SCEP and enhance Zammad ticket processing with fallback nodes; Adjust node positions and enhance error handling in Zammad ticket processing workflow; Update Zammad notification mail form to improve clarity and user experience",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.3"
+  },
+  {
     "id": "capulus-core-v3.91.2",
     "date": "2026-11-06",
     "tag": "Fix",
@@ -62,21 +78,5 @@
     "title": "capulus-core v3.90.0",
     "body": "Neu: Add Horizontal Pod Autoscaler configuration for CoreDNS",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.90.0"
-  },
-  {
-    "id": "capulus-core-v3.89.0",
-    "date": "2026-11-05",
-    "tag": "Feature",
-    "title": "capulus-core v3.89.0",
-    "body": "Neu: Add tolerations and affinity settings for cloudflared, headlamp, and kubeseal-webgui",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.89.0"
-  },
-  {
-    "id": "capulus-core-v3.88.0",
-    "date": "2026-11-05",
-    "tag": "Feature",
-    "title": "capulus-core v3.88.0",
-    "body": "Neu: Add tolerations and affinity settings for improved scheduling on controlplane-1",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.88.0"
   }
 ]
