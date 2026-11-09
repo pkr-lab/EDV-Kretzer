@@ -1,9 +1,12 @@
 {
-  "active": false,
-  "level": "maintenance",
+  "active": true,
+  "level": "info",
   "title": "",
-  "message": "Alles bis auf Zammad wieder am laufen\r\nZammad kommt in den naechsten 30 min Online",
-  "areas": [],
-  "since": "",
+  "message": "Wir hosten kein Darknet",
+  "areas": [
+    "Website",
+    "Nick"
+  ],
+  "since": "2026-11-09T10:48:12Z",
   "until": ""
 }
