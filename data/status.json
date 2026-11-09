@@ -1,12 +1,9 @@
 {
-  "active": true,
-  "level": "info",
+  "active": false,
+  "level": "maintenance",
   "title": "",
-  "message": "Wir hosten kein Darknet",
-  "areas": [
-    "Website",
-    "Nick"
-  ],
-  "since": "2026-11-09T10:48:12Z",
+  "message": "Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.",
+  "areas": [],
+  "since": "",
   "until": ""
 }
