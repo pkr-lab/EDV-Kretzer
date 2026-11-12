@@ -3,7 +3,7 @@
   "nodes": [
     {
       "parameters": {
-        "formTitle": "Status-Hinweis auf pkr-service.de",
+        "formTitle": "Status-Hinweis auf pkr-docs.de",
         "formDescription": "Schaltet den Banner auf der Website ein oder aus. Sichtbar nach ca. einer Minute.",
         "formFields": {
           "values": [
