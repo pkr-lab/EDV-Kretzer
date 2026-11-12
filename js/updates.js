@@ -79,7 +79,7 @@
      tools ist sie sichtbar. Es verhindert nur den beiläufigen Fund/Klick,
      nicht den gezielten. Echter Schutz kommt vom Login auf dem
      Monitoring-Dashboard selbst, nicht von dieser Verschleierung. */
-  var STATUS_BASE = atob("aHR0cHM6Ly9zdGF0dXMtcHJvZC5wa2UtbGFiLmRl");
+  var STATUS_BASE = atob("aHR0cHM6Ly9zdGF0dXMtcHJvZC5wa3ItbGFiLmRl");
   var STATUS_SLUG = "homelab"; // an die tatsächliche Status-Page in Kuma anpassen
 
   var statusWidget = document.getElementById("status-widget");
