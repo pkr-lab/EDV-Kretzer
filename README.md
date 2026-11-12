@@ -1,6 +1,6 @@
 # EDV-Kretzer
 
-Statische Website von EDV-Kretzer (<https://www.edv-kretzer.de>): das Homelab-Projekt capulus-core, der Anwendungskatalog, die iOS-App, Updates mit Live-Status, Kontakt, Impressum und Datenschutz.
+Statische Website von EDV-Kretzer (<https://www.pkr-docs.de>): das Homelab-Projekt capulus-core, der Anwendungskatalog, die iOS-App, Updates mit Live-Status, Kontakt, Impressum und Datenschutz.
 
 ## Quickstart
 

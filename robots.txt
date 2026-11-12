@@ -4,4 +4,4 @@ Disallow: /automation/
 Disallow: /scripts/
 Disallow: /.github/
 
-Sitemap: https://www.edv-kretzer.de/sitemap.xml
+Sitemap: https://www.pkr-docs.de/sitemap.xml
