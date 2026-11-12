@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datenschutzerklärung | EDV-Kretzer</title>
+  <title>Datenschutzerklärung | PKR</title>
   <meta name="description" content="Datenschutzerklärung von EDV-Kretzer gemäß DSGVO – Informationen zur Verarbeitung personenbezogener Daten, Cookies und eingesetzten externen Diensten.">
   <meta name="theme-color" content="#ffffff">
-  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-  <link rel="icon" type="image/png" href="assets/icons/favicon-edv-kretzer.png">
+  <link rel="icon" type="image/png" href="assets/icons/logo-pkr.png">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.edv-kretzer.de/datenschutz/">
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <meta property="og:type" content="website" data-seo>
-  <meta property="og:site_name" content="EDV-Kretzer" data-seo>
+  <meta property="og:site_name" content="PKR" data-seo>
   <meta property="og:title" content="Datenschutzerklärung" data-seo>
   <meta property="og:description" content="Datenschutzerklärung von EDV-Kretzer gemäß DSGVO – Informationen zur Verarbeitung personenbezogener Daten, Cookies und eingesetzten externen Diensten." data-seo>
   <meta property="og:url" content="https://www.edv-kretzer.de/datenschutz/" data-seo>
@@ -63,9 +62,9 @@
 
   <header class="site-header">
     <div class="container nav-inner glass">
-      <a href="index.html" class="brand" aria-label="EDV-Kretzer Startseite">
-        <span class="brand-mark"><img src="assets/icons/logo-edv-kretzer.png" width="38" height="38" alt=""></span>
-        <span>EDV-<em>Kretzer</em></span>
+      <a href="index.html" class="brand" aria-label="PKR Startseite">
+        <span class="brand-mark"><img src="assets/icons/logo-pkr.png" width="38" height="38" alt=""></span>
+        <span>PKR</span>
       </a>
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
@@ -124,6 +123,7 @@
           <li><a href="#hosting">Hosting &amp; Server-Logfiles</a></li>
           <li><a href="#cookies">Cookies &amp; lokaler Speicher</a></li>
           <li><a href="#kontakt">Kontaktaufnahme, E-Mail-Bestätigung &amp; Zammad</a></li>
+          <li><a href="#chat">Live-Chat (Zammad)</a></li>
           <li><a href="#ssl">SSL/TLS-Verschlüsselung</a></li>
           <li><a href="#rechte">Rechte der betroffenen Personen</a></li>
           <li><a href="#aenderung">Aktualität &amp; Änderung</a></li>
@@ -164,7 +164,7 @@
         <h2 id="kontakt">5. Kontaktaufnahme, E-Mail-Bestätigung &amp; Zammad</h2>
         <p>Für Anfragen über unser Kontaktformular nutzen wir die Ticketsystem-Software Zammad, bereitgestellt unter <code>support-tech.pkr-lab.de</code>. Bevor du eine Anfrage absenden kannst, musst du deine E-Mail-Adresse bestätigen. Das Formular läuft in drei Schritten:</p>
         <ol>
-          <li>Du gibst deine E-Mail-Adresse ein und klickst auf „Code senden“.</li>
+          <li>Du gibst deine E-Mail-Adresse ein und klickst auf „Code senden".</li>
           <li>Du erhältst per E-Mail einen zufälligen 6-stelligen Code und gibst ihn im Formular ein.</li>
           <li>Erst danach kannst du Name (optional), Betreff und Nachricht eintragen und die Anfrage absenden. Das Ticket wird mit genau der bestätigten E-Mail-Adresse angelegt.</li>
         </ol>
@@ -183,10 +183,15 @@
         <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung einer Anfrage zur Anbahnung eines Vertragsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Bearbeitung von Anfragen, an einer richtigen Antwortadresse und am Schutz vor Missbrauch und Spam). Die Daten im Ticketsystem werden gelöscht, sobald sie für die Zweckerreichung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
         <p>Das Zammad-Ticketsystem und der Bestätigungsdienst laufen auf eigener Infrastruktur (capulus-core-Homelab). Für den Mailversand und die Zustellung der Antworten an dich gilt zusätzlich, was in Abschnitt 3 zu netcup steht.</p>
 
-        <h2 id="ssl">6. SSL/TLS-Verschlüsselung</h2>
+        <h2 id="chat">6. Live-Chat (Zammad)</h2>
+        <p>Auf jeder Seite dieser Website biete ich über den Chat-Button unten rechts einen Live-Chat an, technisch bereitgestellt durch Zammad unter <code>support-tech.pke-lab.de</code>. Das dafür nötige Skript (<code>chat-no-jquery.min.js</code>) sowie eine Verbindung zum Chat-Server werden bereits beim Laden der Seite eingerichtet, damit der Button den Verfügbarkeitsstatus anzeigen kann – dabei wird deine IP-Adresse an den Chat-Server übermittelt.</p>
+        <p>Inhaltliche Daten (z. B. dein Name und der Chatverlauf) werden nur übertragen und gespeichert, wenn du den Chat aktiv startest und eine Nachricht schreibst. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an schneller, direkter Erreichbarkeit) bzw. Art. 6 Abs. 1 lit. b DSGVO, sofern der Chat der Anbahnung eines Vertragsverhältnisses dient. Möchtest du das vermeiden, nutze stattdessen das <a href="kontakt.html">Kontaktformular</a> oder schreib mir per E-Mail.</p>
+        <p>Das Chat-System läuft auf eigener Infrastruktur (demselben Homelab wie diese Website), es besteht daher kein Auftragsverarbeitungsvertrag mit einem externen Hosting-Anbieter.</p>
+
+        <h2 id="ssl">7. SSL/TLS-Verschlüsselung</h2>
         <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in deiner Browserzeile.</p>
 
-        <h2 id="rechte">7. Rechte der betroffenen Personen</h2>
+        <h2 id="rechte">8. Rechte der betroffenen Personen</h2>
         <p>Du hast im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:</p>
         <ul>
           <li>Auskunft über deine gespeicherten personenbezogenen Daten (Art. 15 DSGVO)</li>
@@ -198,7 +203,7 @@
         </ul>
         <p>Solltest du eine erteilte Einwilligung widerrufen wollen, genügt eine formlose E-Mail an <a href="mailto:info@pkr-service.de">info@pkr-service.de</a>. Zudem steht dir ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
 
-        <h2 id="aenderung">8. Aktualität &amp; Änderung dieser Datenschutzerklärung</h2>
+        <h2 id="aenderung">9. Aktualität &amp; Änderung dieser Datenschutzerklärung</h2>
         <p>Diese Datenschutzerklärung ist aktuell gültig (Stand: 30. Oktober 2026). Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Erklärung zu ändern.</p>
       </div>
     </section>
@@ -209,8 +214,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="brand">
-            <span class="brand-mark"><img src="assets/icons/logo-edv-kretzer.png" width="38" height="38" alt=""></span>
-            <span>EDV-<em>Kretzer</em></span>
+            <span class="brand-mark"><img src="assets/icons/logo-pkr.png" width="38" height="38" alt=""></span>
+            <span>PKR</span>
           </a>
           <p>Ich baue capulus-core – ein offenes GitOps-Homelab auf k3s, ArgoCD und Tailscale. Diese Seite dokumentiert den Weg dahin.</p>
         </div>
@@ -251,5 +256,24 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <button type="button" class="open-zammad-chat chat-fab" aria-label="Chat öffnen">
+    <svg width="22" height="22" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chat"></use></svg>
+  </button>
+
+  <!-- Zammad Live-Chat -->
+  <script src="https://support-tech.pke-lab.de/assets/chat/chat-no-jquery.min.js"></script>
+  <script>
+    (function () {
+      new ZammadChat({
+        chatId: 1,
+        show: false,
+        flat: true,
+        background: '#3e2b22',
+        fontSize: '12px',
+        title: '<strong>Chat</strong> mit mir'
+      });
+    })();
+  </script>
 </body>
 </html>
