@@ -10,7 +10,7 @@
   if (!root || !window.fetch) return;
 
   /* Die Basis-URL steht verschleiert (Base64), kein Schutz, nur gegen beiläufiges Finden. */
-  var API_BASE = atob("aHR0cHM6Ly90aWNrZXQtZ2F0ZS10ZWNoLnBrZS1sYWIuZGU=");
+  var API_BASE = atob("aHR0cHM6Ly90aWNrZXQtZ2F0ZS10ZWNoLnBrci1sYWIuZGU=");
 
   var stepEmail = document.getElementById("step-email");
   var stepCode = document.getElementById("step-code");
@@ -36,7 +36,7 @@
     session_invalid: "Die Sitzung ist abgelaufen. Bitte fordere den Code erneut an.",
     verification_required: "Die Bestätigung ist abgelaufen. Bitte bestätige deine E-Mail-Adresse erneut.",
     ticket_invalid: "Bitte fülle Betreff und Nachricht aus und halte die maximale Länge ein.",
-    ticket_failed: "Das Ticket konnte nicht angelegt werden. Bitte versuche es später erneut oder schreibe an info@edv-kretzer.de.",
+    ticket_failed: "Das Ticket konnte nicht angelegt werden. Bitte versuche es später erneut oder schreibe an info@pkr-service.de.",
     unavailable: "Der Dienst ist gerade ausgelastet. Bitte versuche es später erneut.",
     origin_not_allowed: "Das Formular ist auf dieser Adresse nicht freigeschaltet."
   };
