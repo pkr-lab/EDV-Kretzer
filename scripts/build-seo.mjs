@@ -2,7 +2,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-const SITE = "https://www.edv-kretzer.de";
+const SITE = "https://www.pkr-docs.de";
 const SITE_NAME = "PKR";
 const CHECK_ONLY = process.argv.includes("--check");
 
