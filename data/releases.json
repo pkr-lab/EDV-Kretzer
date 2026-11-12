@@ -1,5 +1,53 @@
 [
   {
+    "id": "capulus-core-v3.94.4",
+    "date": "2026-11-12",
+    "tag": "Fix",
+    "title": "capulus-core v3.94.4",
+    "body": "Behoben: monitoring: exclude specific hosts from node-exporter metrics queries",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.4"
+  },
+  {
+    "id": "capulus-core-v3.94.3",
+    "date": "2026-11-12",
+    "tag": "Fix",
+    "title": "capulus-core v3.94.3",
+    "body": "Behoben: uptime-kuma: Website-Domain pkr-docs.de statt pkr-service.de erlauben",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.3"
+  },
+  {
+    "id": "capulus-core-v3.94.2",
+    "date": "2026-11-12",
+    "tag": "Fix",
+    "title": "capulus-core v3.94.2",
+    "body": "Behoben: uptime-kuma: Website-Domain wieder in CORS und ticket-gate zulassen",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.2"
+  },
+  {
+    "id": "capulus-core-v3.94.1",
+    "date": "2026-11-12",
+    "tag": "Fix",
+    "title": "capulus-core v3.94.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.1"
+  },
+  {
+    "id": "capulus-core-v3.94.0",
+    "date": "2026-11-12",
+    "tag": "Feature",
+    "title": "capulus-core v3.94.0",
+    "body": "Neu: Add PKR-Service documentation and contact information",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.0"
+  },
+  {
+    "id": "capulus-core-v3.93.0",
+    "date": "2026-11-12",
+    "tag": "Feature",
+    "title": "capulus-core v3.93.0",
+    "body": "Neu: Implement mandant functionality and update related configurations and prompts; Update knowledge directory path for Instagram workflow tests; Update ntfy-bridge and ntfy configurations for node affinity and tolerations und 2 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.93.0"
+  },
+  {
     "id": "capulus-core-v3.92.1",
     "date": "2026-11-12",
     "tag": "Fix",
@@ -30,53 +78,5 @@
     "title": "capulus-core v3.91.4",
     "body": "Behoben: enhance Zammad ticket processing by adding signature handling and improving email address extraction; update completion message in zammad-ki-neu-formular workflow and refactor jsCode in zammad-tickets-verarbeiten workflow",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.4"
-  },
-  {
-    "id": "capulus-core-v3.91.3",
-    "date": "2026-11-08",
-    "tag": "Fix",
-    "title": "capulus-core v3.91.3",
-    "body": "Behoben: Add new network policies for SCEP and enhance Zammad ticket processing with fallback nodes; Adjust node positions and enhance error handling in Zammad ticket processing workflow; Update Zammad notification mail form to improve clarity and user experience",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.3"
-  },
-  {
-    "id": "capulus-core-v3.91.2",
-    "date": "2026-11-06",
-    "tag": "Fix",
-    "title": "capulus-core v3.91.2",
-    "body": "Behoben: Remove redundant thank you messages from email response examples; Update internal references to avoid exposing file names in responses",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.2"
-  },
-  {
-    "id": "capulus-core-v3.91.1",
-    "date": "2026-11-06",
-    "tag": "Fix",
-    "title": "capulus-core v3.91.1",
-    "body": "Behoben: Update Zammad ticket processing to handle attachments and improve internal notes",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.1"
-  },
-  {
-    "id": "capulus-core-v3.91.0",
-    "date": "2026-11-06",
-    "tag": "Feature",
-    "title": "capulus-core v3.91.0",
-    "body": "Neu: Enhance Zammad ticket processing with attachment handling and add seminar app notification guidelines",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.91.0"
-  },
-  {
-    "id": "capulus-ansible-v1.15.0",
-    "date": "2026-11-05",
-    "tag": "Feature",
-    "title": "capulus-ansible v1.15.0",
-    "body": "Neu: k3s: add support for configurable resolv.search in k3s configuration",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.15.0"
-  },
-  {
-    "id": "capulus-core-v3.90.1",
-    "date": "2026-11-05",
-    "tag": "Fix",
-    "title": "capulus-core v3.90.1",
-    "body": "Behoben: lldap: CPU-Limit erhöhen und startupProbe ergänzen",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.90.1"
   }
 ]
