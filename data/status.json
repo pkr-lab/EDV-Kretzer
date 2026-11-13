@@ -1,9 +1,12 @@
 {
-  "active": false,
-  "level": "maintenance",
+  "active": true,
+  "level": "info",
   "title": "",
-  "message": "Ich arbeite gerade am Server und an der Website, es kann zu Ausfällen kommen.",
-  "areas": [],
-  "since": "",
+  "message": "Test",
+  "areas": [
+    "Gesamter Cluster",
+    "Test"
+  ],
+  "since": "2026-11-13T16:07:32Z",
   "until": ""
 }
