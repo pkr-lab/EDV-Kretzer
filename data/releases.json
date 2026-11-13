@@ -1,82 +1,82 @@
 [
   {
-    "id": "capulus-ansible-v1.15.2",
+    "id": "capulus-core-v3.98.1",
     "date": "2026-11-13",
     "tag": "Fix",
-    "title": "capulus-ansible v1.15.2",
-    "body": "Behoben: argocd: remove 'demo-app' from workloads apps list",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.15.2"
+    "title": "capulus-core v3.98.1",
+    "body": "Behoben: n8n: escape newline characters in JSON body for Mattermost webhook",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.98.1"
   },
   {
-    "id": "capulus-core-v3.94.5",
+    "id": "capulus-core-v3.98.0",
     "date": "2026-11-13",
-    "tag": "Fix",
-    "title": "capulus-core v3.94.5",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.5"
-  },
-  {
-    "id": "capulus-ansible-v1.15.1",
-    "date": "2026-11-13",
-    "tag": "Fix",
-    "title": "capulus-ansible v1.15.1",
-    "body": "Behoben: argocd: remove 'pacman' from workloads apps list",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.15.1"
-  },
-  {
-    "id": "capulus-core-v3.94.4",
-    "date": "2026-11-12",
-    "tag": "Fix",
-    "title": "capulus-core v3.94.4",
-    "body": "Behoben: monitoring: exclude specific hosts from node-exporter metrics queries",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.4"
-  },
-  {
-    "id": "capulus-core-v3.94.3",
-    "date": "2026-11-12",
-    "tag": "Fix",
-    "title": "capulus-core v3.94.3",
-    "body": "Behoben: uptime-kuma: Website-Domain pkr-docs.de statt pkr-service.de erlauben",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.3"
-  },
-  {
-    "id": "capulus-core-v3.94.2",
-    "date": "2026-11-12",
-    "tag": "Fix",
-    "title": "capulus-core v3.94.2",
-    "body": "Behoben: uptime-kuma: Website-Domain wieder in CORS und ticket-gate zulassen",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.2"
-  },
-  {
-    "id": "capulus-core-v3.94.1",
-    "date": "2026-11-12",
-    "tag": "Fix",
-    "title": "capulus-core v3.94.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.1"
-  },
-  {
-    "id": "capulus-core-v3.94.0",
-    "date": "2026-11-12",
     "tag": "Feature",
-    "title": "capulus-core v3.94.0",
-    "body": "Neu: Add PKR-Service documentation and contact information",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.94.0"
+    "title": "capulus-core v3.98.0",
+    "body": "Neu: mattermost: add boards plugin initialization in deployment and update values.yaml",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.98.0"
   },
   {
-    "id": "capulus-core-v3.93.0",
-    "date": "2026-11-12",
-    "tag": "Feature",
-    "title": "capulus-core v3.93.0",
-    "body": "Neu: Implement mandant functionality and update related configurations and prompts; Update knowledge directory path for Instagram workflow tests; Update ntfy-bridge and ntfy configurations for node affinity and tolerations und 2 weitere",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.93.0"
-  },
-  {
-    "id": "capulus-core-v3.92.1",
-    "date": "2026-11-12",
+    "id": "capulus-core-v3.97.2",
+    "date": "2026-11-13",
     "tag": "Fix",
-    "title": "capulus-core v3.92.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.92.1"
+    "title": "capulus-core v3.97.2",
+    "body": "Behoben: mattermost: add Mattermost-News node to multiple workflows",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.97.2"
+  },
+  {
+    "id": "capulus-core-v3.97.1",
+    "date": "2026-11-13",
+    "tag": "Fix",
+    "title": "capulus-core v3.97.1",
+    "body": "Behoben: mattermost: update push notification server URL to test environment",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.97.1"
+  },
+  {
+    "id": "capulus-core-v3.97.0",
+    "date": "2026-11-13",
+    "tag": "Feature",
+    "title": "capulus-core v3.97.0",
+    "body": "Neu: traefik: add middleware for HTTPS redirection and update ingress annotations",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.97.0"
+  },
+  {
+    "id": "capulus-core-v3.96.0",
+    "date": "2026-11-13",
+    "tag": "Feature",
+    "title": "capulus-core v3.96.0",
+    "body": "Neu: mattermost: add Mattermost news webhook integration and sealing script. Behoben: mattermost: update encryptedWebhookUrl for Mattermost integration",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.96.0"
+  },
+  {
+    "id": "capulus-core-v3.95.6",
+    "date": "2026-11-13",
+    "tag": "Fix",
+    "title": "capulus-core v3.95.6",
+    "body": "Behoben: mattermost: enable push notifications in configuration",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.6"
+  },
+  {
+    "id": "capulus-core-v3.95.5",
+    "date": "2026-11-13",
+    "tag": "Fix",
+    "title": "capulus-core v3.95.5",
+    "body": "Behoben: mattermost: update restic backup encrypted password",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.5"
+  },
+  {
+    "id": "capulus-core-v3.95.4",
+    "date": "2026-11-13",
+    "tag": "Fix",
+    "title": "capulus-core v3.95.4",
+    "body": "Behoben: mattermost: add restic backup configuration and secrets management",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.4"
+  },
+  {
+    "id": "capulus-core-v3.95.3",
+    "date": "2026-11-13",
+    "tag": "Fix",
+    "title": "capulus-core v3.95.3",
+    "body": "Behoben: mattermost: refactor PostgreSQL integration and update deployment configurations",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.3"
   }
 ]
