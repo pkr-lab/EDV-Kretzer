@@ -1,5 +1,21 @@
 [
   {
+    "id": "capulus-core-v3.99.1",
+    "date": "2026-11-13",
+    "tag": "Fix",
+    "title": "capulus-core v3.99.1",
+    "body": "Behoben: n8n: update webhook notification topic and enhance error handling in task creation workflow",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.99.1"
+  },
+  {
+    "id": "capulus-core-v3.99.0",
+    "date": "2026-11-13",
+    "tag": "Feature",
+    "title": "capulus-core v3.99.0",
+    "body": "Neu: n8n: add workflows for DLRG iPad group message and task creation to Mattermost. Behoben: n8n: remove Mattermost webhook configuration and related scripts",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.99.0"
+  },
+  {
     "id": "capulus-core-v3.98.1",
     "date": "2026-11-13",
     "tag": "Fix",
@@ -62,21 +78,5 @@
     "title": "capulus-core v3.95.5",
     "body": "Behoben: mattermost: update restic backup encrypted password",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.5"
-  },
-  {
-    "id": "capulus-core-v3.95.4",
-    "date": "2026-11-13",
-    "tag": "Fix",
-    "title": "capulus-core v3.95.4",
-    "body": "Behoben: mattermost: add restic backup configuration and secrets management",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.4"
-  },
-  {
-    "id": "capulus-core-v3.95.3",
-    "date": "2026-11-13",
-    "tag": "Fix",
-    "title": "capulus-core v3.95.3",
-    "body": "Behoben: mattermost: refactor PostgreSQL integration and update deployment configurations",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.3"
   }
 ]
