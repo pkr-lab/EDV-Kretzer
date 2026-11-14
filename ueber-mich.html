@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Über mich – Peter Kretzer | PKR</title>
   <meta name="description" content="Hintergrund und Motivation hinter capulus – warum ich als angehender Fachinformatiker für Systemintegration mein eigenes GitOps-Homelab mit sechs Repositories baue.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17100c" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" href="assets/icons/logo-pkr.png">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.pkr-docs.de/ueber-mich/">
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+  <script src="js/theme.js"></script>
   <meta property="og:type" content="website" data-seo>
   <meta property="og:site_name" content="PKR" data-seo>
   <meta property="og:title" content="Über mich – Peter Kretzer" data-seo>
@@ -88,6 +90,11 @@
         <a href="ueber-mich.html" aria-current="page">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
+<button type="button" class="theme-toggle" aria-label="Farbschema wechseln" title="Hell oder dunkel">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+
       <a href="https://github.com/pkr-lab" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta"><svg width="15" height="15"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub</a>
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
@@ -112,13 +119,12 @@
   <main id="main">
     <section class="container">
       <div class="about-hero">
-        <div class="portrait-wrap reveal">
+        <div class="portrait-wrap">
           <div class="portrait-frame glass-card">
             <img src="assets/images/peter-kretzer.jpg" alt="Porträt von Peter Kretzer" width="900" height="900" loading="eager">
           </div>
         </div>
-        <div class="about-body reveal">
-          <p class="eyebrow">Über mich</p>
+        <div class="about-body">
           <h1>Peter Kretzer</h1>
           <p>Ich bin Peter Kretzer, angehender Fachinformatiker für Systemintegration mit einer Vorliebe für Infrastruktur, die einfach zuverlässig läuft – ohne ständiges Nachjustieren.</p>
           <p>Aus jahrelangem Ausprobieren in den eigenen vier Wänden ist mittlerweile eine Ausbildung geworden. <a href="https://github.com/pkr-lab/capulus-core" target="_blank" rel="noopener">capulus</a> ist mein privates Herzensprojekt dazu: ein eigenes Homelab aus inzwischen sechs Repositories, mit capulus-core als Kern, an dem ich ausprobiere, was im Ausbildungsalltag oft zu kurz kommt – Infrastruktur von Grund auf selbst bauen, dokumentieren und verstehen.</p>
@@ -130,54 +136,53 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Werdegang</p>
+        <div class="section-head">
           <h2>Wie capulus entstanden ist</h2>
         </div>
         <div class="timeline">
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">2020</span>
             <div>
               <h3>Computer-Affinität geweckt</h3>
               <p>Der erste eigene PC wird auseinandergenommen, neu zusammengebaut und mit allerlei Software malträtiert – der Startpunkt für alles, was danach kommt.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">2023</span>
             <div>
               <h3>Eigene kleine Projekte zuhause</h3>
               <p>Erste eigene Server und Homelab-Experimente im Kinderzimmer – learning by doing, oft mit mehr Neugier als Plan, aber genau daraus entsteht das Fundament für später.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">2025</span>
             <div>
               <h3>Ausbildungsstart als Fachinformatiker Systemintegration</h3>
               <p>Der Schritt vom Hobby zum Beruf: Ausbildung zum Fachinformatiker für Systemintegration – Theorie und Praxis treffen aufeinander und geben dem bisherigen Ausprobieren eine solide Grundlage.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">Jun 2026</span>
             <div>
               <h3>capulus-core, capulus-ansible und capulus-ios</h3>
               <p>Aus dem eigenen Bedarf nach einem verlässlichen, selbstgehosteten Setup entsteht capulus: capulus-core als offenes GitOps-Homelab auf k3s, ArgoCD und Tailscale, capulus-ansible für die Hosts und Cluster und capulus-ios als App fürs iPhone.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">Aug 2026</span>
             <div>
               <h3>Diese Website</h3>
               <p>EDV-Kretzer geht online: die Seite, auf der ich das Projekt, die Anwendungen und den aktuellen Status des Homelabs zeige.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">Sep 2026</span>
             <div>
               <h3>Werkzeuge für den Alltag</h3>
               <p>Aus dem Betrieb wachsen kleine Hilfsmittel: cubi als Terminal-Menü für den Kubernetes-Alltag und ui-terminal-config für ein einheitliches Terminal auf Ubuntu Desktop.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">Okt 2026</span>
             <div>
               <h3>Wiki, Operator und MDM</h3>
@@ -190,24 +195,23 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Warum Self-Hosting?</p>
+        <div class="section-head">
           <h2>Weil Kontrolle über die eigenen Daten kein Luxus sein sollte</h2>
           <p>Cloud-Dienste sind bequem, bis sie eine Preiserhöhung, eine Abschaltung oder ein Datenleck ankündigen. capulus ist mein Gegenentwurf: die gleichen Funktionen – Fotos, Passwörter, Dokumente, Automatisierung – aber auf eigener Hardware, unter eigener Kontrolle, offen dokumentiert.</p>
         </div>
 
         <div class="grid grid-3 values-grid">
-          <div class="value-card glass-card reveal">
+          <div class="value-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-users"></use></svg></div>
             <h3>Praxisnähe</h3>
             <p>Entstanden aus echtem Bedarf, nicht am Reißbrett – jede Komponente läuft bei mir selbst im Dauerbetrieb.</p>
           </div>
-          <div class="value-card glass-card reveal">
+          <div class="value-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-lock"></use></svg></div>
             <h3>Vertrauen</h3>
             <p>Voller Quellcode statt Blackbox: Jede Konfigurationsentscheidung ist öffentlich auf GitHub nachvollziehbar.</p>
           </div>
-          <div class="value-card glass-card reveal">
+          <div class="value-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-cog"></use></svg></div>
             <h3>Pragmatismus</h3>
             <p>Infrastruktur, die auch um 3 Uhr nachts nach einem Absturz automatisch wieder hochkommt – nicht nur in der Demo.</p>
@@ -218,7 +222,7 @@
 
     <section class="section">
       <div class="container">
-        <div class="cta-section glass reveal">
+        <div class="cta-section glass">
           <h2>Vision</h2>
           <p>Ich möchte zeigen, dass souveräne, selbstgehostete Infrastruktur kein Konzern-Thema ist. Mit den richtigen Bausteinen – Ansible, Kubernetes, GitOps – baut man sich mit überschaubarem Aufwand eine Plattform, die genauso professionell läuft wie in der Cloud. Ohne monatliches Abo, ohne Vendor-Lock-in, mit echtem Verständnis dafür, was im Betrieb wirklich zählt.</p>
           <div class="cta-actions">
