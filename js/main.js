@@ -1,6 +1,6 @@
 /* =========================================================
    EDV-Kretzer – Haupt-JavaScript (Vanilla JS, keine Abhängigkeiten)
-   Navigation, Scroll-Reveal, 3D-Tilt, Info-Banner
+   Navigation, Info-Banner, Status-Hinweis
    ========================================================= */
 
 (function () {
@@ -94,99 +94,6 @@
       });
     }
   });
-
-  /* ---------- Scroll Reveal (IntersectionObserver) ---------- */
-  var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && revealEls.length) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
-    );
-    revealEls.forEach(function (el, i) {
-      el.style.setProperty("--i", i % 8);
-      io.observe(el);
-    });
-    // Sicherheitsnetz: falls der Observer für einzelne Elemente aus
-    // irgendeinem Grund nicht auslöst, bleiben Inhalte nicht dauerhaft
-    // unsichtbar (z. B. bei zwischenzeitlich verstecktem Tab).
-    setTimeout(function () {
-      revealEls.forEach(function (el) { el.classList.add("visible"); });
-    }, 2500);
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("visible"); });
-  }
-
-  /* ---------- 3D Tilt: Monitor-Vorschau (Scroll + Maus) ---------- */
-  var monitor = document.querySelector(".monitor-frame");
-  if (monitor) {
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (!reduceMotion) {
-      var ticking = false;
-      var updateTiltFromScroll = function () {
-        var rect = monitor.getBoundingClientRect();
-        var vh = window.innerHeight || document.documentElement.clientHeight;
-        var center = rect.top + rect.height / 2;
-        var progress = (vh / 2 - center) / (vh / 2); // -1 .. 1
-        progress = Math.max(-1, Math.min(1, progress));
-        var rotateX = 8 - progress * 14;
-        var rotateY = -10 + progress * 8;
-        monitor.style.transform = "rotateX(" + rotateX.toFixed(2) + "deg) rotateY(" + rotateY.toFixed(2) + "deg)";
-        ticking = false;
-      };
-      window.addEventListener(
-        "scroll",
-        function () {
-          if (!ticking) {
-            window.requestAnimationFrame(updateTiltFromScroll);
-            ticking = true;
-          }
-        },
-        { passive: true }
-      );
-      updateTiltFromScroll();
-
-      var wrap = document.querySelector(".alarm-monitor-3d");
-      if (wrap) {
-        wrap.addEventListener("mousemove", function (e) {
-          var rect = wrap.getBoundingClientRect();
-          var px = (e.clientX - rect.left) / rect.width - 0.5;
-          var py = (e.clientY - rect.top) / rect.height - 0.5;
-          monitor.style.transform = "rotateX(" + (8 - py * 16).toFixed(2) + "deg) rotateY(" + (-10 + px * 20).toFixed(2) + "deg)";
-        });
-        wrap.addEventListener("mouseleave", updateTiltFromScroll);
-      }
-    }
-  }
-
-  /* ---------- Hintergrund-Wheel: dreht sich beim Scrollen ---------- */
-  var bgWheel = document.querySelector(".bg-wheel-spin");
-  if (bgWheel && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    var wheelTicking = false;
-    var updateWheelRotation = function () {
-      var deg = (window.scrollY || window.pageYOffset || 0) * 0.08;
-      bgWheel.style.transform = "rotate(" + deg.toFixed(2) + "deg)";
-      wheelTicking = false;
-    };
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (!wheelTicking) {
-          window.requestAnimationFrame(updateWheelRotation);
-          wheelTicking = true;
-        }
-      },
-      { passive: true }
-    );
-    updateWheelRotation();
-  }
 
   /* ---------- Info-/Datenschutz-Banner ---------- */
   var banner = document.querySelector(".info-banner");
