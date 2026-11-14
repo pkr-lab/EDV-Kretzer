@@ -41,10 +41,10 @@
     meta.textContent = "Die letzten " + sorted.length + (sorted.length === 1 ? " Release" : " Releases") + " der capulus-Repos";
 
     list.innerHTML = sorted
-      .map(function (u, i) {
+      .map(function (u) {
         var dateLabel = formatDate(u.date);
         return (
-          '<article class="update-card glass-card reveal" style="--i:' + (i % 8) + '">' +
+          '<article class="update-card glass-card">' +
           '<div class="update-meta">' +
           '<time datetime="' + u.date + '">' + dateLabel + "</time>" +
           (u.tag ? '<span class="update-tag">' + u.tag + "</span>" : "") +
@@ -58,10 +58,6 @@
         );
       })
       .join("");
-
-    list.querySelectorAll(".reveal").forEach(function (el) {
-      requestAnimationFrame(function () { el.classList.add("visible"); });
-    });
   }
 
   function formatDate(iso) {

@@ -71,7 +71,7 @@
     grid.innerHTML = filtered
       .map(function (app) {
         return (
-          '<article class="app-card glass-card reveal">' +
+          '<article class="app-card glass-card">' +
           '<div class="app-top">' +
           '<div class="app-icon">' + iconMarkup(app.icon) + "</div>" +
           "<div>" +
@@ -90,12 +90,6 @@
         );
       })
       .join("");
-
-    // Neu gerenderte Karten sofort sichtbar machen (bereits im Sichtbereich)
-    grid.querySelectorAll(".reveal").forEach(function (el, i) {
-      el.style.setProperty("--i", i % 8);
-      requestAnimationFrame(function () { el.classList.add("visible"); });
-    });
   }
 
   function init(data) {
