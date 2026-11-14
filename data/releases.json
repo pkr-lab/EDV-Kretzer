@@ -1,82 +1,82 @@
 [
   {
+    "id": "capulus-core-v4.0.0",
+    "date": "2026-11-14",
+    "tag": "Feature",
+    "title": "capulus-core v4.0.0",
+    "body": "Neu: Version 4.0.0 bündelt die Breaking Changes seit v3.0.0 ([#712](https://github.com/pkr-lab/capulus-core/issues/712))",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.0.0"
+  },
+  {
+    "id": "capulus-operator-v1.2.2",
+    "date": "2026-11-14",
+    "tag": "Fix",
+    "title": "capulus-operator v1.2.2",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-operator/releases/tag/v1.2.2"
+  },
+  {
+    "id": "capulus-ios-v1.2.2",
+    "date": "2026-11-14",
+    "tag": "Fix",
+    "title": "capulus-ios v1.2.2",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-ios/releases/tag/v1.2.2"
+  },
+  {
+    "id": "capulus-ios-v1.2.1",
+    "date": "2026-11-14",
+    "tag": "Fix",
+    "title": "capulus-ios v1.2.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-ios/releases/tag/v1.2.1"
+  },
+  {
+    "id": "capulus-ansible-v1.17.1",
+    "date": "2026-11-14",
+    "tag": "Fix",
+    "title": "capulus-ansible v1.17.1",
+    "body": "Behoben: vaultwarden_restore: sicherheitsabbruch auch bei -e force_restore=false greifen lassen",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.17.1"
+  },
+  {
+    "id": "capulus-core-v3.104.7",
+    "date": "2026-11-14",
+    "tag": "Fix",
+    "title": "capulus-core v3.104.7",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.104.7"
+  },
+  {
+    "id": "capulus-core-v3.104.6",
+    "date": "2026-11-14",
+    "tag": "Fix",
+    "title": "capulus-core v3.104.6",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.104.6"
+  },
+  {
+    "id": "capulus-core-v3.104.5",
+    "date": "2026-11-14",
+    "tag": "Fix",
+    "title": "capulus-core v3.104.5",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.104.5"
+  },
+  {
+    "id": "capulus-core-v3.104.4",
+    "date": "2026-11-14",
+    "tag": "Fix",
+    "title": "capulus-core v3.104.4",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.104.4"
+  },
+  {
     "id": "capulus-core-v3.104.3",
     "date": "2026-11-14",
     "tag": "Fix",
     "title": "capulus-core v3.104.3",
     "body": "Release veröffentlicht.",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.104.3"
-  },
-  {
-    "id": "capulus-core-v3.104.2",
-    "date": "2026-11-14",
-    "tag": "Fix",
-    "title": "capulus-core v3.104.2",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.104.2"
-  },
-  {
-    "id": "capulus-wiki-sync-v1.2.0",
-    "date": "2026-11-14",
-    "tag": "Feature",
-    "title": "capulus-wiki-sync v1.2.0",
-    "body": "Neu: Enhance Wiki.js 3 integration with REST client and rendering improvements; Improve render budget handling and test coverage for create and render limits",
-    "url": "https://github.com/pkr-lab/capulus-wiki-sync/releases/tag/v1.2.0"
-  },
-  {
-    "id": "capulus-core-v3.104.1",
-    "date": "2026-11-14",
-    "tag": "Fix",
-    "title": "capulus-core v3.104.1",
-    "body": "Behoben: wikijs: update admin password in SealedSecret",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.104.1"
-  },
-  {
-    "id": "capulus-core-v3.104.0",
-    "date": "2026-11-14",
-    "tag": "Feature",
-    "title": "capulus-core v3.104.0",
-    "body": "Neu: add initial database dump for WikiJS. Behoben: wikijs: update admin password in SealedSecret",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.104.0"
-  },
-  {
-    "id": "capulus-core-v3.103.1",
-    "date": "2026-11-14",
-    "tag": "Fix",
-    "title": "capulus-core v3.103.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.103.1"
-  },
-  {
-    "id": "capulus-core-v3.103.0",
-    "date": "2026-11-14",
-    "tag": "Feature",
-    "title": "capulus-core v3.103.0",
-    "body": "Neu: update Wiki.js to version 3.3.1 and enhance configuration options",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.103.0"
-  },
-  {
-    "id": "capulus-core-v3.102.1",
-    "date": "2026-11-14",
-    "tag": "Fix",
-    "title": "capulus-core v3.102.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.102.1"
-  },
-  {
-    "id": "capulus-core-v3.102.0",
-    "date": "2026-11-14",
-    "tag": "Feature",
-    "title": "capulus-core v3.102.0",
-    "body": "Neu: enhance Mattermost notifications with additional fields and improved messages",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.102.0"
-  },
-  {
-    "id": "capulus-core-v3.101.1",
-    "date": "2026-11-14",
-    "tag": "Fix",
-    "title": "capulus-core v3.101.1",
-    "body": "Behoben: n8n: add random icon selection for Focalboard card creation",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.101.1"
   }
 ]
