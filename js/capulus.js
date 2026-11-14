@@ -22,23 +22,17 @@
     });
   };
 
-  var reveal = function (container) {
-    container.querySelectorAll(".reveal").forEach(function (el) {
-      requestAnimationFrame(function () { el.classList.add("visible"); });
-    });
-  };
-
   if (grid) {
     Promise.all([load("data/projects.json"), load("data/versions.json").catch(function () { return {}; })])
       .then(function (results) {
         var projects = results[0];
         var versions = results[1];
         grid.innerHTML = projects
-          .map(function (project, i) {
+          .map(function (project) {
             var version = versions[project.repo];
             var repoUrl = "https://github.com/pkr-lab/" + encodeURIComponent(project.repo);
             return (
-              '<article class="project-card glass-card reveal" style="--i:' + (i % 8) + '">' +
+              '<article class="project-card glass-card">' +
               '<div class="project-top"><h3>' + escapeHtml(project.name) + "</h3>" +
               (version
                 ? '<a class="version-badge" href="' + escapeHtml(version.url) + '" target="_blank" rel="noopener" title="Veröffentlicht am ' + escapeHtml(formatDate(version.date)) + '">' + escapeHtml(version.tag) + "</a>"
@@ -54,7 +48,6 @@
             );
           })
           .join("");
-        reveal(grid);
       })
       .catch(function () {
         grid.innerHTML = '<p class="status-loading">Projekte gerade nicht abrufbar.</p>';
@@ -66,16 +59,15 @@
       .then(function (releases) {
         releaseList.innerHTML = releases
           .slice(0, 5)
-          .map(function (release, i) {
+          .map(function (release) {
             return (
-              '<article class="update-card glass-card reveal" style="--i:' + i + '">' +
+              '<article class="update-card glass-card">' +
               '<div class="update-meta"><time datetime="' + escapeHtml(release.date) + '">' + escapeHtml(formatDate(release.date)) + "</time>" +
               '<span class="update-tag">' + escapeHtml(release.tag) + "</span></div>" +
               "<h3>" + release.title + "</h3><p>" + release.body + "</p></article>"
             );
           })
           .join("");
-        reveal(releaseList);
       })
       .catch(function () {
         releaseList.innerHTML = '<div class="empty-state">Releases gerade nicht abrufbar.</div>';

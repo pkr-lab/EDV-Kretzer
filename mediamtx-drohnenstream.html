@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MediaMTX-Anleitung – Drohnen-Livestream zum ELW | PKR</title>
   <meta name="description" content="Schritt-für-Schritt-Anleitung: Live-Video von der Drohne per MediaMTX in den Einsatzleitwagen (ELW) übertragen – für DRK-Einsätze und vergleichbare Szenarien.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17100c" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" href="assets/icons/logo-pkr.png">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.pkr-docs.de/mediamtx-drohnenstream/">
 
+  <link rel="preload" href="assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+  <script src="js/theme.js"></script>
   <meta property="og:type" content="website" data-seo>
   <meta property="og:site_name" content="PKR" data-seo>
   <meta property="og:title" content="MediaMTX-Anleitung – Drohnen-Livestream zum ELW" data-seo>
@@ -93,6 +96,11 @@
         <a href="ueber-mich.html">Über mich</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
+<button type="button" class="theme-toggle" aria-label="Farbschema wechseln" title="Hell oder dunkel">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+
       <a href="https://github.com/pkr-lab" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta"><svg width="15" height="15"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub</a>
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
@@ -117,7 +125,6 @@
   <main id="main">
     <section class="page-hero container">
       <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><a href="anwendungen.html">Anwendungen</a><span>/</span><span>MediaMTX Drohnenstream</span></div>
-      <p class="eyebrow text-center">Anleitung · DRK-Einsatz</p>
       <h1>Drohnen-Livestream mit MediaMTX zum ELW</h1>
       <p>Bei Sucheinsätzen, Hochwasser- oder Großschadenslagen liefert eine Aufklärungsdrohne wertvolle Luftbilder – aber nur, wenn die Einsatzleitung im Einsatzleitwagen (ELW) sie auch in Echtzeit sieht. Diese Anleitung zeigt, wie <a href="anwendungen.html?kategorie=Medien%20%26%20Storage">MediaMTX</a>, ein schlanker Self-Hosted-Streaming-Server, den Videofeed der Bodenstation entgegennimmt und live in den ELW überträgt.</p>
     </section>
@@ -125,8 +132,7 @@
     <!-- Einsatzzweck / Pipeline -->
     <section class="container">
       <div class="solution-block">
-        <div class="solution-text reveal">
-          <p class="eyebrow">Einsatzzweck</p>
+        <div class="solution-text">
           <h2>Vom Drohnenbild zur Lagekarte im ELW</h2>
           <p>Die Bodenstation der Drohne nimmt das Videosignal entgegen und schickt es per RTMP oder RTSP an einen MediaMTX-Server. Der wiederum stellt den Stream als HLS (für Browser) oder WebRTC (für minimale Latenz) bereit – abrufbar auf jedem Laptop oder Tablet im ELW, ganz ohne proprietäre Software oder Cloud-Anbindung.</p>
           <ul>
@@ -136,7 +142,7 @@
             <li><svg><use href="assets/icons/sprite.svg#icon-check"></use></svg> Mehrere Empfänger gleichzeitig möglich – z. B. ELW und Führungsstab</li>
           </ul>
         </div>
-        <div class="solution-visual glass reveal">
+        <div class="solution-visual glass">
           <div class="stack-diagram">
             <div class="stack-layer">
               <span class="stack-icon"><svg><use href="assets/icons/sprite.svg#icon-drone"></use></svg></span>
@@ -167,27 +173,26 @@
     <!-- Voraussetzungen -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Voraussetzungen</p>
+        <div class="section-head">
           <h2>Was vor dem Einsatz bereitstehen sollte</h2>
         </div>
         <div class="grid grid-4">
-          <div class="feature-card glass-card reveal">
+          <div class="feature-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-drone"></use></svg></div>
             <h3>Drohne mit Videoausgang</h3>
             <p>Bodenstation mit RTMP/RTSP-fähigem Ausgang, z. B. per HDMI-Encoder oder direkter App-Anbindung.</p>
           </div>
-          <div class="feature-card glass-card reveal">
+          <div class="feature-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-signal"></use></svg></div>
             <h3>Netzwerk zum ELW</h3>
             <p>LTE-Router am Einsatzort und Tailscale-Tailnet (oder gleiches Netz), damit Bodenstation und ELW den Server erreichen.</p>
           </div>
-          <div class="feature-card glass-card reveal">
+          <div class="feature-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-server"></use></svg></div>
             <h3>MediaMTX-Server</h3>
             <p>Per Docker in Minuten aufgesetzt – auf einem Mini-PC vor Ort oder zentral erreichbar, z. B. im Homelab-Cluster.</p>
           </div>
-          <div class="feature-card glass-card reveal">
+          <div class="feature-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-monitor"></use></svg></div>
             <h3>Empfangsgerät im ELW</h3>
             <p>Laptop oder Tablet mit aktuellem Browser (HLS) oder VLC (RTSP) für die verzögerungsarme Variante.</p>
@@ -199,47 +204,46 @@
     <!-- Schritt-für-Schritt -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Schritt für Schritt</p>
+        <div class="section-head">
           <h2>So kommt das Drohnenbild in den ELW</h2>
         </div>
         <div class="timeline">
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">1</span>
             <div>
               <h3>MediaMTX-Server bereitstellen</h3>
               <p>Per Docker starten und die relevanten Ports freigeben: 1935 (RTMP-Eingang von der Bodenstation), 8554 (RTSP), 8888 (HLS-Ausgabe für Browser) und 8889 (WebRTC für minimale Latenz).</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">2</span>
             <div>
               <h3>Stream-Pfad &amp; Zugangsdaten festlegen</h3>
               <p>In der <code>mediamtx.yml</code> einen eigenen Pfad für den Einsatz anlegen, z. B. <code>drohne-elw</code>, und mit Benutzername/Passwort fürs Senden und Empfangen absichern (siehe Beispiel unten).</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">3</span>
             <div>
               <h3>Bodenstation mit dem Server verbinden</h3>
               <p>Videoquelle der Bodenstation per RTMP zum Server pushen – entweder direkt aus der Drohnen-App/dem Encoder oder testweise per <code>ffmpeg</code> von einem angeschlossenen Rechner aus.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">4</span>
             <div>
               <h3>Verbindung zum ELW absichern</h3>
               <p>Server über das Tailscale-Tailnet erreichbar machen – Bodenstation und ELW brauchen dann nur eine LTE- oder WLAN-Verbindung, ganz ohne offenen Port nach außen.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">5</span>
             <div>
               <h3>Stream im ELW empfangen</h3>
               <p>Im Browser die HLS-Adresse öffnen oder in VLC per „Netzwerkstream öffnen“ die RTSP-Adresse eintragen – je nachdem, ob Kompatibilität oder minimale Verzögerung wichtiger ist.</p>
             </div>
           </div>
-          <div class="timeline-item glass-card reveal">
+          <div class="timeline-item glass-card">
             <span class="year">6</span>
             <div>
               <h3>Vor dem Einsatz testen</h3>
@@ -255,14 +259,13 @@
     <!-- Konfigurationsbeispiele -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Beispiel-Konfiguration</p>
+        <div class="section-head">
           <h2>Konkrete Befehle zum Nachbauen</h2>
           <p>Server-IP, Pfadnamen und Zugangsdaten bitte durch die eigenen Werte ersetzen.</p>
         </div>
 
         <div class="grid grid-2">
-          <div class="device reveal" style="max-width:100%;">
+          <div class="device" style="max-width:100%;">
             <div class="screen-bar"><span></span><span></span><span></span></div>
             <div class="screen code-screen">
               <div class="tok-muted"># mediamtx.yml</div>
@@ -274,7 +277,7 @@
               <div>&nbsp;&nbsp;&nbsp;&nbsp;readPass: <span class="tok-var">&lt;weiteres-passwort&gt;</span></div>
             </div>
           </div>
-          <div class="device reveal" style="max-width:100%;">
+          <div class="device" style="max-width:100%;">
             <div class="screen-bar"><span></span><span></span><span></span></div>
             <div class="screen code-screen">
               <div class="tok-muted"># Stream von der Bodenstation senden</div>
@@ -294,22 +297,21 @@
     <!-- Hinweise -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Wichtig</p>
+        <div class="section-head">
           <h2>Sicherheit &amp; Datenschutz beim Luftbild-Einsatz</h2>
         </div>
         <div class="grid grid-3">
-          <div class="feature-card glass-card reveal">
+          <div class="feature-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-lock"></use></svg></div>
             <h3>Nur im internen Netz</h3>
             <p>Den Stream ausschließlich über Tailscale oder ein anderes VPN freigeben – nie mit offenem Port direkt ins Internet stellen.</p>
           </div>
-          <div class="feature-card glass-card reveal">
+          <div class="feature-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-shield"></use></svg></div>
             <h3>Zugangsdaten schützen</h3>
             <p>Eigene, starke Publish-/Read-Passwörter je Einsatz vergeben und nach dem Einsatz ändern statt wiederzuverwenden.</p>
           </div>
-          <div class="feature-card glass-card reveal">
+          <div class="feature-card glass-card">
             <div class="card-icon"><svg width="26" height="26"><use href="assets/icons/sprite.svg#icon-users"></use></svg></div>
             <h3>Persönlichkeitsrechte beachten</h3>
             <p>Luftbilder können Personen zeigen. Aufzeichnungen nach dem Einsatz löschen, sofern nicht dienstlich benötigt, und geltendes Datenschutzrecht sowie interne Einsatzrichtlinien einhalten.</p>
@@ -320,7 +322,7 @@
 
     <section class="section">
       <div class="container">
-        <div class="cta-section glass reveal">
+        <div class="cta-section glass">
           <h2>Fragen zur Einrichtung?</h2>
           <p>Ob Einsatzabschnitt-spezifische Anpassung, Hardware-Empfehlung oder Hilfe beim ersten Testlauf – meld dich gern.</p>
           <div class="cta-actions">
