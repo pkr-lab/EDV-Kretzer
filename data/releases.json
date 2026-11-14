@@ -1,5 +1,29 @@
 [
   {
+    "id": "capulus-core-v3.101.0",
+    "date": "2026-11-14",
+    "tag": "Feature",
+    "title": "capulus-core v3.101.0",
+    "body": "Neu: ccert-manager rotation",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.101.0"
+  },
+  {
+    "id": "capulus-ansible-v1.17.0",
+    "date": "2026-11-14",
+    "tag": "Feature",
+    "title": "capulus-ansible v1.17.0",
+    "body": "Neu: security: implement SSH hardening and add restic backup role",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.17.0"
+  },
+  {
+    "id": "capulus-core-v3.100.0",
+    "date": "2026-11-14",
+    "tag": "Feature",
+    "title": "capulus-core v3.100.0",
+    "body": "Neu: mattermost integration",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.100.0"
+  },
+  {
     "id": "capulus-core-v3.99.1",
     "date": "2026-11-13",
     "tag": "Fix",
@@ -54,29 +78,5 @@
     "title": "capulus-core v3.97.0",
     "body": "Neu: traefik: add middleware for HTTPS redirection and update ingress annotations",
     "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.97.0"
-  },
-  {
-    "id": "capulus-core-v3.96.0",
-    "date": "2026-11-13",
-    "tag": "Feature",
-    "title": "capulus-core v3.96.0",
-    "body": "Neu: mattermost: add Mattermost news webhook integration and sealing script. Behoben: mattermost: update encryptedWebhookUrl for Mattermost integration",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.96.0"
-  },
-  {
-    "id": "capulus-core-v3.95.6",
-    "date": "2026-11-13",
-    "tag": "Fix",
-    "title": "capulus-core v3.95.6",
-    "body": "Behoben: mattermost: enable push notifications in configuration",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.6"
-  },
-  {
-    "id": "capulus-core-v3.95.5",
-    "date": "2026-11-13",
-    "tag": "Fix",
-    "title": "capulus-core v3.95.5",
-    "body": "Behoben: mattermost: update restic backup encrypted password",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v3.95.5"
   }
 ]
