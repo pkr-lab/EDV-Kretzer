@@ -195,13 +195,13 @@
       setStatus("", false);
       document.getElementById("t-name").focus();
     }).catch(function (err) {
-      var code = err.data && err.data.error;
-      if (code === "session_invalid") {
+      var errorCode = err.data && err.data.error;
+      if (errorCode === "session_invalid") {
         resetToEmail(MESSAGES.session_invalid, true);
         return;
       }
       setStatus(errorText(err), true);
-      if (code === "code_locked" || code === "code_expired") codeInput.value = "";
+      if (errorCode === "code_locked" || errorCode === "code_expired") codeInput.value = "";
       codeInput.focus();
     }).then(function () {
       setBusy(false);
@@ -234,8 +234,8 @@
       emailInput.value = "";
       setStatus("Vielen Dank für deine Anfrage (#" + data.ticket_number + "). Ich melde mich bei dir.", false);
     }).catch(function (err) {
-      var code = err.data && err.data.error;
-      if (code === "verification_required" || code === "session_invalid" || code === "ticket_failed") {
+      var errorCode = err.data && err.data.error;
+      if (errorCode === "verification_required" || errorCode === "session_invalid" || errorCode === "ticket_failed") {
         resetToEmail(errorText(err), true);
         return;
       }
