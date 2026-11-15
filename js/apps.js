@@ -17,10 +17,6 @@
   var activeCategory = "Alle";
   var apps = [];
 
-  function iconMarkup(icon) {
-    return '<span aria-hidden="true">' + icon + "</span>";
-  }
-
   function renderFilters() {
     filterRow.innerHTML = CATEGORIES.map(function (cat) {
       var active = cat === activeCategory ? " active" : "";
@@ -73,7 +69,7 @@
         return (
           '<article class="app-card glass-card">' +
           '<div class="app-top">' +
-          '<div class="app-icon">' + iconMarkup(app.icon) + "</div>" +
+          '<div class="app-icon"><span aria-hidden="true">' + app.icon + "</span></div>" +
           "<div>" +
           "<h3>" + app.name + "</h3>" +
           '<span class="cat">' + app.categories.join(" · ") + "</span>" +
@@ -94,17 +90,14 @@
 
   function init(data) {
     apps = data;
-    renderFilters();
-    renderGrid();
 
     // Kategorie via URL-Parameter vorauswählen, z. B. anwendungen.html?kategorie=Monitoring
-    var params = new URLSearchParams(location.search);
-    var presetCat = params.get("kategorie");
-    if (presetCat && CATEGORIES.indexOf(presetCat) !== -1) {
-      activeCategory = presetCat;
-      renderFilters();
-      renderGrid();
+    var presetCategory = new URLSearchParams(location.search).get("kategorie");
+    if (presetCategory && CATEGORIES.indexOf(presetCategory) !== -1) {
+      activeCategory = presetCategory;
     }
+    renderFilters();
+    renderGrid();
 
     if (searchInput) {
       searchInput.addEventListener("input", renderGrid);
