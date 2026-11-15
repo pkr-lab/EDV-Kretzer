@@ -97,13 +97,17 @@
   var banner = document.querySelector(".info-banner");
   if (banner) {
     var STORAGE_KEY = "edvkretzer_info_banner_dismissed";
+    var BANNER_DELAY_MS = 800;
     var accept = document.querySelector("[data-banner-accept]");
-    try {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        setTimeout(function () { banner.classList.add("visible"); }, 800);
+    var isDismissed = function () {
+      try {
+        return !!localStorage.getItem(STORAGE_KEY);
+      } catch (e) {
+        return false;
       }
-    } catch (e) {
-      setTimeout(function () { banner.classList.add("visible"); }, 800);
+    };
+    if (!isDismissed()) {
+      setTimeout(function () { banner.classList.add("visible"); }, BANNER_DELAY_MS);
     }
     if (accept) {
       accept.addEventListener("click", function () {
@@ -143,9 +147,10 @@
       }
       var since = formatStatusDate(status.since);
       var end = until ? formatStatusDate(status.until) : "";
-      if (since || end) {
+      var period = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+      if (period) {
         var meta = document.createElement("small");
-        meta.textContent = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+        meta.textContent = period;
         box.appendChild(meta);
       }
       document.body.insertBefore(box, document.body.firstChild);
@@ -169,10 +174,10 @@
           blockText.textContent = status.message;
           block.appendChild(blockText);
         }
-        if (since || end) {
+        if (period) {
           var blockMeta = document.createElement("p");
           blockMeta.className = "status-block-meta";
-          blockMeta.textContent = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+          blockMeta.textContent = period;
           block.appendChild(blockMeta);
         }
         slot.appendChild(block);
