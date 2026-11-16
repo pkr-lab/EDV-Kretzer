@@ -6,6 +6,7 @@
 (function () {
   "use strict";
 
+  var EDV = window.EDV;
   var grid = document.getElementById("app-grid");
   var searchInput = document.getElementById("app-search");
   var filterRow = document.getElementById("filter-row");
@@ -19,16 +20,17 @@
 
   function renderFilters() {
     filterRow.innerHTML = CATEGORIES.map(function (cat) {
-      var active = cat === activeCategory ? " active" : "";
+      var isActive = cat === activeCategory;
+      var label = EDV.escapeHtml(cat);
       return (
         '<button type="button" class="filter-chip' +
-        active +
+        (isActive ? " active" : "") +
         '" data-cat="' +
-        cat +
+        label +
         '" aria-pressed="' +
-        (cat === activeCategory) +
+        isActive +
         '">' +
-        cat +
+        label +
         "</button>"
       );
     }).join("");
@@ -64,28 +66,32 @@
       return;
     }
 
-    grid.innerHTML = filtered
-      .map(function (app) {
-        return (
-          '<article class="app-card glass-card">' +
-          '<div class="app-top">' +
-          '<div class="app-icon"><span aria-hidden="true">' + app.icon + "</span></div>" +
-          "<div>" +
-          "<h3>" + app.name + "</h3>" +
-          '<span class="cat">' + app.categories.join(" · ") + "</span>" +
-          "</div>" +
-          "</div>" +
-          "<p>" + app.description + "</p>" +
-          '<div class="tag-row">' +
-          app.tags.map(function (t) { return '<span class="tag">' + t + "</span>"; }).join("") +
-          "</div>" +
-          '<div class="app-footer">' +
-          '<a class="btn btn-primary btn-sm" href="' + app.url + '" target="_blank" rel="noopener">Projekt-Website</a>' +
-          "</div>" +
-          "</article>"
-        );
-      })
-      .join("");
+    grid.innerHTML = filtered.map(renderCard).join("");
+  }
+
+  function renderCard(app) {
+    var esc = EDV.escapeHtml;
+    var url = EDV.safeUrl(app.url);
+    return (
+      '<article class="app-card glass-card">' +
+      '<div class="app-top">' +
+      '<div class="app-icon"><span aria-hidden="true">' + esc(app.icon) + "</span></div>" +
+      "<div>" +
+      "<h3>" + esc(app.name) + "</h3>" +
+      '<span class="cat">' + esc(app.categories.join(" · ")) + "</span>" +
+      "</div>" +
+      "</div>" +
+      "<p>" + esc(app.description) + "</p>" +
+      '<div class="tag-row">' +
+      app.tags.map(function (tag) { return '<span class="tag">' + esc(tag) + "</span>"; }).join("") +
+      "</div>" +
+      (url
+        ? '<div class="app-footer">' +
+          '<a class="btn btn-primary btn-sm" href="' + esc(url) + '" target="_blank" rel="noopener">Projekt-Website</a>' +
+          "</div>"
+        : "") +
+      "</article>"
+    );
   }
 
   function init(data) {
@@ -104,11 +110,7 @@
     }
   }
 
-  fetch("data/apps.json")
-    .then(function (res) {
-      if (!res.ok) throw new Error("Netzwerkfehler beim Laden des App-Katalogs");
-      return res.json();
-    })
+  EDV.fetchJson("data/apps.json")
     .then(init)
     .catch(function (err) {
       grid.innerHTML =
