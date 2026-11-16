@@ -1,5 +1,69 @@
 [
   {
+    "id": "capulus-core-v4.6.1",
+    "date": "2026-11-16",
+    "tag": "Fix",
+    "title": "capulus-core v4.6.1",
+    "body": "Behoben: mdm,isc-news-bot: Postgres auf 17 zurück, Playwright-npm an Basisimage angleichen",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.6.1"
+  },
+  {
+    "id": "capulus-ansible-v1.18.4",
+    "date": "2026-11-16",
+    "tag": "Fix",
+    "title": "capulus-ansible v1.18.4",
+    "body": "Behoben: cluster_power_manager: ungeplant ausgeschaltete Worker cordonen",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.18.4"
+  },
+  {
+    "id": "capulus-core-v4.6.0",
+    "date": "2026-11-16",
+    "tag": "Feature",
+    "title": "capulus-core v4.6.0",
+    "body": "Neu: deps: Update dependency tailscale/tailscale to v1.104.7",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.6.0"
+  },
+  {
+    "id": "capulus-core-v4.5.0",
+    "date": "2026-11-16",
+    "tag": "Feature",
+    "title": "capulus-core v4.5.0",
+    "body": "Neu: deps: Update nginx:1.31-alpine3.24 Docker digest to fed7e14",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.5.0"
+  },
+  {
+    "id": "capulus-core-v4.4.2",
+    "date": "2026-11-16",
+    "tag": "Fix",
+    "title": "capulus-core v4.4.2",
+    "body": "Behoben: ntfy: image.tag auf v2.38.1 (Security-Release)",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.4.2"
+  },
+  {
+    "id": "capulus-core-v4.4.1",
+    "date": "2026-11-16",
+    "tag": "Fix",
+    "title": "capulus-core v4.4.1",
+    "body": "Release veröffentlicht.",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.4.1"
+  },
+  {
+    "id": "capulus-core-v4.4.0",
+    "date": "2026-11-16",
+    "tag": "Feature",
+    "title": "capulus-core v4.4.0",
+    "body": "Neu: deps: Pin dependencies; deps: Update alpine Docker tag to v3.24.4; deps: Update alpine Docker tag to v3.24.4 und 14 weitere",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.4.0"
+  },
+  {
+    "id": "capulus-core-v4.3.0",
+    "date": "2026-11-16",
+    "tag": "Feature",
+    "title": "capulus-core v4.3.0",
+    "body": "Neu: deps: Update argocd/apps/tech/n8n/image; deps: Update dependency @types/node to v26; deps: Update dependency node to v26 und 3 weitere. Behoben: monitoring: CronJobStale nach Zeitplan, Sendefehler erst nach 20 min",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.3.0"
+  },
+  {
     "id": "capulus-core-v4.2.6",
     "date": "2026-11-15",
     "tag": "Fix",
@@ -14,69 +78,5 @@
     "title": "capulus-wiki-sync v1.2.1",
     "body": "Behoben: docker: Basis-Image auf python:3.15-slim heben ([a9d41ec](https://github.com/pkr-lab/capulus-wiki-sync/commit/a9d41ec3e25526c0263418f59e3313f262f94533)), closes [#6](https://github.com/pkr-lab/capulus-wiki-sync/issues/6); wikijs: nach dem letzten Versuch nicht mehr warten",
     "url": "https://github.com/pkr-lab/capulus-wiki-sync/releases/tag/v1.2.1"
-  },
-  {
-    "id": "capulus-core-v4.2.5",
-    "date": "2026-11-15",
-    "tag": "Fix",
-    "title": "capulus-core v4.2.5",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.2.5"
-  },
-  {
-    "id": "capulus-core-v4.2.4",
-    "date": "2026-11-15",
-    "tag": "Fix",
-    "title": "capulus-core v4.2.4",
-    "body": "Behoben: cloudflared: CPU-Request auf 50m anheben, damit der HPA nicht pendelt",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.2.4"
-  },
-  {
-    "id": "capulus-core-v4.2.3",
-    "date": "2026-11-15",
-    "tag": "Fix",
-    "title": "capulus-core v4.2.3",
-    "body": "Behoben: zammad: altes Chart-Archiv 16.4.10 entfernen",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.2.3"
-  },
-  {
-    "id": "capulus-core-v4.2.2",
-    "date": "2026-11-15",
-    "tag": "Fix",
-    "title": "capulus-core v4.2.2",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.2.2"
-  },
-  {
-    "id": "capulus-ansible-v1.18.3",
-    "date": "2026-11-15",
-    "tag": "Fix",
-    "title": "capulus-ansible v1.18.3",
-    "body": "Behoben: libvirt_host: VM-Prüfungen im Dry-Run wirklich ausführen",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.18.3"
-  },
-  {
-    "id": "capulus-ansible-v1.18.2",
-    "date": "2026-11-15",
-    "tag": "Fix",
-    "title": "capulus-ansible v1.18.2",
-    "body": "Behoben: cups_print_server: Zertifikatserzeugung im Dry-Run lauffähig",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.18.2"
-  },
-  {
-    "id": "capulus-core-v4.2.1",
-    "date": "2026-11-15",
-    "tag": "Fix",
-    "title": "capulus-core v4.2.1",
-    "body": "Release veröffentlicht.",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.2.1"
-  },
-  {
-    "id": "capulus-ansible-v1.18.1",
-    "date": "2026-11-15",
-    "tag": "Fix",
-    "title": "capulus-ansible v1.18.1",
-    "body": "Behoben: tailscale: Downloads vom Paket-Server wiederholen",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.18.1"
   }
 ]

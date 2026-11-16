@@ -1,13 +1,13 @@
 {
   "capulus-core": {
-    "tag": "v4.2.6",
-    "date": "2026-11-15",
-    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.2.6"
+    "tag": "v4.6.1",
+    "date": "2026-11-16",
+    "url": "https://github.com/pkr-lab/capulus-core/releases/tag/v4.6.1"
   },
   "capulus-ansible": {
-    "tag": "v1.18.3",
-    "date": "2026-11-15",
-    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.18.3"
+    "tag": "v1.18.4",
+    "date": "2026-11-16",
+    "url": "https://github.com/pkr-lab/capulus-ansible/releases/tag/v1.18.4"
   },
   "capulus-ios": {
     "tag": "v1.2.3",
