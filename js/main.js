@@ -124,6 +124,44 @@
     if (isNaN(date.getTime())) return "";
     return date.toLocaleString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
   };
+  function appendElement(parent, tag, text, className) {
+    var element = document.createElement(tag);
+    if (className) element.className = className;
+    element.textContent = text;
+    parent.appendChild(element);
+    return element;
+  }
+
+  function statusPeriod(status, until) {
+    var since = formatStatusDate(status.since);
+    var end = until ? formatStatusDate(status.until) : "";
+    return (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+  }
+
+  function renderStatusBanner(status, level, period) {
+    var box = document.createElement("div");
+    box.className = "status-banner status-" + level;
+    box.setAttribute("role", "status");
+    appendElement(box, "strong", status.title || statusLevels[level]);
+    appendElement(box, "span", status.message || "");
+    if (Array.isArray(status.areas) && status.areas.length) {
+      appendElement(box, "span", "Betroffen: " + status.areas.join(", "));
+    }
+    if (period) appendElement(box, "small", period);
+    document.body.insertBefore(box, document.body.firstChild);
+  }
+
+  function renderClusterBlock(slot, status, period) {
+    var block = document.createElement("div");
+    block.className = "status-block";
+    block.setAttribute("role", "status");
+    appendElement(block, "h2", "Wartung am gesamten Cluster");
+    appendElement(block, "p", "Während der Wartung ist kein Service erreichbar.", "status-block-lead");
+    if (status.message) appendElement(block, "p", status.message);
+    if (period) appendElement(block, "p", period, "status-block-meta");
+    slot.appendChild(block);
+  }
+
   fetch("data/status.json", { cache: "no-store" })
     .then(function (res) { return res.ok ? res.json() : null; })
     .then(function (status) {
@@ -131,57 +169,12 @@
       var until = status.until ? new Date(status.until) : null;
       if (until && !isNaN(until.getTime()) && until.getTime() < Date.now()) return;
       var level = statusLevels[status.level] ? status.level : "info";
-      var box = document.createElement("div");
-      box.className = "status-banner status-" + level;
-      box.setAttribute("role", "status");
-      var title = document.createElement("strong");
-      title.textContent = status.title || statusLevels[level];
-      var text = document.createElement("span");
-      text.textContent = status.message || "";
-      box.appendChild(title);
-      box.appendChild(text);
-      if (Array.isArray(status.areas) && status.areas.length) {
-        var areas = document.createElement("span");
-        areas.textContent = "Betroffen: " + status.areas.join(", ");
-        box.appendChild(areas);
-      }
-      var since = formatStatusDate(status.since);
-      var end = until ? formatStatusDate(status.until) : "";
-      var period = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
-      if (period) {
-        var meta = document.createElement("small");
-        meta.textContent = period;
-        box.appendChild(meta);
-      }
-      document.body.insertBefore(box, document.body.firstChild);
+      var period = statusPeriod(status, until);
+      renderStatusBanner(status, level, period);
 
-      /* Wartung am gesamten Cluster: zusätzlich ein Block ganz oben (Startseite und Updates) */
       var slot = document.querySelector("[data-status-block]");
       var clusterWide = Array.isArray(status.areas) && status.areas.indexOf("Gesamter Cluster") !== -1;
-      if (slot && level === "maintenance" && clusterWide) {
-        var block = document.createElement("div");
-        block.className = "status-block";
-        block.setAttribute("role", "status");
-        var blockTitle = document.createElement("h2");
-        blockTitle.textContent = "Wartung am gesamten Cluster";
-        var blockLead = document.createElement("p");
-        blockLead.className = "status-block-lead";
-        blockLead.textContent = "Während der Wartung ist kein Service erreichbar.";
-        block.appendChild(blockTitle);
-        block.appendChild(blockLead);
-        if (status.message) {
-          var blockText = document.createElement("p");
-          blockText.textContent = status.message;
-          block.appendChild(blockText);
-        }
-        if (period) {
-          var blockMeta = document.createElement("p");
-          blockMeta.className = "status-block-meta";
-          blockMeta.textContent = period;
-          block.appendChild(blockMeta);
-        }
-        slot.appendChild(block);
-      }
+      if (slot && level === "maintenance" && clusterWide) renderClusterBlock(slot, status, period);
     })
     .catch(function () {});
 
