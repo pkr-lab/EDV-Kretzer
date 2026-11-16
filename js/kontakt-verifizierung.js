@@ -130,16 +130,20 @@
     }, 1000);
   }
 
-  function resetToEmail(message, isError) {
+  function showEmailStep(message, isError) {
     stopCountdown();
-    sessionToken = "";
-    verificationToken = "";
     codeInput.value = "";
     show(stepCode, false);
     show(stepTicket, false);
     show(stepEmail, true);
     setStatus(message, isError);
     emailInput.focus();
+  }
+
+  function resetToEmail(message, isError) {
+    sessionToken = "";
+    verificationToken = "";
+    showEmailStep(message, isError);
   }
 
   function requestCode() {
@@ -265,12 +269,7 @@
   });
 
   changeBtn.addEventListener("click", function () {
-    stopCountdown();
-    codeInput.value = "";
-    show(stepCode, false);
-    show(stepEmail, true);
-    setStatus("", false);
-    emailInput.focus();
+    showEmailStep("", false);
   });
 
   codeInput.addEventListener("input", function () {

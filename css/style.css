@@ -15,7 +15,6 @@
 /* ---------- Design Tokens ---------- */
 :root {
   /* Farben – Kaffee-Palette */
-  --color-primary: #4a2c1f;
   --color-primary-light: #6e4530;
   --color-accent: #c6823f;
   --color-accent-light: #e3a862;
@@ -23,11 +22,8 @@
   --color-gold: #f0b87a;
   --color-danger: #c1440e;
   --color-bg-dark: #1b120d;
-  --color-bg-dark-2: #26160f;
   --color-accent-text: #9a5a1e;
   --color-bg: #ffffff;
-  --color-bg-light: #f4e8d8;
-  --color-white: #ffffff;
   --color-heading: #1b120d;
   --color-text: #2b1810;
   --color-text-muted: #6b5446;
@@ -45,7 +41,6 @@
   --glass-blur: 16px;
   --glass-shadow: none;
   --card-hover-border: rgba(74, 44, 31, 0.28);
-  --card-hover-shadow: none;
 
   /* Flächen, die Inhalt überdecken (Header, Menüs, Banner) */
   --surface-nav: rgba(255, 255, 255, 0.88);
@@ -89,7 +84,6 @@
    über prefers-color-scheme. Beide Blöcke müssen identisch bleiben. */
 :root[data-theme="dark"] {
   --color-bg: #17100c;
-  --color-bg-light: #211610;
   --color-heading: #fbf1e4;
   --color-text: #eadbc8;
   --color-text-muted: #b9a590;
@@ -102,7 +96,6 @@
   --glass-border: rgba(255, 220, 180, 0.14);
   --glass-shadow: none;
   --card-hover-border: rgba(255, 220, 180, 0.32);
-  --card-hover-shadow: none;
   --surface-nav: rgba(23, 16, 12, 0.88);
   --surface-menu: rgba(33, 22, 16, 0.98);
   --surface-overlay: rgba(23, 16, 12, 0.95);
@@ -115,7 +108,6 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --color-bg: #17100c;
-    --color-bg-light: #211610;
     --color-heading: #fbf1e4;
     --color-text: #eadbc8;
     --color-text-muted: #b9a590;
@@ -128,7 +120,6 @@
     --glass-border: rgba(255, 220, 180, 0.14);
     --glass-shadow: none;
     --card-hover-border: rgba(255, 220, 180, 0.32);
-    --card-hover-shadow: none;
     --surface-nav: rgba(23, 16, 12, 0.88);
     --surface-menu: rgba(33, 22, 16, 0.98);
     --surface-overlay: rgba(23, 16, 12, 0.95);

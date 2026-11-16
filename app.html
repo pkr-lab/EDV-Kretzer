@@ -97,7 +97,7 @@
       </button>
 
       <a href="https://github.com/pkr-lab" target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-cta"><svg width="15" height="15"><use href="assets/icons/sprite.svg#icon-github"></use></svg> GitHub</a>
-      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+      <button type="button" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -310,7 +310,7 @@
   <div class="info-banner glass" role="status">
     <p>Diese Website verwendet nur technisch notwendige Funktionen. Details in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
     <div class="info-banner-actions">
-      <button class="btn btn-primary btn-sm" data-banner-accept>Verstanden</button>
+      <button type="button" class="btn btn-primary btn-sm" data-banner-accept>Verstanden</button>
     </div>
   </div>
 
@@ -322,17 +322,6 @@
 
   <!-- Zammad Live-Chat -->
   <script src="https://support-tech.pke-lab.de/assets/chat/chat-no-jquery.min.js"></script>
-  <script>
-    (function () {
-      new ZammadChat({
-        chatId: 1,
-        show: false,
-        flat: true,
-        background: '#3e2b22',
-        fontSize: '12px',
-        title: '<strong>Chat</strong> mit mir'
-      });
-    })();
-  </script>
+  <script src="js/chat.js"></script>
 </body>
 </html>

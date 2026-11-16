@@ -25,9 +25,18 @@ jobs:
 
       - name: Skripte prüfen
         run: |
-          for file in scripts/*.mjs js/*.js; do
+          for file in scripts/*.mjs scripts/lib/*.mjs tests/*.mjs js/*.js; do
             node --check "$file"
           done
+
+      - name: JavaScript linten
+        run: npx --yes eslint@10.14.0 .
+
+      - name: HTML prüfen
+        run: npx --yes html-validate@11.17.0 *.html
+
+      - name: Tests
+        run: node --test tests/*.test.mjs
 
       - name: SEO prüfen
         run: node scripts/build-seo.mjs --check
