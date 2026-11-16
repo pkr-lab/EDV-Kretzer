@@ -1,6 +1,7 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { escapeHtml } from "./lib/html.mjs";
 
 const SITE = "https://www.pkr-docs.de";
 const SITE_NAME = "PKR";
@@ -38,7 +39,6 @@ const fail = (file, message) => errors.push(`${file}: ${message}`);
 const warn = (file, message) => warnings.push(`${file}: ${message}`);
 
 const readJson = (file) => (existsSync(file) ? JSON.parse(readFileSync(file, "utf8")) : null);
-const escapeAttr = (value) => String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const decode = (value) => value.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 const jsonLd = (data) => JSON.stringify(data, null, 2).replace(/</g, "\\u003c");
 
@@ -153,8 +153,8 @@ for (const file of files.filter((name) => PAGES[name])) {
   const tags = [
     `<meta property="og:type" content="website" data-seo>`,
     `<meta property="og:site_name" content="${SITE_NAME}" data-seo>`,
-    `<meta property="og:title" content="${escapeAttr(page.title)}" data-seo>`,
-    `<meta property="og:description" content="${escapeAttr(page.description)}" data-seo>`,
+    `<meta property="og:title" content="${escapeHtml(page.title)}" data-seo>`,
+    `<meta property="og:description" content="${escapeHtml(page.description)}" data-seo>`,
     `<meta property="og:url" content="${canonicalOf(file)}" data-seo>`,
     `<meta property="og:locale" content="de_DE" data-seo>`,
   ];
@@ -164,8 +164,8 @@ for (const file of files.filter((name) => PAGES[name])) {
   }
   tags.push(
     `<meta name="twitter:card" content="${meta.image ? "summary_large_image" : "summary"}" data-seo>`,
-    `<meta name="twitter:title" content="${escapeAttr(page.title)}" data-seo>`,
-    `<meta name="twitter:description" content="${escapeAttr(page.description)}" data-seo>`,
+    `<meta name="twitter:title" content="${escapeHtml(page.title)}" data-seo>`,
+    `<meta name="twitter:description" content="${escapeHtml(page.description)}" data-seo>`,
   );
   const block = `  ${tags.join("\n  ")}\n  <script type="application/ld+json" data-seo>\n${jsonLd({ "@context": "https://schema.org", "@graph": buildGraph(file, page) })}\n  </script>\n`;
 
