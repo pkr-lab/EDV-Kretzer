@@ -8,16 +8,14 @@
 (function () {
   "use strict";
 
+  var EDV = window.EDV;
+
   /* ---------- Changelog ---------- */
   var list = document.getElementById("updates-list");
   var meta = document.getElementById("updates-meta");
 
   if (list) {
-    fetch("data/releases.json")
-      .then(function (res) {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      })
+    EDV.fetchJson("data/releases.json")
       .then(function (updates) {
         renderUpdates(updates || []);
       })
@@ -42,29 +40,20 @@
 
     list.innerHTML = sorted
       .map(function (u) {
-        var dateLabel = formatDate(u.date);
+        var url = EDV.safeUrl(u.url, "https://github.com/pkr-lab/capulus-");
         return (
           '<article class="update-card glass-card">' +
           '<div class="update-meta">' +
-          '<time datetime="' + u.date + '">' + dateLabel + "</time>" +
-          (u.tag ? '<span class="update-tag">' + u.tag + "</span>" : "") +
+          '<time datetime="' + EDV.escapeHtml(u.date) + '">' + EDV.escapeHtml(EDV.formatDate(u.date)) + "</time>" +
+          (u.tag ? '<span class="update-tag">' + EDV.escapeHtml(u.tag) + "</span>" : "") +
           "</div>" +
           "<h3>" + u.title + "</h3>" +
           "<p>" + u.body + "</p>" +
-          (u.url && u.url.indexOf("https://github.com/pkr-lab/capulus-") === 0
-            ? '<p><a href="' + u.url + '" target="_blank" rel="noopener">Release auf GitHub</a></p>'
-            : "") +
+          (url ? '<p><a href="' + EDV.escapeHtml(url) + '" target="_blank" rel="noopener">Release auf GitHub</a></p>' : "") +
           "</article>"
         );
       })
       .join("");
-  }
-
-  function formatDate(iso) {
-    var parts = (iso || "").split("-");
-    if (parts.length !== 3) return iso;
-    var d = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2]));
-    return d.toLocaleDateString("de-DE", { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" });
   }
 
   /* ---------- Live-Status: nur Daten, kein Link/iframe zum Dienst selbst ----------
@@ -81,8 +70,8 @@
   var statusWidget = document.getElementById("status-widget");
   if (statusWidget) {
     Promise.all([
-      fetch(STATUS_BASE + "/api/status-page/" + STATUS_SLUG).then(function (r) { return r.json(); }),
-      fetch(STATUS_BASE + "/api/status-page/heartbeat/" + STATUS_SLUG).then(function (r) { return r.json(); }),
+      EDV.fetchJson(STATUS_BASE + "/api/status-page/" + STATUS_SLUG),
+      EDV.fetchJson(STATUS_BASE + "/api/status-page/heartbeat/" + STATUS_SLUG)
     ])
       .then(function (results) {
         renderStatus(results[0], results[1]);
@@ -126,7 +115,7 @@
       return (
         '<div class="status-row">' +
         '<span class="status-dot ' + stateClass + '" aria-hidden="true"></span>' +
-        '<span class="status-row-name">' + escapeHtml(m.name || "Dienst") + "</span>" +
+        '<span class="status-row-name">' + EDV.escapeHtml(m.name || "Dienst") + "</span>" +
         '<span class="status-row-state">' + stateLabel + "</span>" +
         (uptimeLabel ? '<span class="status-row-meta">' + uptimeLabel + "</span>" : "") +
         "</div>"
@@ -138,11 +127,5 @@
       : '<p class="status-overall down"><span class="status-dot down" aria-hidden="true"></span>' + downCount + " von " + monitors.length + " Diensten aktuell nicht erreichbar</p>";
 
     statusWidget.innerHTML = summary + rows.join("");
-  }
-
-  function escapeHtml(str) {
-    var div = document.createElement("div");
-    div.textContent = str;
-    return div.innerHTML;
   }
 })();
