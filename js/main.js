@@ -55,6 +55,17 @@
   });
 
   /* ---------- Dropdown-Navigation ("Projekt") ---------- */
+  function closeDropdown(dropdown) {
+    dropdown.classList.remove("open");
+    dropdown.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
+  }
+
+  function closeOpenDropdowns(clickTarget) {
+    document.querySelectorAll(".nav-dropdown.open").forEach(function (dropdown) {
+      if (!clickTarget || !dropdown.contains(clickTarget)) closeDropdown(dropdown);
+    });
+  }
+
   document.querySelectorAll(".nav-dropdown").forEach(function (dropdown) {
     var trigger = dropdown.querySelector(".nav-dropdown-trigger");
     var menu = dropdown.querySelector(".nav-dropdown-menu");
@@ -66,10 +77,7 @@
 
     trigger.addEventListener("click", function () {
       var isOpen = dropdown.classList.contains("open");
-      document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
-        d.classList.remove("open");
-        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
-      });
+      closeOpenDropdowns();
       if (!isOpen) {
         dropdown.classList.add("open");
         trigger.setAttribute("aria-expanded", "true");
@@ -78,34 +86,28 @@
   });
 
   document.addEventListener("click", function (e) {
-    document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
-      if (!d.contains(e.target)) {
-        d.classList.remove("open");
-        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
-      }
-    });
+    closeOpenDropdowns(e.target);
   });
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
-        d.classList.remove("open");
-        d.querySelector(".nav-dropdown-trigger").setAttribute("aria-expanded", "false");
-      });
-    }
+    if (e.key === "Escape") closeOpenDropdowns();
   });
 
   /* ---------- Info-/Datenschutz-Banner ---------- */
   var banner = document.querySelector(".info-banner");
   if (banner) {
     var STORAGE_KEY = "edvkretzer_info_banner_dismissed";
+    var BANNER_DELAY_MS = 800;
     var accept = document.querySelector("[data-banner-accept]");
-    try {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        setTimeout(function () { banner.classList.add("visible"); }, 800);
+    var isDismissed = function () {
+      try {
+        return !!localStorage.getItem(STORAGE_KEY);
+      } catch (e) {
+        return false;
       }
-    } catch (e) {
-      setTimeout(function () { banner.classList.add("visible"); }, 800);
+    };
+    if (!isDismissed()) {
+      setTimeout(function () { banner.classList.add("visible"); }, BANNER_DELAY_MS);
     }
     if (accept) {
       accept.addEventListener("click", function () {
@@ -145,9 +147,10 @@
       }
       var since = formatStatusDate(status.since);
       var end = until ? formatStatusDate(status.until) : "";
-      if (since || end) {
+      var period = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+      if (period) {
         var meta = document.createElement("small");
-        meta.textContent = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+        meta.textContent = period;
         box.appendChild(meta);
       }
       document.body.insertBefore(box, document.body.firstChild);
@@ -171,10 +174,10 @@
           blockText.textContent = status.message;
           block.appendChild(blockText);
         }
-        if (since || end) {
+        if (period) {
           var blockMeta = document.createElement("p");
           blockMeta.className = "status-block-meta";
-          blockMeta.textContent = (since ? "Seit " + since : "") + (since && end ? " · " : "") + (end ? "voraussichtlich bis " + end : "");
+          blockMeta.textContent = period;
           block.appendChild(blockMeta);
         }
         slot.appendChild(block);

@@ -77,7 +77,7 @@ console.log(`${releases.length} Releases geschrieben`);
 
 const versions = {};
 for (const project of projects) {
-  const latest = await fetch(`https://api.github.com/repos/pkr-lab/${project.repo}/releases/latest`, { headers });
+  const latest = await fetch(`https://api.github.com/repos/${OWNER}/${project.repo}/releases/latest`, { headers });
   if (!latest.ok) continue;
   const release = await latest.json();
   versions[project.repo] = { tag: release.tag_name, date: release.published_at.slice(0, 10), url: release.html_url };
